@@ -1,0 +1,114 @@
+2024-12-20 07:22:12,209 - INFO - Starting the data generation process.
+2024-12-20 07:22:19,385 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-20 07:22:19,435 - INFO - None
+2024-12-20 07:22:19,504 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-20 07:22:19,629 - INFO - Dataset loaded successfully.
+2024-12-20 07:22:19,678 - INFO - Missing values handled.
+2024-12-20 07:22:19,691 - INFO - Converted required columns to datetime.
+2024-12-20 07:22:19,771 - INFO - Duplicate rows removed.
+2024-12-20 07:22:19,791 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-20 07:22:19,945 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-20 07:22:19,991 - INFO - None
+2024-12-20 07:22:19,994 - INFO - Starting preprocessing pipeline.
+2024-12-20 07:22:19,994 - ERROR - An error occurred during preprocessing: [Errno 2] No such file or directory: 'data/silver_layer/SupplyChain_Dataset.parquet'
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/feature_pipeline.py", line 33, in run_supplychain_disruption_feature_pipeline
+    data = pd.read_parquet(source)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 667, in read_parquet
+    return impl.read(
+           ^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 267, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 140, in _get_path_or_handle
+    handles = get_handle(
+              ^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/silver_layer/SupplyChain_Dataset.parquet'
+2024-12-20 07:23:43,627 - INFO - Starting the data generation process.
+2024-12-20 07:23:50,981 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-20 07:23:51,030 - INFO - None
+2024-12-20 07:23:51,085 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-20 07:23:51,214 - INFO - Dataset loaded successfully.
+2024-12-20 07:23:51,256 - INFO - Missing values handled.
+2024-12-20 07:23:51,269 - INFO - Converted required columns to datetime.
+2024-12-20 07:23:51,350 - INFO - Duplicate rows removed.
+2024-12-20 07:23:51,375 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-20 07:23:51,530 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-20 07:23:51,576 - INFO - None
+2024-12-20 07:23:51,579 - INFO - Starting preprocessing pipeline.
+2024-12-20 07:23:51,625 - INFO - Dataset loaded successfully.
+2024-12-20 07:23:51,655 - INFO - Target encoding completed.
+2024-12-20 07:23:51,676 - INFO - Categorical encoding completed.
+2024-12-20 07:23:51,724 - INFO - Holiday-related features created.
+2024-12-20 07:23:51,742 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-20 07:23:51,774 - INFO - Rolling window features generated.
+2024-12-20 07:23:51,779 - INFO - Expanding window features generated.
+2024-12-20 07:23:51,786 - INFO - Lag features generated.
+2024-12-20 07:23:51,811 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-20 07:23:51,979 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-20 07:23:51,992 - INFO - None
+2024-12-20 07:23:51,993 - INFO - Loading dataset from data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-20 07:23:52,018 - INFO - Dataset loaded successfully. Shape: (99993, 55)
+2024-12-20 07:23:56,976 - INFO - Fold 1 metrics logged.
+2024-12-20 07:24:01,764 - INFO - Fold 2 metrics logged.
+2024-12-20 07:24:07,554 - INFO - Fold 3 metrics logged.
+2024-12-20 07:28:44,041 - INFO - Starting the data generation process.
+2024-12-20 07:28:51,232 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-20 07:28:51,290 - INFO - None
+2024-12-20 07:28:51,351 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-20 07:28:51,480 - INFO - Dataset loaded successfully.
+2024-12-20 07:28:51,523 - INFO - Missing values handled.
+2024-12-20 07:28:51,536 - INFO - Converted required columns to datetime.
+2024-12-20 07:28:51,635 - INFO - Duplicate rows removed.
+2024-12-20 07:28:51,663 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-20 07:28:51,818 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-20 07:28:51,863 - INFO - None
+2024-12-20 07:28:51,866 - INFO - Starting preprocessing pipeline.
+2024-12-20 07:28:51,918 - INFO - Dataset loaded successfully.
+2024-12-20 07:28:51,947 - INFO - Target encoding completed.
+2024-12-20 07:28:51,969 - INFO - Categorical encoding completed.
+2024-12-20 07:28:52,018 - INFO - Holiday-related features created.
+2024-12-20 07:28:52,035 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-20 07:28:52,067 - INFO - Rolling window features generated.
+2024-12-20 07:28:52,072 - INFO - Expanding window features generated.
+2024-12-20 07:28:52,079 - INFO - Lag features generated.
+2024-12-20 07:28:52,105 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-20 07:28:52,274 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-20 07:28:52,288 - INFO - None
+2024-12-20 07:28:52,288 - INFO - Loading dataset from data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-20 07:28:52,314 - INFO - Dataset loaded successfully. Shape: (99993, 55)
+2024-12-20 07:28:57,247 - INFO - Fold 1 metrics logged.
+2024-12-20 07:29:02,071 - INFO - Fold 2 metrics logged.
+2024-12-20 07:29:07,827 - INFO - Fold 3 metrics logged.
+2024-12-20 08:25:55,868 - INFO - Starting the data generation process.
+2024-12-20 08:26:05,400 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-20 08:26:05,592 - INFO - None
+2024-12-20 08:26:05,646 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-20 08:26:05,996 - INFO - Dataset loaded successfully.
+2024-12-20 08:26:06,053 - INFO - Missing values handled.
+2024-12-20 08:26:06,068 - INFO - Converted required columns to datetime.
+2024-12-20 08:26:06,168 - INFO - Duplicate rows removed.
+2024-12-20 08:26:06,188 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-20 08:26:06,394 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-20 08:26:06,455 - INFO - None
+2024-12-20 08:26:06,458 - INFO - Starting preprocessing pipeline.
+2024-12-20 08:26:06,531 - INFO - Dataset loaded successfully.
+2024-12-20 08:26:06,569 - INFO - Target encoding completed.
+2024-12-20 08:26:06,597 - INFO - Categorical encoding completed.
+2024-12-20 08:26:06,666 - INFO - Holiday-related features created.
+2024-12-20 08:26:06,690 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-20 08:26:06,736 - INFO - Rolling window features generated.
+2024-12-20 08:26:06,742 - INFO - Expanding window features generated.
+2024-12-20 08:26:06,751 - INFO - Lag features generated.
+2024-12-20 08:26:06,788 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-20 08:26:07,001 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-20 08:26:07,022 - INFO - None
+2024-12-20 08:26:07,022 - INFO - Loading dataset from data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-20 08:26:07,063 - INFO - Dataset loaded successfully. Shape: (99993, 55)
+2024-12-20 08:26:16,810 - INFO - Fold 1 metrics logged.
+2024-12-20 08:26:22,809 - INFO - Fold 2 metrics logged.
+2024-12-20 08:26:30,185 - INFO - Fold 3 metrics logged.
