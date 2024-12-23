@@ -1,0 +1,20 @@
+2024-12-22 07:14:33,242 - INFO - Starting preprocessing pipeline.
+2024-12-22 07:14:33,248 - ERROR - An error occurred during preprocessing: [Errno 2] No such file or directory: 'data/bronze_layer/SupplyChain_Dataset.parquet'
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/feature_pipeline.py", line 46, in run_supplychain_disruption_feature_pipeline
+    data = pd.read_parquet(source)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 667, in read_parquet
+    return impl.read(
+           ^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 267, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 140, in _get_path_or_handle
+    handles = get_handle(
+              ^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/bronze_layer/SupplyChain_Dataset.parquet'
+2024-12-22 07:14:33,249 - CRITICAL - Pipeline execution failed: [Errno 2] No such file or directory: 'data/bronze_layer/SupplyChain_Dataset.parquet'

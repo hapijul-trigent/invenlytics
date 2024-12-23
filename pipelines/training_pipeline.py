@@ -161,14 +161,158 @@ def run_lightgbm_training_pipeline(data_source, target_column, n_splits=3, mlflo
         raise
 
 
+def run_inventory_training_pipeline(data_source, target_column, n_splits=3, mlflow_experiment_name="LightGBM_Inventory_Model"):
+    """
+    Train LightGBM models with TimeSeriesSplit and log metrics using MLflow.
+
+    Parameters:
+    data_source (str): Path to the input dataset file.
+    target_column (str): The target column for the model.
+    n_splits (int): Number of splits for TimeSeriesSplit.
+    mlflow_experiment_name (str): Name of the MLflow experiment to log results.
+
+    Returns:
+    dict: Metrics for each split (RMSE, MAE, R2 score).
+    """
+    try:
+        setup_logging()
+        logging.info(f"Loading dataset from {data_source}.")
+
+        # Load the dataset
+        data = pd.read_csv(data_source)
+        logging.info(f"Dataset loaded successfully. Shape: {data.shape}")
+
+        # Features and target
+        X = data.drop(columns=[target_column])
+        y = data[target_column]
+
+        # Set MLflow experiment
+        mlflow.set_experiment(mlflow_experiment_name)
+
+        # Initialize TimeSeriesSplit
+        ts_splits = TimeSeriesSplit(n_splits=n_splits)
+
+        metrics = {
+            "rmse": [],
+            "mae": [],
+            "r2": []
+        }
+
+        # Check for an active run
+        if mlflow.active_run() is None:
+            parent_run = mlflow.start_run(run_name=f"LightGBM_Training_Pipeline_{datetime.now()}")
+        else:
+            parent_run = mlflow.active_run()
+
+        with parent_run:
+            # Log dataset as an artifact
+            mlflow.log_artifact(data_source, artifact_path="datasets")
+
+            # Iterate through splits
+            for fold, (train_index, test_index) in enumerate(ts_splits.split(X)):
+                train_size = int(len(train_index) * 0.8)
+                valid_index = train_index[train_size:]
+                train_index = train_index[:train_size]
+
+                X_train, X_valid, X_test = X.iloc[train_index], X.iloc[valid_index], X.iloc[test_index]
+                y_train, y_valid, y_test = y.iloc[train_index], y.iloc[valid_index], y.iloc[test_index]
+
+                # Create LightGBM datasets
+                train_data = lgb.Dataset(X_train, label=y_train)
+                valid_data = lgb.Dataset(X_valid, label=y_valid)
+
+                # Set LightGBM parameters
+                params = {
+                    "objective": "regression",
+                    "metric": "rmse",
+                    "boosting_type": "gbdt",
+                    "num_leaves": 31,
+                    "learning_rate": 0.01,
+                    "feature_fraction": 0.9
+                }
+
+                # MLflow Logging
+                with mlflow.start_run(run_name=f"Fold_{fold+1}", nested=True):
+                    mlflow.log_params(params)
+
+                    # Train LightGBM model
+                    lgb_model = lgb.train(
+                        params,
+                        train_data,
+                        num_boost_round=100,
+                        valid_sets=[valid_data],
+                        callbacks=[lgb.early_stopping(stopping_rounds=10)],
+                    )
+
+                    # Log model with input_example and signature
+                    input_example = X_train.head(1)
+                    signature = infer_signature(X_train, lgb_model.predict(X_train.head(1)))
+                    mlflow.lightgbm.log_model(
+                        lgb_model,
+                        artifact_path="model",
+                        input_example=input_example,
+                        signature=signature
+                    )
+
+                    # Predict on train, validation, and test sets
+                    y_train_pred = lgb_model.predict(X_train)
+                    y_valid_pred = lgb_model.predict(X_valid)
+                    y_test_pred = lgb_model.predict(X_test)
+
+                    # Calculate metrics
+                    train_metrics = {
+                        "rmse": mean_squared_error(y_train, y_train_pred, squared=False),
+                        "mae": mean_absolute_error(y_train, y_train_pred),
+                        "r2": r2_score(y_train, y_train_pred),
+                    }
+
+                    valid_metrics = {
+                        "rmse": mean_squared_error(y_valid, y_valid_pred, squared=False),
+                        "mae": mean_absolute_error(y_valid, y_valid_pred),
+                        "r2": r2_score(y_valid, y_valid_pred),
+                    }
+
+                    test_metrics = {
+                        "rmse": mean_squared_error(y_test, y_test_pred, squared=False),
+                        "mae": mean_absolute_error(y_test, y_test_pred),
+                        "r2": r2_score(y_test, y_test_pred),
+                    }
+
+                    # Log metrics
+                    for metric_name, value in train_metrics.items():
+                        mlflow.log_metric(f"train_{metric_name}", value)
+
+                    for metric_name, value in valid_metrics.items():
+                        mlflow.log_metric(f"valid_{metric_name}", value)
+
+                    for metric_name, value in test_metrics.items():
+                        mlflow.log_metric(f"test_{metric_name}", value)
+
+                    # Append metrics for reporting
+                    metrics["rmse"].append([train_metrics["rmse"], valid_metrics["rmse"], test_metrics["rmse"]])
+                    metrics["mae"].append([train_metrics["mae"], valid_metrics["mae"], test_metrics["mae"]])
+                    metrics["r2"].append([train_metrics["r2"], valid_metrics["r2"], test_metrics["r2"]])
+
+                    logging.info(f"Fold {fold+1} metrics logged.")
+
+        return metrics
+
+    except Exception as e:
+        logging.error(f"An error occurred during the training pipeline: {e}", exc_info=True)
+        raise
+
 # Main Script
 if __name__ == "__main__":
     setup_logging()
     logging.info("Starting training pipeline with MLflow.")
     try:
-        metrics = run_lightgbm_training_pipeline(
+        metrics_1 = run_lightgbm_training_pipeline(
             data_source="data/silver_layer/SupplyChain_Dataset.parquet",
             target_column="Disruption"
+        )
+        metrics_2=run_inventory_training_pipeline(
+            data_source="data/golden_layer/Feature_Engineered_Inventory_Management_Dataset.csv",
+            target_column="Historical_Demand"
         )
         logging.info("Training pipeline completed successfully.")
     except Exception as e:

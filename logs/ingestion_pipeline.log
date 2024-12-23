@@ -112,3 +112,661 @@ FileNotFoundError: [Errno 2] No such file or directory: 'data/silver_layer/Suppl
 2024-12-20 08:26:16,810 - INFO - Fold 1 metrics logged.
 2024-12-20 08:26:22,809 - INFO - Fold 2 metrics logged.
 2024-12-20 08:26:30,185 - INFO - Fold 3 metrics logged.
+2024-12-22 06:43:09,698 - INFO - Starting the data generation process.
+2024-12-22 06:43:16,937 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-22 06:43:16,993 - INFO - None
+2024-12-22 06:43:17,049 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-22 06:43:17,184 - INFO - Dataset loaded successfully.
+2024-12-22 06:43:17,233 - INFO - Missing values handled.
+2024-12-22 06:43:17,257 - INFO - Converted required columns to datetime.
+2024-12-22 06:43:17,353 - INFO - Duplicate rows removed.
+2024-12-22 06:43:17,373 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-22 06:43:17,547 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-22 06:43:17,592 - INFO - None
+2024-12-22 06:43:17,595 - INFO - Starting preprocessing pipeline.
+2024-12-22 06:43:17,656 - INFO - Dataset loaded successfully.
+2024-12-22 06:43:17,684 - INFO - Target encoding completed.
+2024-12-22 06:43:17,705 - INFO - Categorical encoding completed.
+2024-12-22 06:43:17,756 - INFO - Holiday-related features created.
+2024-12-22 06:43:17,774 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-22 06:43:17,809 - INFO - Rolling window features generated.
+2024-12-22 06:43:17,814 - INFO - Expanding window features generated.
+2024-12-22 06:43:17,822 - INFO - Lag features generated.
+2024-12-22 06:43:17,847 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-22 06:43:18,018 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-22 06:43:18,035 - INFO - None
+2024-12-22 06:43:18,036 - INFO - Loading dataset from data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-22 06:43:18,063 - INFO - Dataset loaded successfully. Shape: (99993, 55)
+2024-12-22 06:43:23,556 - INFO - Fold 1 metrics logged.
+2024-12-22 06:43:28,288 - INFO - Fold 2 metrics logged.
+2024-12-22 06:43:34,228 - INFO - Fold 3 metrics logged.
+2024-12-22 07:10:39,418 - INFO - Starting the data generation process.
+2024-12-22 07:10:46,583 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-22 07:10:46,631 - INFO - None
+2024-12-22 07:10:46,684 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-22 07:10:46,814 - INFO - Dataset loaded successfully.
+2024-12-22 07:10:46,855 - INFO - Missing values handled.
+2024-12-22 07:10:46,869 - INFO - Converted required columns to datetime.
+2024-12-22 07:10:46,953 - INFO - Duplicate rows removed.
+2024-12-22 07:10:46,974 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-22 07:10:47,125 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-22 07:10:47,170 - INFO - None
+2024-12-22 07:10:47,173 - INFO - Starting preprocessing pipeline.
+2024-12-22 07:10:47,238 - INFO - Dataset loaded successfully.
+2024-12-22 07:10:47,266 - INFO - Target encoding completed.
+2024-12-22 07:10:47,287 - INFO - Categorical encoding completed.
+2024-12-22 07:10:47,335 - INFO - Holiday-related features created.
+2024-12-22 07:10:47,353 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-22 07:10:47,384 - INFO - Rolling window features generated.
+2024-12-22 07:10:47,390 - INFO - Expanding window features generated.
+2024-12-22 07:10:47,397 - INFO - Lag features generated.
+2024-12-22 07:10:47,423 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-22 07:10:47,590 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-22 07:10:47,606 - INFO - None
+2024-12-22 07:10:47,607 - INFO - Loading dataset from data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-22 07:10:47,641 - INFO - Dataset loaded successfully. Shape: (99993, 55)
+2024-12-22 07:10:52,463 - INFO - Fold 1 metrics logged.
+2024-12-22 07:10:57,178 - INFO - Fold 2 metrics logged.
+2024-12-22 07:11:02,833 - INFO - Fold 3 metrics logged.
+2024-12-23 05:57:31,489 - INFO - Starting the data generation process.
+2024-12-23 05:57:38,714 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 05:57:38,768 - INFO - None
+2024-12-23 05:57:38,827 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 05:57:38,978 - INFO - Dataset loaded successfully.
+2024-12-23 05:57:39,019 - INFO - Missing values handled.
+2024-12-23 05:57:39,032 - INFO - Converted required columns to datetime.
+2024-12-23 05:57:39,110 - INFO - Duplicate rows removed.
+2024-12-23 05:57:39,129 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 05:57:39,287 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 05:57:39,334 - INFO - None
+2024-12-23 05:57:39,336 - INFO - Starting preprocessing pipeline.
+2024-12-23 05:57:39,407 - INFO - Dataset loaded successfully.
+2024-12-23 05:57:39,437 - INFO - Target encoding completed.
+2024-12-23 05:57:39,460 - INFO - Categorical encoding completed.
+2024-12-23 05:57:39,510 - INFO - Holiday-related features created.
+2024-12-23 05:57:39,529 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 05:57:39,562 - INFO - Rolling window features generated.
+2024-12-23 05:57:39,567 - INFO - Expanding window features generated.
+2024-12-23 05:57:39,574 - INFO - Lag features generated.
+2024-12-23 05:57:39,599 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 05:57:39,774 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 05:57:39,793 - INFO - None
+2024-12-23 05:58:25,247 - INFO - Starting the data generation process.
+2024-12-23 05:58:32,293 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 05:58:32,342 - INFO - None
+2024-12-23 05:58:32,398 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 05:58:32,539 - INFO - Dataset loaded successfully.
+2024-12-23 05:58:32,580 - INFO - Missing values handled.
+2024-12-23 05:58:32,594 - INFO - Converted required columns to datetime.
+2024-12-23 05:58:32,677 - INFO - Duplicate rows removed.
+2024-12-23 05:58:32,698 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 05:58:32,852 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 05:58:32,903 - INFO - None
+2024-12-23 05:58:32,905 - INFO - Starting preprocessing pipeline.
+2024-12-23 05:58:32,972 - INFO - Dataset loaded successfully.
+2024-12-23 05:58:33,001 - INFO - Target encoding completed.
+2024-12-23 05:58:33,022 - INFO - Categorical encoding completed.
+2024-12-23 05:58:33,072 - INFO - Holiday-related features created.
+2024-12-23 05:58:33,089 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 05:58:33,121 - INFO - Rolling window features generated.
+2024-12-23 05:58:33,128 - INFO - Expanding window features generated.
+2024-12-23 05:58:33,134 - INFO - Lag features generated.
+2024-12-23 05:58:33,160 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 05:58:33,328 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 05:58:33,342 - INFO - None
+2024-12-23 06:06:55,733 - INFO - Starting the data generation process.
+2024-12-23 06:07:02,832 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 06:07:02,881 - INFO - None
+2024-12-23 06:07:02,935 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 06:07:03,065 - INFO - Dataset loaded successfully.
+2024-12-23 06:07:03,108 - INFO - Missing values handled.
+2024-12-23 06:07:03,121 - INFO - Converted required columns to datetime.
+2024-12-23 06:07:03,202 - INFO - Duplicate rows removed.
+2024-12-23 06:07:03,222 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 06:07:03,378 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 06:07:03,423 - INFO - None
+2024-12-23 06:07:03,426 - INFO - Starting preprocessing pipeline.
+2024-12-23 06:07:03,485 - INFO - Dataset loaded successfully.
+2024-12-23 06:07:03,514 - INFO - Target encoding completed.
+2024-12-23 06:07:03,536 - INFO - Categorical encoding completed.
+2024-12-23 06:07:03,584 - INFO - Holiday-related features created.
+2024-12-23 06:07:03,603 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 06:07:03,635 - INFO - Rolling window features generated.
+2024-12-23 06:07:03,640 - INFO - Expanding window features generated.
+2024-12-23 06:07:03,647 - INFO - Lag features generated.
+2024-12-23 06:07:03,672 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 06:07:03,856 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 06:07:03,872 - INFO - None
+2024-12-23 06:10:14,688 - INFO - Starting the data generation process.
+2024-12-23 06:10:21,941 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 06:10:21,990 - INFO - None
+2024-12-23 06:10:22,048 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 06:10:22,112 - INFO - Dataset loaded successfully.
+2024-12-23 06:10:22,154 - INFO - Missing values handled.
+2024-12-23 06:10:22,167 - INFO - Converted required columns to datetime.
+2024-12-23 06:10:22,245 - INFO - Duplicate rows removed.
+2024-12-23 06:10:22,265 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 06:10:22,424 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 06:10:22,475 - INFO - None
+2024-12-23 06:10:22,479 - INFO - Starting preprocessing pipeline.
+2024-12-23 06:10:22,546 - INFO - Dataset loaded successfully.
+2024-12-23 06:10:22,575 - INFO - Target encoding completed.
+2024-12-23 06:10:22,601 - INFO - Categorical encoding completed.
+2024-12-23 06:10:22,649 - INFO - Holiday-related features created.
+2024-12-23 06:10:22,671 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 06:10:22,703 - INFO - Rolling window features generated.
+2024-12-23 06:10:22,708 - INFO - Expanding window features generated.
+2024-12-23 06:10:22,715 - INFO - Lag features generated.
+2024-12-23 06:10:22,740 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 06:10:22,920 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 06:10:22,933 - INFO - None
+2024-12-23 06:18:44,964 - INFO - Starting the data generation process.
+2024-12-23 06:18:52,244 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 06:18:52,307 - INFO - None
+2024-12-23 06:18:52,361 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 06:18:52,427 - INFO - Dataset loaded successfully.
+2024-12-23 06:18:52,469 - INFO - Missing values handled.
+2024-12-23 06:18:52,482 - INFO - Converted required columns to datetime.
+2024-12-23 06:18:52,562 - INFO - Duplicate rows removed.
+2024-12-23 06:18:52,582 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 06:18:52,738 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 06:18:52,786 - INFO - None
+2024-12-23 06:18:52,788 - INFO - Starting preprocessing pipeline.
+2024-12-23 06:18:52,836 - INFO - Dataset loaded successfully.
+2024-12-23 06:18:52,865 - INFO - Target encoding completed.
+2024-12-23 06:18:52,885 - INFO - Categorical encoding completed.
+2024-12-23 06:18:52,935 - INFO - Holiday-related features created.
+2024-12-23 06:18:52,952 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 06:18:52,985 - INFO - Rolling window features generated.
+2024-12-23 06:18:52,991 - INFO - Expanding window features generated.
+2024-12-23 06:18:52,998 - INFO - Lag features generated.
+2024-12-23 06:18:53,023 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 06:18:53,191 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 06:18:53,204 - INFO - None
+2024-12-23 06:19:09,072 - INFO - Detected file encoding: None
+2024-12-23 06:19:09,073 - ERROR - An error occurred during feature engineering: 'utf-8' codec can't decode byte 0xbc in position 7: invalid start byte
+2024-12-23 06:24:24,761 - INFO - Starting the data generation process.
+2024-12-23 06:24:32,170 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 06:24:32,220 - INFO - None
+2024-12-23 06:24:32,272 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 06:24:32,333 - INFO - Dataset loaded successfully.
+2024-12-23 06:24:32,381 - INFO - Missing values handled.
+2024-12-23 06:24:32,397 - INFO - Converted required columns to datetime.
+2024-12-23 06:24:32,483 - INFO - Duplicate rows removed.
+2024-12-23 06:24:32,505 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 06:24:32,664 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 06:24:32,709 - INFO - None
+2024-12-23 06:24:32,712 - INFO - Starting preprocessing pipeline.
+2024-12-23 06:24:32,777 - INFO - Dataset loaded successfully.
+2024-12-23 06:24:32,812 - INFO - Target encoding completed.
+2024-12-23 06:24:32,833 - INFO - Categorical encoding completed.
+2024-12-23 06:24:32,882 - INFO - Holiday-related features created.
+2024-12-23 06:24:32,899 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 06:24:32,931 - INFO - Rolling window features generated.
+2024-12-23 06:24:32,936 - INFO - Expanding window features generated.
+2024-12-23 06:24:32,943 - INFO - Lag features generated.
+2024-12-23 06:24:32,968 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 06:24:33,146 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 06:24:33,165 - INFO - None
+2024-12-23 06:24:33,166 - INFO - Loading dataset from data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-23 06:24:33,195 - INFO - Dataset loaded successfully. Shape: (99993, 55)
+2024-12-23 06:24:38,930 - INFO - Fold 1 metrics logged.
+2024-12-23 06:24:43,669 - INFO - Fold 2 metrics logged.
+2024-12-23 06:24:49,515 - INFO - Fold 3 metrics logged.
+2024-12-23 09:20:32,037 - INFO - Starting the data generation process.
+2024-12-23 09:20:39,538 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:20:39,598 - INFO - None
+2024-12-23 09:20:39,661 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:20:39,749 - INFO - Dataset loaded successfully.
+2024-12-23 09:20:39,791 - INFO - Missing values handled.
+2024-12-23 09:20:39,804 - INFO - Converted required columns to datetime.
+2024-12-23 09:20:39,883 - INFO - Duplicate rows removed.
+2024-12-23 09:20:39,902 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:20:40,057 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:20:40,103 - INFO - None
+2024-12-23 09:20:40,105 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:20:40,171 - INFO - Dataset loaded successfully.
+2024-12-23 09:20:40,200 - INFO - Target encoding completed.
+2024-12-23 09:20:40,220 - INFO - Categorical encoding completed.
+2024-12-23 09:20:40,271 - INFO - Holiday-related features created.
+2024-12-23 09:20:40,290 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 09:20:40,322 - INFO - Rolling window features generated.
+2024-12-23 09:20:40,327 - INFO - Expanding window features generated.
+2024-12-23 09:20:40,334 - INFO - Lag features generated.
+2024-12-23 09:20:40,360 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 09:20:40,525 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 09:20:40,542 - INFO - None
+2024-12-23 09:21:44,610 - INFO - Starting the data generation process.
+2024-12-23 09:21:51,933 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:21:51,982 - INFO - None
+2024-12-23 09:21:52,037 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:21:52,094 - INFO - Dataset loaded successfully.
+2024-12-23 09:21:52,136 - INFO - Missing values handled.
+2024-12-23 09:21:52,149 - INFO - Converted required columns to datetime.
+2024-12-23 09:21:52,231 - INFO - Duplicate rows removed.
+2024-12-23 09:21:52,251 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:21:52,420 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:21:52,466 - INFO - None
+2024-12-23 09:21:52,468 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:21:52,520 - INFO - Dataset loaded successfully.
+2024-12-23 09:21:52,548 - INFO - Target encoding completed.
+2024-12-23 09:21:52,570 - INFO - Categorical encoding completed.
+2024-12-23 09:21:52,619 - INFO - Holiday-related features created.
+2024-12-23 09:21:52,637 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 09:21:52,672 - INFO - Rolling window features generated.
+2024-12-23 09:21:52,677 - INFO - Expanding window features generated.
+2024-12-23 09:21:52,684 - INFO - Lag features generated.
+2024-12-23 09:21:52,710 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 09:21:52,879 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 09:21:52,892 - INFO - None
+2024-12-23 09:22:09,156 - INFO - Starting the data generation process.
+2024-12-23 09:22:16,594 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:22:16,642 - INFO - None
+2024-12-23 09:22:16,696 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:22:16,756 - INFO - Dataset loaded successfully.
+2024-12-23 09:22:16,798 - INFO - Missing values handled.
+2024-12-23 09:22:16,812 - INFO - Converted required columns to datetime.
+2024-12-23 09:22:16,891 - INFO - Duplicate rows removed.
+2024-12-23 09:22:16,911 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:22:17,069 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:22:17,115 - INFO - None
+2024-12-23 09:22:17,117 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:22:17,170 - INFO - Dataset loaded successfully.
+2024-12-23 09:22:17,199 - INFO - Target encoding completed.
+2024-12-23 09:22:17,220 - INFO - Categorical encoding completed.
+2024-12-23 09:22:17,270 - INFO - Holiday-related features created.
+2024-12-23 09:22:17,289 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 09:22:17,320 - INFO - Rolling window features generated.
+2024-12-23 09:22:17,326 - INFO - Expanding window features generated.
+2024-12-23 09:22:17,333 - INFO - Lag features generated.
+2024-12-23 09:22:17,358 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 09:22:17,529 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 09:22:17,548 - INFO - None
+2024-12-23 09:22:17,548 - INFO - Starting inventory optimization feature pipeline.
+2024-12-23 09:22:17,548 - ERROR - An error occurred during inventory feature engineering: [Errno 2] No such file or directory: 'data/silver_layer/Preprocessed_Combined_Dataset.parquet'
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/feature_pipeline.py", line 139, in run_inventory_optimization_feature_pipeline
+    data = pd.read_parquet(source)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 667, in read_parquet
+    return impl.read(
+           ^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 267, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 140, in _get_path_or_handle
+    handles = get_handle(
+              ^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/silver_layer/Preprocessed_Combined_Dataset.parquet'
+2024-12-23 09:23:42,548 - INFO - Starting the data generation process.
+2024-12-23 09:23:50,516 - INFO - Starting the data generation process.
+2024-12-23 09:23:58,039 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:23:58,095 - INFO - None
+2024-12-23 09:23:58,151 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:23:58,214 - INFO - Dataset loaded successfully.
+2024-12-23 09:23:58,256 - INFO - Missing values handled.
+2024-12-23 09:23:58,270 - INFO - Converted required columns to datetime.
+2024-12-23 09:23:58,361 - INFO - Duplicate rows removed.
+2024-12-23 09:23:58,381 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:23:58,537 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:23:58,584 - INFO - None
+2024-12-23 09:23:58,587 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:23:58,648 - INFO - Dataset loaded successfully.
+2024-12-23 09:23:58,677 - INFO - Target encoding completed.
+2024-12-23 09:23:58,697 - INFO - Categorical encoding completed.
+2024-12-23 09:23:58,748 - INFO - Holiday-related features created.
+2024-12-23 09:23:58,768 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 09:23:58,799 - INFO - Rolling window features generated.
+2024-12-23 09:23:58,805 - INFO - Expanding window features generated.
+2024-12-23 09:23:58,812 - INFO - Lag features generated.
+2024-12-23 09:23:58,838 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 09:23:59,010 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 09:23:59,024 - INFO - None
+2024-12-23 09:23:59,024 - INFO - Starting inventory optimization feature pipeline.
+2024-12-23 09:23:59,079 - ERROR - An error occurred during inventory feature engineering: "['Delivery_Date'] not in index"
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/feature_pipeline.py", line 140, in run_inventory_optimization_feature_pipeline
+    data = data[selected_columns]
+           ~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Delivery_Date'] not in index"
+2024-12-23 09:28:40,623 - INFO - Starting the data generation process.
+2024-12-23 09:28:47,847 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:28:47,904 - INFO - None
+2024-12-23 09:28:47,971 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:28:48,030 - INFO - Dataset loaded successfully.
+2024-12-23 09:28:48,072 - INFO - Missing values handled.
+2024-12-23 09:28:48,085 - INFO - Converted required columns to datetime.
+2024-12-23 09:28:48,164 - INFO - Duplicate rows removed.
+2024-12-23 09:28:48,183 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:28:48,339 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:28:48,394 - INFO - None
+2024-12-23 09:28:48,397 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:28:48,447 - INFO - Dataset loaded successfully.
+2024-12-23 09:28:48,476 - INFO - Target encoding completed.
+2024-12-23 09:28:48,501 - INFO - Categorical encoding completed.
+2024-12-23 09:28:48,560 - INFO - Holiday-related features created.
+2024-12-23 09:28:48,579 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 09:28:48,611 - INFO - Rolling window features generated.
+2024-12-23 09:28:48,616 - INFO - Expanding window features generated.
+2024-12-23 09:28:48,624 - INFO - Lag features generated.
+2024-12-23 09:28:48,649 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 09:28:48,820 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 09:28:48,836 - INFO - None
+2024-12-23 09:28:48,837 - INFO - Starting inventory optimization feature pipeline.
+2024-12-23 09:28:48,893 - INFO - Columns in the dataset: ['Shipment_ID', 'Supplier', 'Region', 'Delivery_Mode', 'Scheduled_Delivery', 'Actual_Delivery', 'Freight_Cost', 'Disruption_Type', 'Weather_Risk', 'Supplier_Reliability', 'Port_Congestion', 'Stockout_Risk', 'Recovery_Time_Days', 'Delay_Duration', 'Product_ID', 'Product_Name', 'Category', 'Current_Stock', 'Reorder_Level', 'Lead_Time_Days', 'Supplier_ID', 'Supplier_Lead_Time', 'Historical_Demand', 'Forecasted_Demand', 'Seasonality_Index', 'Delivery_Status', 'Delay_Days', 'Weather_Conditions', 'Economic_Indicators', 'Holiday_Flag', 'Order_Frequency', 'Batch_Size', 'Inventory_Turnover', 'Safety_Stock_Level', 'Dead_Stock', 'Damaged_Stock']
+2024-12-23 09:28:48,894 - WARNING - The following columns are missing from the dataset and will be ignored: ['Delivery_Date']
+2024-12-23 09:28:48,912 - ERROR - An error occurred during inventory feature engineering: name 'MinMaxScaler' is not defined
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/feature_pipeline.py", line 172, in run_inventory_optimization_feature_pipeline
+    scaler = MinMaxScaler()
+             ^^^^^^^^^^^^
+NameError: name 'MinMaxScaler' is not defined
+2024-12-23 09:29:26,483 - INFO - Starting the data generation process.
+2024-12-23 09:29:33,936 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:29:33,997 - INFO - None
+2024-12-23 09:29:34,052 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:29:34,103 - INFO - Dataset loaded successfully.
+2024-12-23 09:29:34,145 - INFO - Missing values handled.
+2024-12-23 09:29:34,159 - INFO - Converted required columns to datetime.
+2024-12-23 09:29:34,239 - INFO - Duplicate rows removed.
+2024-12-23 09:29:34,260 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:29:34,420 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:29:34,475 - INFO - None
+2024-12-23 09:29:34,477 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:29:34,525 - INFO - Dataset loaded successfully.
+2024-12-23 09:29:34,553 - INFO - Target encoding completed.
+2024-12-23 09:29:34,573 - INFO - Categorical encoding completed.
+2024-12-23 09:29:34,622 - INFO - Holiday-related features created.
+2024-12-23 09:29:34,640 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 09:29:34,673 - INFO - Rolling window features generated.
+2024-12-23 09:29:34,679 - INFO - Expanding window features generated.
+2024-12-23 09:29:34,686 - INFO - Lag features generated.
+2024-12-23 09:29:34,711 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 09:29:34,882 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 09:29:34,895 - INFO - None
+2024-12-23 09:29:34,896 - INFO - Starting inventory optimization feature pipeline.
+2024-12-23 09:29:34,936 - INFO - Columns in the dataset: ['Shipment_ID', 'Supplier', 'Region', 'Delivery_Mode', 'Scheduled_Delivery', 'Actual_Delivery', 'Freight_Cost', 'Disruption_Type', 'Weather_Risk', 'Supplier_Reliability', 'Port_Congestion', 'Stockout_Risk', 'Recovery_Time_Days', 'Delay_Duration', 'Product_ID', 'Product_Name', 'Category', 'Current_Stock', 'Reorder_Level', 'Lead_Time_Days', 'Supplier_ID', 'Supplier_Lead_Time', 'Historical_Demand', 'Forecasted_Demand', 'Seasonality_Index', 'Delivery_Status', 'Delay_Days', 'Weather_Conditions', 'Economic_Indicators', 'Holiday_Flag', 'Order_Frequency', 'Batch_Size', 'Inventory_Turnover', 'Safety_Stock_Level', 'Dead_Stock', 'Damaged_Stock']
+2024-12-23 09:29:34,936 - WARNING - The following columns are missing from the dataset and will be ignored: ['Delivery_Date']
+2024-12-23 09:29:35,000 - INFO - Inventory optimization dataset saved to data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-23 09:30:07,681 - INFO - Starting the data generation process.
+2024-12-23 09:30:15,161 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:30:15,210 - INFO - None
+2024-12-23 09:30:15,264 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:30:15,318 - INFO - Dataset loaded successfully.
+2024-12-23 09:30:15,360 - INFO - Missing values handled.
+2024-12-23 09:30:15,374 - INFO - Converted required columns to datetime.
+2024-12-23 09:30:15,462 - INFO - Duplicate rows removed.
+2024-12-23 09:30:15,482 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:30:15,637 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:30:15,683 - INFO - None
+2024-12-23 09:30:15,685 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:30:15,745 - INFO - Dataset loaded successfully.
+2024-12-23 09:30:15,774 - INFO - Target encoding completed.
+2024-12-23 09:30:15,795 - INFO - Categorical encoding completed.
+2024-12-23 09:30:15,843 - INFO - Holiday-related features created.
+2024-12-23 09:30:15,861 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 09:30:15,893 - INFO - Rolling window features generated.
+2024-12-23 09:30:15,898 - INFO - Expanding window features generated.
+2024-12-23 09:30:15,905 - INFO - Lag features generated.
+2024-12-23 09:30:15,932 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 09:30:16,113 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 09:30:16,129 - INFO - None
+2024-12-23 09:30:16,129 - INFO - Starting inventory optimization feature pipeline.
+2024-12-23 09:30:16,171 - INFO - Columns in the dataset: ['Shipment_ID', 'Supplier', 'Region', 'Delivery_Mode', 'Scheduled_Delivery', 'Actual_Delivery', 'Freight_Cost', 'Disruption_Type', 'Weather_Risk', 'Supplier_Reliability', 'Port_Congestion', 'Stockout_Risk', 'Recovery_Time_Days', 'Delay_Duration', 'Product_ID', 'Product_Name', 'Category', 'Current_Stock', 'Reorder_Level', 'Lead_Time_Days', 'Supplier_ID', 'Supplier_Lead_Time', 'Historical_Demand', 'Forecasted_Demand', 'Seasonality_Index', 'Delivery_Status', 'Delay_Days', 'Weather_Conditions', 'Economic_Indicators', 'Holiday_Flag', 'Order_Frequency', 'Batch_Size', 'Inventory_Turnover', 'Safety_Stock_Level', 'Dead_Stock', 'Damaged_Stock']
+2024-12-23 09:30:16,171 - WARNING - The following columns are missing from the dataset and will be ignored: ['Delivery_Date']
+2024-12-23 09:30:16,238 - INFO - Inventory optimization dataset saved to data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-23 09:31:03,828 - INFO - Starting the data generation process.
+2024-12-23 09:31:11,269 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:31:11,323 - INFO - None
+2024-12-23 09:31:11,378 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:31:11,435 - INFO - Dataset loaded successfully.
+2024-12-23 09:31:11,477 - INFO - Missing values handled.
+2024-12-23 09:31:11,491 - INFO - Converted required columns to datetime.
+2024-12-23 09:31:11,572 - INFO - Duplicate rows removed.
+2024-12-23 09:31:11,592 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:31:11,751 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:31:11,797 - INFO - None
+2024-12-23 09:31:11,800 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:31:11,855 - INFO - Dataset loaded successfully.
+2024-12-23 09:31:11,900 - INFO - Target encoding completed.
+2024-12-23 09:31:11,926 - INFO - Categorical encoding completed.
+2024-12-23 09:31:11,978 - INFO - Holiday-related features created.
+2024-12-23 09:31:11,997 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 09:31:12,029 - INFO - Rolling window features generated.
+2024-12-23 09:31:12,035 - INFO - Expanding window features generated.
+2024-12-23 09:31:12,042 - INFO - Lag features generated.
+2024-12-23 09:31:12,069 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 09:31:12,238 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 09:31:12,251 - INFO - None
+2024-12-23 09:31:12,251 - INFO - Starting inventory optimization feature pipeline.
+2024-12-23 09:31:12,303 - INFO - Columns in the dataset: ['Shipment_ID', 'Supplier', 'Region', 'Delivery_Mode', 'Scheduled_Delivery', 'Actual_Delivery', 'Freight_Cost', 'Disruption_Type', 'Weather_Risk', 'Supplier_Reliability', 'Port_Congestion', 'Stockout_Risk', 'Recovery_Time_Days', 'Delay_Duration', 'Product_ID', 'Product_Name', 'Category', 'Current_Stock', 'Reorder_Level', 'Lead_Time_Days', 'Supplier_ID', 'Supplier_Lead_Time', 'Historical_Demand', 'Forecasted_Demand', 'Seasonality_Index', 'Delivery_Status', 'Delay_Days', 'Weather_Conditions', 'Economic_Indicators', 'Holiday_Flag', 'Order_Frequency', 'Batch_Size', 'Inventory_Turnover', 'Safety_Stock_Level', 'Dead_Stock', 'Damaged_Stock']
+2024-12-23 09:31:12,303 - WARNING - The following columns are missing from the dataset and will be ignored: ['Delivery_Date']
+2024-12-23 09:31:12,367 - INFO - Inventory optimization dataset saved to data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-23 09:35:36,935 - INFO - Starting the data generation process.
+2024-12-23 09:35:44,408 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:35:44,456 - INFO - None
+2024-12-23 09:35:44,510 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:35:44,562 - INFO - Dataset loaded successfully.
+2024-12-23 09:35:44,604 - INFO - Missing values handled.
+2024-12-23 09:35:44,619 - INFO - Converted required columns to datetime.
+2024-12-23 09:35:44,702 - INFO - Duplicate rows removed.
+2024-12-23 09:35:44,722 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:35:44,878 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:35:44,924 - INFO - None
+2024-12-23 09:35:44,927 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:35:44,927 - ERROR - An error occurred during preprocessing: [Errno 2] No such file or directory: 'data/silver_layer/Preprocessed_Combined_Dataset.parquet'
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/feature_pipeline.py", line 48, in run_supplychain_disruption_feature_pipeline
+    data = pd.read_parquet(source)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 667, in read_parquet
+    return impl.read(
+           ^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 267, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 140, in _get_path_or_handle
+    handles = get_handle(
+              ^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/silver_layer/Preprocessed_Combined_Dataset.parquet'
+2024-12-23 09:36:19,196 - INFO - Starting the data generation process.
+2024-12-23 09:36:26,591 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:36:26,640 - INFO - None
+2024-12-23 09:36:26,692 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:36:26,746 - INFO - Dataset loaded successfully.
+2024-12-23 09:36:26,788 - INFO - Missing values handled.
+2024-12-23 09:36:26,802 - INFO - Converted required columns to datetime.
+2024-12-23 09:36:26,882 - INFO - Duplicate rows removed.
+2024-12-23 09:36:26,902 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:36:27,057 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:36:27,103 - INFO - None
+2024-12-23 09:36:27,105 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:36:27,106 - ERROR - An error occurred during preprocessing: [Errno 2] No such file or directory: 'data/silver_layer/Preprocessed_Combined_Dataset.parquet'
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/feature_pipeline.py", line 48, in run_supplychain_disruption_feature_pipeline
+    data = pd.read_parquet(source)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 667, in read_parquet
+    return impl.read(
+           ^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 267, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 140, in _get_path_or_handle
+    handles = get_handle(
+              ^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/silver_layer/Preprocessed_Combined_Dataset.parquet'
+2024-12-23 09:37:05,180 - INFO - Starting the data generation process.
+2024-12-23 09:37:12,658 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:37:12,707 - INFO - None
+2024-12-23 09:37:12,766 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:37:12,819 - INFO - Dataset loaded successfully.
+2024-12-23 09:37:12,867 - INFO - Missing values handled.
+2024-12-23 09:37:12,881 - INFO - Converted required columns to datetime.
+2024-12-23 09:37:12,962 - INFO - Duplicate rows removed.
+2024-12-23 09:37:12,982 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:37:13,150 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:37:13,200 - INFO - None
+2024-12-23 09:37:13,203 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:37:13,251 - INFO - Dataset loaded successfully.
+2024-12-23 09:37:13,280 - INFO - Target encoding completed.
+2024-12-23 09:37:13,301 - INFO - Categorical encoding completed.
+2024-12-23 09:37:13,352 - INFO - Holiday-related features created.
+2024-12-23 09:37:13,370 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 09:37:13,402 - INFO - Rolling window features generated.
+2024-12-23 09:37:13,407 - INFO - Expanding window features generated.
+2024-12-23 09:37:13,414 - INFO - Lag features generated.
+2024-12-23 09:37:13,440 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 09:37:13,612 - INFO - Features Saved None
+2024-12-23 09:37:13,627 - INFO - None
+2024-12-23 09:38:10,409 - INFO - Starting the data generation process.
+2024-12-23 09:38:17,844 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:38:17,900 - INFO - None
+2024-12-23 09:38:17,968 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:38:18,031 - INFO - Dataset loaded successfully.
+2024-12-23 09:38:18,073 - INFO - Missing values handled.
+2024-12-23 09:38:18,086 - INFO - Converted required columns to datetime.
+2024-12-23 09:38:18,170 - INFO - Duplicate rows removed.
+2024-12-23 09:38:18,192 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:38:18,347 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:38:18,402 - INFO - None
+2024-12-23 09:38:18,404 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:38:18,451 - INFO - Dataset loaded successfully.
+2024-12-23 09:38:18,488 - INFO - Target encoding completed.
+2024-12-23 09:38:18,517 - INFO - Categorical encoding completed.
+2024-12-23 09:38:18,576 - INFO - Holiday-related features created.
+2024-12-23 09:38:18,594 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 09:38:18,626 - INFO - Rolling window features generated.
+2024-12-23 09:38:18,631 - INFO - Expanding window features generated.
+2024-12-23 09:38:18,638 - INFO - Lag features generated.
+2024-12-23 09:38:18,664 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 09:38:18,816 - INFO - Features Saved None
+2024-12-23 09:38:18,830 - INFO - None
+2024-12-23 09:38:18,830 - INFO - Starting inventory optimization feature pipeline.
+2024-12-23 09:38:18,871 - INFO - Columns in the dataset: ['Shipment_ID', 'Supplier', 'Region', 'Delivery_Mode', 'Scheduled_Delivery', 'Actual_Delivery', 'Freight_Cost', 'Disruption_Type', 'Weather_Risk', 'Supplier_Reliability', 'Port_Congestion', 'Stockout_Risk', 'Recovery_Time_Days', 'Delay_Duration', 'Product_ID', 'Product_Name', 'Category', 'Current_Stock', 'Reorder_Level', 'Lead_Time_Days', 'Supplier_ID', 'Supplier_Lead_Time', 'Historical_Demand', 'Forecasted_Demand', 'Seasonality_Index', 'Delivery_Status', 'Delay_Days', 'Weather_Conditions', 'Economic_Indicators', 'Holiday_Flag', 'Order_Frequency', 'Batch_Size', 'Inventory_Turnover', 'Safety_Stock_Level', 'Dead_Stock', 'Damaged_Stock']
+2024-12-23 09:38:18,931 - INFO - Inventory optimization dataset saved to None.
+2024-12-23 09:38:19,214 - INFO - Loading dataset from data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-23 09:38:19,218 - INFO - Dataset loaded successfully. Shape: (99986, 9)
+2024-12-23 09:38:19,219 - ERROR - An error occurred during the training pipeline: "['Disruption', 'Disruption_Type'] not found in axis"
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/training_pipeline.py", line 45, in run_lightgbm_training_pipeline
+    X = data.drop(columns=[target_column, "Disruption_Type"])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+           ^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['Disruption', 'Disruption_Type'] not found in axis"
+2024-12-23 09:45:04,841 - INFO - Starting the data generation process.
+2024-12-23 09:45:12,357 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:45:12,406 - INFO - None
+2024-12-23 09:45:12,460 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:45:12,511 - INFO - Dataset loaded successfully.
+2024-12-23 09:45:12,553 - INFO - Missing values handled.
+2024-12-23 09:45:12,567 - INFO - Converted required columns to datetime.
+2024-12-23 09:45:12,646 - INFO - Duplicate rows removed.
+2024-12-23 09:45:12,666 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:45:12,828 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:45:12,874 - INFO - None
+2024-12-23 09:45:12,877 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:45:12,937 - INFO - Dataset loaded successfully.
+2024-12-23 09:45:12,966 - INFO - Target encoding completed.
+2024-12-23 09:45:12,986 - INFO - Categorical encoding completed.
+2024-12-23 09:45:13,036 - INFO - Holiday-related features created.
+2024-12-23 09:45:13,054 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 09:45:13,086 - INFO - Rolling window features generated.
+2024-12-23 09:45:13,092 - INFO - Expanding window features generated.
+2024-12-23 09:45:13,099 - INFO - Lag features generated.
+2024-12-23 09:45:13,125 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 09:45:13,300 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 09:45:13,314 - INFO - None
+2024-12-23 09:45:13,314 - INFO - Starting inventory optimization feature pipeline.
+2024-12-23 09:45:13,358 - INFO - Columns in the dataset: ['Shipment_ID', 'Supplier', 'Region', 'Delivery_Mode', 'Scheduled_Delivery', 'Actual_Delivery', 'Freight_Cost', 'Disruption_Type', 'Weather_Risk', 'Supplier_Reliability', 'Port_Congestion', 'Stockout_Risk', 'Recovery_Time_Days', 'Delay_Duration', 'Product_ID', 'Product_Name', 'Category', 'Current_Stock', 'Reorder_Level', 'Lead_Time_Days', 'Supplier_ID', 'Supplier_Lead_Time', 'Historical_Demand', 'Forecasted_Demand', 'Seasonality_Index', 'Delivery_Status', 'Delay_Days', 'Weather_Conditions', 'Economic_Indicators', 'Holiday_Flag', 'Order_Frequency', 'Batch_Size', 'Inventory_Turnover', 'Safety_Stock_Level', 'Dead_Stock', 'Damaged_Stock']
+2024-12-23 09:45:13,427 - INFO - Inventory optimization dataset saved to data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-23 09:45:13,427 - INFO - Loading dataset from data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-23 09:45:13,432 - INFO - Dataset loaded successfully. Shape: (99986, 10)
+2024-12-23 09:45:13,433 - ERROR - An error occurred during the training pipeline: "['Disruption', 'Disruption_Type'] not found in axis"
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/training_pipeline.py", line 45, in run_lightgbm_training_pipeline
+    X = data.drop(columns=[target_column, "Disruption_Type"])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+           ^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['Disruption', 'Disruption_Type'] not found in axis"
+2024-12-23 09:45:36,128 - INFO - Starting the data generation process.
+2024-12-23 09:45:43,476 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-23 09:45:43,525 - INFO - None
+2024-12-23 09:45:43,579 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-23 09:45:43,633 - INFO - Dataset loaded successfully.
+2024-12-23 09:45:43,675 - INFO - Missing values handled.
+2024-12-23 09:45:43,688 - INFO - Converted required columns to datetime.
+2024-12-23 09:45:43,769 - INFO - Duplicate rows removed.
+2024-12-23 09:45:43,789 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-23 09:45:43,943 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-23 09:45:43,989 - INFO - None
+2024-12-23 09:45:43,992 - INFO - Starting preprocessing pipeline.
+2024-12-23 09:45:44,048 - INFO - Dataset loaded successfully.
+2024-12-23 09:45:44,078 - INFO - Target encoding completed.
+2024-12-23 09:45:44,100 - INFO - Categorical encoding completed.
+2024-12-23 09:45:44,149 - INFO - Holiday-related features created.
+2024-12-23 09:45:44,167 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-23 09:45:44,199 - INFO - Rolling window features generated.
+2024-12-23 09:45:44,204 - INFO - Expanding window features generated.
+2024-12-23 09:45:44,211 - INFO - Lag features generated.
+2024-12-23 09:45:44,238 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-23 09:45:44,418 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-23 09:45:44,434 - INFO - None
+2024-12-23 09:45:44,434 - INFO - Starting inventory optimization feature pipeline.
+2024-12-23 09:45:44,479 - INFO - Columns in the dataset: ['Shipment_ID', 'Supplier', 'Region', 'Delivery_Mode', 'Scheduled_Delivery', 'Actual_Delivery', 'Freight_Cost', 'Disruption_Type', 'Weather_Risk', 'Supplier_Reliability', 'Port_Congestion', 'Stockout_Risk', 'Recovery_Time_Days', 'Delay_Duration', 'Product_ID', 'Product_Name', 'Category', 'Current_Stock', 'Reorder_Level', 'Lead_Time_Days', 'Supplier_ID', 'Supplier_Lead_Time', 'Historical_Demand', 'Forecasted_Demand', 'Seasonality_Index', 'Delivery_Status', 'Delay_Days', 'Weather_Conditions', 'Economic_Indicators', 'Holiday_Flag', 'Order_Frequency', 'Batch_Size', 'Inventory_Turnover', 'Safety_Stock_Level', 'Dead_Stock', 'Damaged_Stock']
+2024-12-23 09:45:44,551 - INFO - Inventory optimization dataset saved to data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-23 09:45:44,551 - INFO - Loading dataset from data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-23 09:45:44,556 - INFO - Dataset loaded successfully. Shape: (99986, 10)
+2024-12-23 09:45:44,557 - ERROR - An error occurred during the training pipeline: "['Disruption', 'Disruption_Type'] not found in axis"
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/training_pipeline.py", line 45, in run_lightgbm_training_pipeline
+    X = data.drop(columns=[target_column, "Disruption_Type"])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+           ^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['Disruption', 'Disruption_Type'] not found in axis"
