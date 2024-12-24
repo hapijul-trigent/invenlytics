@@ -1,5 +1,5 @@
 import logging
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 from pandas.tseries.holiday import USFederalHolidayCalendar
 import pandas as pd
 
@@ -14,7 +14,7 @@ def setup_logging():
         ]
     )
 
-def run_supplychain_disruption_feature_pipeline(source, selected_columns, dest):
+def run_supplychain_disruption_feature_pipeline(source=None, selected_columns=None, dest=None, data=pd.DataFrame()):
     """
     Preprocess the dataset by performing target encoding, categorical encoding, 
     and feature engineering (rolling, lag, expanding window features).
@@ -30,7 +30,8 @@ def run_supplychain_disruption_feature_pipeline(source, selected_columns, dest):
         logging.info("Starting preprocessing pipeline.")
 
         # Load the dataset
-        data = pd.read_parquet(source)
+        if data.empty:
+            data = pd.read_parquet(source)
         data = data[selected_columns]
         logging.info("Dataset loaded successfully.")
 
@@ -106,6 +107,69 @@ def run_supplychain_disruption_feature_pipeline(source, selected_columns, dest):
     except Exception as e:
         logging.error(f"An error occurred during preprocessing: {e}", exc_info=True)
         raise
+
+
+def run_inventory_optimization_feature_pipeline(source, selected_columns, dest):
+    """
+    Feature engineering for inventory optimization.
+    
+    Parameters:
+        source (str): Path to the preprocessed dataset.
+        selected_columns (list): Columns required for feature engineering.
+        dest (str): Destination path to save the feature-engineered dataset.
+    
+    Returns:
+        pd.DataFrame: Feature-engineered dataset.
+    """
+    try:
+        logging.info("Starting inventory optimization feature pipeline.")
+
+        # Load the dataset
+        data = pd.read_parquet(source, )
+        logging.info(f"Columns in the dataset: {data.columns.tolist()}")
+
+        # Ensure selected columns exist in the dataset
+        available_columns = [col for col in selected_columns if col in data.columns]
+        missing_columns = [col for col in selected_columns if col not in data.columns]
+        
+        if missing_columns:
+            logging.warning(f"The following columns are missing from the dataset and will be ignored: {missing_columns}")
+        
+        data = data[available_columns]
+
+        # Fill missing values
+        data.fillna(method="ffill", inplace=True)
+
+        # Lagged Features
+        lag_steps = [3, 7, 14]
+        for lag in lag_steps:
+            data[f"Demand_Lag_{lag}"] = data["Historical_Demand"].shift(lag)
+
+        # Rolling Features
+        rolling_windows = [3, 7]
+        for window in rolling_windows:
+            data[f"Demand_Rolling_Mean_{window}"] = data["Historical_Demand"].rolling(window=window).mean()
+            data[f"Demand_Rolling_Std_{window}"] = data["Historical_Demand"].rolling(window=window).std()
+
+        # Additional Features
+        data["Demand_EWA"] = data["Historical_Demand"].ewm(span=5).mean()
+
+        # Drop rows with NaN values introduced by lagging or rolling
+        data.dropna(inplace=True)
+
+        # Normalize numeric columns
+        scaler = MinMaxScaler()
+        numeric_columns = data.select_dtypes(include=[float, int]).columns
+        data[numeric_columns] = scaler.fit_transform(data[numeric_columns])
+
+        # Save feature-engineered dataset
+        data.to_parquet(dest, index=False)
+        logging.info(f"Inventory optimization dataset saved to {dest}.")
+        return data
+    except Exception as e:
+        logging.error(f"An error occurred during inventory feature engineering: {e}", exc_info=True)
+        raise
+
 
 # Main script
 if __name__ == "__main__":
