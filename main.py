@@ -16,14 +16,24 @@ if __name__ == '__main__':
 
     # Step 3: Feature Engineering - Supply Chain Disruption
     feature_pipeline.setup_logging()
-    supply_features = feature_pipeline.run_supplychain_disruption_feature_pipeline(
-        source="data/silver_layer/preprocessed_SupplyChain_Dataset.parquet",
-        selected_columns=disruption_forecast_features,
-        dest="data/gold_layer/SupplyChainI_Disruption_Dataset.parquet" # Indicating it won't save yet
+    feature_pipeline. run_supplychain_disruption_feature_pipeline(
+        source="data/silver_layer/preprocessed_SupplyChain_Dataset.parquet", 
+        selected_columns=disruption_forecast_features, 
+        dest="data/gold_layer/SupplyChainI_Disruption_Dataset.parquet"
+    )
+    feature_pipeline.run_inventory_optimization_feature_pipeline(
+        source="data/silver_layer/preprocessed_SupplyChain_Dataset.parquet", 
+        selected_columns=inventory_features_columns, 
+        dest="data/gold_layer/SupplyChain_Invetory_Dataset.parquet"
     )
 
-    training_pipeline.setup_logging()
-    training_pipeline.run_lightgbm_training_pipeline(
-            data_source="data/gold_layer/SupplyChainI_Disruption_Dataset.parquet",
-            target_column="Disruption",
-        )
+    # training_pipeline.setup_logging()
+    # training_pipeline.run_lightgbm_training_pipeline(
+    #         data_source="data/gold_layer/SupplyChainI_Disruption_Dataset.parquet",
+    #         target_column="Disruption",
+    #     )
+
+    training_pipeline.run_inventory_training_pipeline(
+        data_source="data/gold_layer/SupplyChain_Invetory_Dataset.parquet",
+        target_column='Historical_Demand',
+    )

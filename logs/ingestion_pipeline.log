@@ -770,3 +770,65 @@ Traceback (most recent call last):
   File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 7070, in drop
     raise KeyError(f"{labels[mask].tolist()} not found in axis")
 KeyError: "['Disruption', 'Disruption_Type'] not found in axis"
+2024-12-26 10:04:06,003 - INFO - Starting the data generation process.
+2024-12-26 10:04:13,102 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-26 10:04:13,165 - INFO - None
+2024-12-26 10:04:13,329 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-26 10:04:13,531 - INFO - Dataset loaded successfully.
+2024-12-26 10:04:13,573 - INFO - Missing values handled.
+2024-12-26 10:04:13,586 - INFO - Converted required columns to datetime.
+2024-12-26 10:04:13,673 - INFO - Duplicate rows removed.
+2024-12-26 10:04:13,700 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-26 10:04:13,865 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-26 10:04:13,913 - INFO - None
+2024-12-26 10:04:13,917 - INFO - Starting preprocessing pipeline.
+2024-12-26 10:04:13,977 - INFO - Dataset loaded successfully.
+2024-12-26 10:04:14,005 - INFO - Target encoding completed.
+2024-12-26 10:04:14,027 - INFO - Categorical encoding completed.
+2024-12-26 10:04:14,078 - INFO - Holiday-related features created.
+2024-12-26 10:04:14,101 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-26 10:04:14,136 - INFO - Rolling window features generated.
+2024-12-26 10:04:14,141 - INFO - Expanding window features generated.
+2024-12-26 10:04:14,149 - INFO - Lag features generated.
+2024-12-26 10:04:14,177 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-26 10:04:14,352 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-26 10:04:14,374 - INFO - None
+2024-12-26 10:04:14,375 - INFO - Starting inventory optimization feature pipeline.
+2024-12-26 10:04:14,436 - INFO - Columns in the dataset: ['Shipment_ID', 'Supplier', 'Region', 'Delivery_Mode', 'Scheduled_Delivery', 'Actual_Delivery', 'Freight_Cost', 'Disruption_Type', 'Weather_Risk', 'Supplier_Reliability', 'Port_Congestion', 'Stockout_Risk', 'Recovery_Time_Days', 'Delay_Duration', 'Product_ID', 'Product_Name', 'Category', 'Current_Stock', 'Reorder_Level', 'Lead_Time_Days', 'Supplier_ID', 'Supplier_Lead_Time', 'Historical_Demand', 'Forecasted_Demand', 'Seasonality_Index', 'Delivery_Status', 'Delay_Days', 'Weather_Conditions', 'Economic_Indicators', 'Holiday_Flag', 'Order_Frequency', 'Batch_Size', 'Inventory_Turnover', 'Safety_Stock_Level', 'Dead_Stock', 'Damaged_Stock']
+2024-12-26 10:04:14,470 - ERROR - An error occurred during inventory feature engineering: name 'apply_pca' is not defined
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/feature_pipeline.py", line 168, in run_inventory_optimization_feature_pipeline
+    data = apply_pca(data, numeric_columns, pca_components)
+           ^^^^^^^^^
+NameError: name 'apply_pca' is not defined
+2024-12-26 10:07:47,079 - INFO - Starting the data generation process.
+2024-12-26 10:07:54,347 - INFO - Combined synthetic dataset with 100000 rows has been saved as 'data/bronze_layer/SupplyChain_Dataset.parquet'.
+2024-12-26 10:07:54,395 - INFO - None
+2024-12-26 10:07:54,447 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-26 10:07:54,583 - INFO - Dataset loaded successfully.
+2024-12-26 10:07:54,625 - INFO - Missing values handled.
+2024-12-26 10:07:54,639 - INFO - Converted required columns to datetime.
+2024-12-26 10:07:54,730 - INFO - Duplicate rows removed.
+2024-12-26 10:07:54,750 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-26 10:07:54,929 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-26 10:07:54,974 - INFO - None
+2024-12-26 10:07:54,977 - INFO - Starting preprocessing pipeline.
+2024-12-26 10:07:55,035 - INFO - Dataset loaded successfully.
+2024-12-26 10:07:55,063 - INFO - Target encoding completed.
+2024-12-26 10:07:55,085 - INFO - Categorical encoding completed.
+2024-12-26 10:07:55,134 - INFO - Holiday-related features created.
+2024-12-26 10:07:55,151 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-26 10:07:55,182 - INFO - Rolling window features generated.
+2024-12-26 10:07:55,188 - INFO - Expanding window features generated.
+2024-12-26 10:07:55,195 - INFO - Lag features generated.
+2024-12-26 10:07:55,220 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-26 10:07:55,388 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-26 10:07:55,408 - INFO - None
+2024-12-26 10:07:55,409 - INFO - Starting inventory optimization feature pipeline.
+2024-12-26 10:07:55,455 - INFO - Columns in the dataset: ['Shipment_ID', 'Supplier', 'Region', 'Delivery_Mode', 'Scheduled_Delivery', 'Actual_Delivery', 'Freight_Cost', 'Disruption_Type', 'Weather_Risk', 'Supplier_Reliability', 'Port_Congestion', 'Stockout_Risk', 'Recovery_Time_Days', 'Delay_Duration', 'Product_ID', 'Product_Name', 'Category', 'Current_Stock', 'Reorder_Level', 'Lead_Time_Days', 'Supplier_ID', 'Supplier_Lead_Time', 'Historical_Demand', 'Forecasted_Demand', 'Seasonality_Index', 'Delivery_Status', 'Delay_Days', 'Weather_Conditions', 'Economic_Indicators', 'Holiday_Flag', 'Order_Frequency', 'Batch_Size', 'Inventory_Turnover', 'Safety_Stock_Level', 'Dead_Stock', 'Damaged_Stock']
+2024-12-26 10:07:55,482 - ERROR - An error occurred during inventory feature engineering: name 'apply_pca' is not defined
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/feature_pipeline.py", line 168, in run_inventory_optimization_feature_pipeline
+    data = apply_pca(data, numeric_columns, pca_components)
+           ^^^^^^^^^
+NameError: name 'apply_pca' is not defined

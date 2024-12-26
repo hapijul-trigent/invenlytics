@@ -4,6 +4,8 @@ from pandas.tseries.holiday import USFederalHolidayCalendar
 import pandas as pd
 import os
 from sklearn.preprocessing import MinMaxScaler
+from pipelines.utils import apply_pca
+
 
 # def setup_logging():
 #     """Setup logging configuration."""
@@ -122,18 +124,7 @@ def run_supplychain_disruption_feature_pipeline(source, selected_columns, dest):
         logging.error(f"An error occurred during preprocessing: {e}", exc_info=True)
         raise
 
-def run_inventory_optimization_feature_pipeline(source, selected_columns, dest):
-    """
-    Feature engineering for inventory optimization.
-    
-    Parameters:
-        source (str): Path to the preprocessed dataset.
-        selected_columns (list): Columns required for feature engineering.
-        dest (str): Destination path to save the feature-engineered dataset.
-    
-    Returns:
-        pd.DataFrame: Feature-engineered dataset.
-    """
+def run_inventory_optimization_feature_pipeline(source, selected_columns, dest, pca_components=0.95):
     try:
         logging.info("Starting inventory optimization feature pipeline.")
 
@@ -144,10 +135,10 @@ def run_inventory_optimization_feature_pipeline(source, selected_columns, dest):
         # Ensure selected columns exist in the dataset
         available_columns = [col for col in selected_columns if col in data.columns]
         missing_columns = [col for col in selected_columns if col not in data.columns]
-        
+
         if missing_columns:
             logging.warning(f"The following columns are missing from the dataset and will be ignored: {missing_columns}")
-        
+
         data = data[available_columns]
 
         # Fill missing values
@@ -156,16 +147,16 @@ def run_inventory_optimization_feature_pipeline(source, selected_columns, dest):
         # Lagged Features
         lag_steps = [3, 7, 14]
         for lag in lag_steps:
-            data[f"Historical_Demand_Lag_{lag}"] = data["Historical_Demand"].shift(lag)
+            data[f"Demand_Lag_{lag}"] = data["Historical_Demand"].shift(lag)
 
         # Rolling Features
         rolling_windows = [3, 7]
         for window in rolling_windows:
-            data[f"Historical_Demand_Rolling_Mean_{window}"] = data["Historical_Demand"].rolling(window=window).mean()
-            data[f"Historical_Demand_Rolling_Std_{window}"] = data["Historical_Demand"].rolling(window=window).std()
+            data[f"Demand_Rolling_Mean_{window}"] = data["Historical_Demand"].rolling(window=window).mean()
+            data[f"Demand_Rolling_Std_{window}"] = data["Historical_Demand"].rolling(window=window).std()
 
         # Additional Features
-        data["Historical_Demand_EWA"] = data["Historical_Demand"].ewm(span=5).mean()
+        data["Demand_EWA"] = data["Historical_Demand"].ewm(span=5).mean()
 
         # Drop rows with NaN values introduced by lagging or rolling
         data.dropna(inplace=True)
@@ -175,14 +166,18 @@ def run_inventory_optimization_feature_pipeline(source, selected_columns, dest):
         numeric_columns = data.select_dtypes(include=[float, int]).columns
         data[numeric_columns] = scaler.fit_transform(data[numeric_columns])
 
+        # Apply PCA
+        data = apply_pca(data, numeric_columns, pca_components)
+
         # Save feature-engineered dataset
         data.to_parquet(dest, index=False)
-        logging.info(f"Inventory optimization dataset saved to {dest}.")
+        logging.info(f"Inventory optimization dataset with PCA saved to {dest}.")
         return data
 
     except Exception as e:
         logging.error(f"An error occurred during inventory feature engineering: {e}", exc_info=True)
         raise
+
 
 # Main script
 if __name__ == "__main__":
