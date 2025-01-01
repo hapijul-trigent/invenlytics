@@ -1,0 +1,91 @@
+2024-12-31 09:14:34,734 - INFO - Generating additional synthetic data...
+2024-12-31 09:15:08,594 - INFO - Loading existing data from dynamic_supply_chain_logistics_dataset (1).csv...
+2024-12-31 09:15:08,731 - INFO - Generating additional synthetic data...
+2024-12-31 09:15:55,003 - INFO - Generated 67935 synthetic rows.
+2024-12-31 09:15:55,085 - INFO - Saving data to data/bronze_layer/SupplyChain_Dataset_100k.csv...
+2024-12-31 09:15:57,510 - INFO - Data saved successfully.
+2024-12-31 09:15:57,516 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-31 09:15:57,616 - INFO - Dataset loaded successfully.
+2024-12-31 09:15:57,658 - INFO - Missing values handled.
+2024-12-31 09:15:57,671 - INFO - Converted required columns to datetime.
+2024-12-31 09:15:57,751 - INFO - Duplicate rows removed.
+2024-12-31 09:15:57,780 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-31 09:15:57,944 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-31 09:15:57,992 - INFO - None
+2024-12-31 09:15:57,994 - INFO - Starting preprocessing pipeline.
+2024-12-31 09:15:58,056 - INFO - Dataset loaded successfully.
+2024-12-31 09:15:58,085 - INFO - Target encoding completed.
+2024-12-31 09:15:58,106 - INFO - Categorical encoding completed.
+2024-12-31 09:15:58,161 - INFO - Holiday-related features created.
+2024-12-31 09:15:58,180 - INFO - Data sorted and indexed by 'Scheduled_Delivery'.
+2024-12-31 09:15:58,214 - INFO - Rolling window features generated.
+2024-12-31 09:15:58,219 - INFO - Expanding window features generated.
+2024-12-31 09:15:58,226 - INFO - Lag features generated.
+2024-12-31 09:15:58,263 - INFO - Dropped NaN values. Preprocessing complete.
+2024-12-31 09:15:58,434 - INFO - Features Saved data/gold_layer/SupplyChainI_Disruption_Dataset.parquet
+2024-12-31 09:15:58,448 - INFO - None
+2024-12-31 09:15:58,451 - INFO - Loading dataset from data/gold_layer/SupplyChainI_Disruption_Dataset.parquet.
+2024-12-31 09:15:58,483 - INFO - Dataset loaded successfully. Shape: (99993, 55)
+2024-12-31 09:16:04,241 - INFO - Fold 1 metrics logged.
+2024-12-31 09:16:09,004 - INFO - Fold 2 metrics logged.
+2024-12-31 09:16:14,739 - INFO - Fold 3 metrics logged.
+2024-12-31 11:39:36,179 - INFO - Loading existing data from dynamic_supply_chain_logistics_dataset (1).csv...
+2024-12-31 11:39:36,336 - INFO - Generating additional synthetic data...
+2024-12-31 11:40:20,509 - INFO - Generated 67935 synthetic rows.
+2024-12-31 11:40:20,598 - INFO - Saving data to data/bronze_layer/SupplyChain_Dataset_100k.parquet...
+2024-12-31 11:40:22,997 - INFO - Data saved successfully.
+2024-12-31 11:40:23,004 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-31 11:40:23,134 - INFO - Dataset loaded successfully.
+2024-12-31 11:40:23,176 - INFO - Missing values handled.
+2024-12-31 11:40:23,189 - INFO - Converted required columns to datetime.
+2024-12-31 11:40:23,267 - INFO - Duplicate rows removed.
+2024-12-31 11:40:23,314 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-31 11:40:23,480 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-31 11:40:23,528 - INFO - None
+2024-12-31 11:47:20,713 - INFO - Loading existing data from dynamic_supply_chain_logistics_dataset (1).csv...
+2024-12-31 11:47:20,847 - INFO - Generating additional synthetic data...
+2024-12-31 11:48:04,983 - INFO - Generated 67935 synthetic rows.
+2024-12-31 11:48:05,063 - INFO - Saving data to data/bronze_layer/SupplyChain_Dataset_100k.parquet...
+2024-12-31 11:48:07,450 - INFO - Data saved successfully.
+2024-12-31 11:48:07,457 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-31 11:48:07,528 - INFO - Dataset loaded successfully.
+2024-12-31 11:48:07,572 - INFO - Missing values handled.
+2024-12-31 11:48:07,585 - INFO - Converted required columns to datetime.
+2024-12-31 11:48:07,668 - INFO - Duplicate rows removed.
+2024-12-31 11:48:07,693 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-31 11:48:07,858 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-31 11:48:07,909 - INFO - None
+2024-12-31 11:51:22,891 - INFO - Loading existing data from dynamic_supply_chain_logistics_dataset (1).csv...
+2024-12-31 11:51:23,025 - INFO - Generating additional synthetic data...
+2024-12-31 11:52:06,624 - INFO - Generated 67935 synthetic rows.
+2024-12-31 11:52:06,707 - INFO - Saving data to data/bronze_layer/SupplyChain_Dataset_100k.parquet...
+2024-12-31 11:52:09,113 - INFO - Data saved successfully.
+2024-12-31 11:52:09,120 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-31 11:52:09,188 - INFO - Dataset loaded successfully.
+2024-12-31 11:52:09,229 - INFO - Missing values handled.
+2024-12-31 11:52:09,243 - INFO - Converted required columns to datetime.
+2024-12-31 11:52:09,327 - INFO - Duplicate rows removed.
+2024-12-31 11:52:09,367 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-31 11:52:09,527 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-31 11:52:09,574 - INFO - None
+2024-12-31 11:56:59,179 - INFO - Loading existing data from dynamic_supply_chain_logistics_dataset (1).csv...
+2024-12-31 11:56:59,316 - INFO - Generating additional synthetic data...
+2024-12-31 11:57:43,089 - INFO - Generated 67935 synthetic rows.
+2024-12-31 11:57:43,170 - INFO - Saving data to data/bronze_layer/SupplyChain_Dataset_100k.parquet...
+2024-12-31 11:57:45,551 - INFO - Data saved successfully.
+2024-12-31 11:57:45,559 - INFO - Loading dataset from data/bronze_layer/SupplyChain_Dataset.parquet.
+2024-12-31 11:57:45,618 - INFO - Dataset loaded successfully.
+2024-12-31 11:57:45,670 - INFO - Missing values handled.
+2024-12-31 11:57:45,683 - INFO - Converted required columns to datetime.
+2024-12-31 11:57:45,761 - INFO - Duplicate rows removed.
+2024-12-31 11:57:45,790 - INFO - Validated 'Scheduled_Delivery' column.
+2024-12-31 11:57:45,954 - INFO - Cleaned dataset saved to data/silver_layer/preprocessed_SupplyChain_Dataset.parquet.
+2024-12-31 11:57:46,000 - INFO - None
+2024-12-31 11:57:46,002 - INFO - Starting inventory optimization feature pipeline.
+2024-12-31 11:57:46,050 - INFO - Columns in the dataset: ['Shipment_ID', 'Supplier', 'Region', 'Delivery_Mode', 'Scheduled_Delivery', 'Actual_Delivery', 'Freight_Cost', 'Disruption_Type', 'Weather_Risk', 'Supplier_Reliability', 'Port_Congestion', 'Stockout_Risk', 'Recovery_Time_Days', 'Delay_Duration', 'Product_ID', 'Product_Name', 'Category', 'Current_Stock', 'Reorder_Level', 'Lead_Time_Days', 'Supplier_ID', 'Supplier_Lead_Time', 'Historical_Demand', 'Forecasted_Demand', 'Seasonality_Index', 'Delivery_Status', 'Delay_Days', 'Weather_Conditions', 'Economic_Indicators', 'Holiday_Flag', 'Order_Frequency', 'Batch_Size', 'Inventory_Turnover', 'Safety_Stock_Level', 'Dead_Stock', 'Damaged_Stock']
+2024-12-31 11:57:46,070 - ERROR - An error occurred during inventory feature engineering: name 'MinMaxScaler' is not defined
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/feature_pipeline.py", line 56, in run_inventory_optimization_feature_pipeline
+    scaler = MinMaxScaler()
+             ^^^^^^^^^^^^
+NameError: name 'MinMaxScaler' is not defined

@@ -2,6 +2,9 @@ import logging
 from sklearn.preprocessing import LabelEncoder
 from pandas.tseries.holiday import USFederalHolidayCalendar
 import pandas as pd
+import os
+from sklearn.preprocessing import MinMaxScaler
+from pipelines.utils import apply_pca
 
 def setup_logging():
     """Setup logging configuration."""
@@ -14,97 +17,59 @@ def setup_logging():
         ]
     )
 
-def run_supplychain_disruption_feature_pipeline(source, selected_columns, dest):
-    """
-    Preprocess the dataset by performing target encoding, categorical encoding, 
-    and feature engineering (rolling, lag, expanding window features).
 
-    Parameters:
-    source (str): The path to the dataset file.
-    selected_columns (list): List of columns to select from the dataset.
-
-    Returns:
-    pd.DataFrame: The processed dataset with new features.
-    """
+def run_inventory_optimization_feature_pipeline(source, selected_columns, dest, pca_components=0.95):
     try:
-        logging.info("Starting preprocessing pipeline.")
+        logging.info("Starting inventory optimization feature pipeline.")
 
         # Load the dataset
         data = pd.read_parquet(source)
-        data = data[selected_columns]
-        logging.info("Dataset loaded successfully.")
+        logging.info(f"Columns in the dataset: {data.columns.tolist()}")
 
+        # Ensure selected columns exist in the dataset
+        available_columns = [col for col in selected_columns if col in data.columns]
+        missing_columns = [col for col in selected_columns if col not in data.columns]
 
-        # Target encoding for 'Disruption_Type'
-        if "Disruption_Type" in data.columns:
-            data["Disruption"] = data["Disruption_Type"].apply(lambda x: 0 if x == "None" else 1)
-        logging.info("Target encoding completed.")
+        if missing_columns:
+            logging.warning(f"The following columns are missing from the dataset and will be ignored: {missing_columns}")
 
-        # Encode categorical features
-        encoder = LabelEncoder()
-        for col in ["Region", "Delivery_Mode"]:
-            if col in data.columns:
-                data[col] = encoder.fit_transform(data[col])
-        logging.info("Categorical encoding completed.")
+        data = data[available_columns]
 
-        # Generate holiday-related features
-        holiday_calendar = USFederalHolidayCalendar()
-        holidays = holiday_calendar.holidays(
-            start=data["Scheduled_Delivery"].min(), 
-            end=data["Scheduled_Delivery"].max()
-        )
-        
-        data["Is_Business_Day"] = data["Scheduled_Delivery"].dt.dayofweek < 5
-        data["Is_Holiday"] = data["Scheduled_Delivery"].dt.date.isin(holidays.date)
-        data["Is_Working_Day"] = data["Is_Business_Day"] & ~data["Is_Holiday"]
-        data["Week_Of_Year"] = data["Scheduled_Delivery"].dt.isocalendar().week
-        data["Quarter"] = data["Scheduled_Delivery"].dt.quarter
-        data["Is_Weekend"] = ~data["Is_Business_Day"]
-        logging.info("Holiday-related features created.")
+        # Fill missing values
+        data.fillna(method="ffill", inplace=True)
 
-        # Sort and set index
-        data.sort_values(by="Scheduled_Delivery", inplace=True)
-        data.set_index("Scheduled_Delivery", inplace=True)
-        logging.info("Data sorted and indexed by 'Scheduled_Delivery'.")
+        # Lagged Features
+        lag_steps = [3, 7, 14]
+        for lag in lag_steps:
+            data[f"Demand_Lag_{lag}"] = data["Historical_Demand"].shift(lag)
 
-        # Define rolling window and lag features
-        window_size = [3, 7]
-        rolling_cols = ["Weather_Risk", "Supplier_Reliability", "Port_Congestion", 'Delay_Duration']
-        lag_cols = ["Weather_Risk", "Supplier_Reliability", "Port_Congestion"]
+        # Rolling Features
+        rolling_windows = [3, 7]
+        for window in rolling_windows:
+            data[f"Demand_Rolling_Mean_{window}"] = data["Historical_Demand"].rolling(window=window).mean()
+            data[f"Demand_Rolling_Std_{window}"] = data["Historical_Demand"].rolling(window=window).std()
 
-        # Generate rolling window features
-        for window in window_size:
-            for col in rolling_cols:
-                if col in data.columns:
-                    data[f"{col}_rolling_mean_{window}"] = data[col].rolling(window=window).mean()
-                    data[f"{col}_rolling_std_{window}"] = data[col].rolling(window=window).std()
-        logging.info("Rolling window features generated.")
+        # Additional Features
+        data["Demand_EWA"] = data["Historical_Demand"].ewm(span=5).mean()
 
-        # Generate expanding window features
-        for col in rolling_cols:
-            if col in data.columns:
-                data[f"{col}_expanding_mean"] = data[col].expanding(min_periods=7).mean()
-        logging.info("Expanding window features generated.")
-
-        # Generate lag features
-        lag_steps = [1, 2, 3, 4, 5, 6, 7]
-        for col in lag_cols:
-            if col in data.columns:
-                for lag in lag_steps:
-                    data[f"{col}_lag_{lag}"] = data[col].shift(lag)
-        logging.info("Lag features generated.")
-
-        # Drop rows with NaN values introduced by rolling, expanding, and lag features
+        # Drop rows with NaN values introduced by lagging or rolling
         data.dropna(inplace=True)
-        logging.info("Dropped NaN values. Preprocessing complete.")
-        
+
+        # Normalize numeric columns
+        scaler = MinMaxScaler()
+        numeric_columns = data.select_dtypes(include=[float, int]).columns
+        data[numeric_columns] = scaler.fit_transform(data[numeric_columns])
+
+        # Apply PCA
+        data = apply_pca(data, numeric_columns, pca_components)
+
+        # Save feature-engineered dataset
         data.to_parquet(dest, index=False)
-        logging.info(f"Features Saved {dest}")
-        logging.info(data.info())
+        logging.info(f"Inventory optimization dataset with PCA saved to {dest}.")
         return data
 
     except Exception as e:
-        logging.error(f"An error occurred during preprocessing: {e}", exc_info=True)
+        logging.error(f"An error occurred during inventory feature engineering: {e}", exc_info=True)
         raise
 
 # Main script

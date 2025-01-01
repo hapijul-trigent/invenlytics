@@ -1,126 +1,116 @@
+import os
 import pandas as pd
-import numpy as np
-import random
 import logging
-from datetime import timedelta
+from datetime import datetime
 
-def setup_logging():
-    """Setup logging configuration."""
+def setup_logging(log_file="logs/data_ingestion.log"):
+    """Set up logging for the data ingestion pipeline."""
+    os.makedirs(os.path.dirname(log_file), exist_ok=True)
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.FileHandler("logs/ingestion_pipeline.log"),
+            logging.FileHandler(log_file),
             logging.StreamHandler()
         ]
     )
 
+def load_existing_data(file_path):
+    """Load existing data from a CSV file."""
+    if os.path.exists(file_path):
+        logging.info(f"Loading existing data from {file_path}...")
+        return pd.read_csv(file_path)
+    else:
+        logging.warning(f"File {file_path} not found. Starting with an empty DataFrame.")
+        return pd.DataFrame()
 
-def run(output_file="data/bronze_layer/SupplyChain_Dataset.parquet", total_rows=100000):
+def save_data(df, output_file):
+    """Save the processed data to a file."""
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    logging.info(f"Saving data to {output_file}...")
+    df.to_csv(output_file, index=False)
+    logging.info("Data saved successfully.")
+
+def generate_additional_data(existing_df, total_rows_required=100000):
     """
-    Generate a synthetic dataset for supply chain and inventory management.
+    Generate additional synthetic data to reach the desired number of rows.
 
     Parameters:
-        output_file (str): The path to save the generated dataset as a CSV file.
-        total_rows (int): The number of rows to generate in the dataset.
+        existing_df (pd.DataFrame): The existing dataset.
+        total_rows_required (int): The total number of rows required.
 
     Returns:
-        None
+        pd.DataFrame: A dataframe with new columns and rows.
     """
-    try:
-        # Initialize logging
-        logging.info("Starting the data generation process.")
+    from datetime import timedelta
+    import numpy as np
+    import random
 
-        # Set random seed for reproducibility
-        np.random.seed(42)
+    logging.info("Generating additional synthetic data...")
 
-        # Parameters for dataset
-        start_date = '2014-01-01'
-        end_date = '2024-12-31'
+    # Number of rows needed
+    additional_rows_needed = total_rows_required - len(existing_df)
+    if additional_rows_needed <= 0:
+        logging.info("No additional rows needed.")
+        return existing_df
 
-        # Common lists for columns
-        suppliers = ['Alibaba', 'H&M', 'IKEA', 'Wrogn']
-        delivery_modes = ['Air', 'Sea', 'Road', 'Rail']
-        disruption_types = ['Weather', 'Supplier Issue', 'Logistics', 'Geopolitical', 'None']
-        regions = ['North America', 'Europe', 'Asia', 'South America']
-        weather_conditions = ['Sunny', 'Rainy', 'Snowy', 'Cloudy']
-        delivery_statuses = ['On Time', 'Delayed', 'Cancelled']
-        categories = {
-            'Electronics': ['Laptop', 'Smartphone', 'Headphones', 'Camera', 'Tablet'],
-            'Clothing': ['T-Shirt', 'Jeans', 'Jacket', 'Sweater', 'Dress'],
-            'Furniture': ['Chair', 'Table', 'Sofa', 'Bed', 'Desk'],
-            'Food': ['Coffee', 'Tea', 'Chips', 'Juice', 'Cookies'],
-            'Books': ['The Great Adventure', 'Programming Guide', 'Modern Art History', 'Healthy Living']
-        }
-        product_ids = [f"P{i:05d}" for i in range(1, 2001)]  # 2000 unique products
-        supplier_ids = [f"S{i:03d}" for i in range(1, 201)]  # 200 unique suppliers
+    suppliers = ['Alibaba', 'H&M', 'IKEA', 'Wrogn']
+    delivery_modes = ['Air', 'Sea', 'Road', 'Rail']
+    disruption_types = ['Weather', 'Supplier Issue', 'Logistics', 'Geopolitical', 'None']
+    regions = ['North America', 'Europe', 'Asia', 'South America']
+    weather_conditions = ['Sunny', 'Rainy', 'Snowy', 'Cloudy']
 
-        # Generate date range
-        start_date = pd.to_datetime(start_date)
-        end_date = pd.to_datetime(end_date)
-        date_range = pd.date_range(start=start_date, end=end_date, freq='h')
+    synthetic_data = []
+    for _ in range(additional_rows_needed):
+        synthetic_data.append({
+            "timestamp": datetime.now(),
+            "Supplier": random.choice(suppliers),
+            "Region": random.choice(regions),
+            "Delivery_Mode": random.choice(delivery_modes),
+            "Disruption_Type": random.choice(disruption_types),
+            "Weather_Conditions": random.choice(weather_conditions),
+            "Scheduled_Delivery": pd.to_datetime('2024-01-01') + timedelta(days=random.randint(1, 10)),
+            "Actual_Delivery": pd.to_datetime('2024-01-01') + timedelta(days=random.randint(5, 15)),
+            "Freight_Cost": round(random.uniform(100, 1000), 2),
+            "supplier_reliability_score": round(random.uniform(0.7, 1.0), 2),
+            "lead_time_days": random.randint(1, 15),
+            "historical_demand": round(random.uniform(100, 5000), 2),
+            "iot_temperature": round(random.uniform(-10, 40), 2),
+            "cargo_condition_status": round(random.uniform(0, 1), 2),
+            "route_risk_level": round(random.uniform(0, 10), 2),
+            "customs_clearance_time": round(random.uniform(0, 5), 2),
+            "driver_behavior_score": round(random.uniform(0, 1), 2),
+            "fatigue_monitoring_score": round(random.uniform(0, 1), 2),
+            "disruption_likelihood_score": round(random.uniform(0, 1), 2),
+            "delay_probability": round(random.uniform(0, 1), 2),
+            "risk_classification": random.choice(['Low Risk', 'Moderate Risk', 'High Risk']),
+            "delivery_time_deviation": round(random.uniform(0, 15), 2)
+        })
 
-        # Generate synthetic data
-        synthetic_data = []
-        for i in range(total_rows):
-            scheduled_date = random.choice(date_range)
-            actual_date = scheduled_date + pd.to_timedelta(np.random.randint(-5, 15), unit='D')
-            category = random.choice(list(categories.keys()))
-            product_name = random.choice(categories[category])
-            current_stock = random.randint(0, 1000)
-            damaged_stock = int(current_stock * random.uniform(0.01, 0.05))  # 1-5% of stock
-            dead_stock = random.randint(0, int(current_stock * 0.3))  # Max 30% dead stock
+    synthetic_df = pd.DataFrame(synthetic_data)
+    logging.info(f"Generated {len(synthetic_df)} synthetic rows.")
 
-            synthetic_entry = {
-                "Shipment_ID": f"SHIP_{i+1}",
-                "Supplier": random.choice(suppliers),
-                "Region": random.choice(regions),
-                "Delivery_Mode": random.choice(delivery_modes),
-                "Scheduled_Delivery": scheduled_date,
-                "Actual_Delivery": actual_date,
-                "Freight_Cost": round(random.uniform(100, 1000), 2),
-                "Disruption_Type": random.choices(disruption_types, weights=[0.2, 0.3, 0.2, 0.1, 0.2])[0],
-                "Weather_Risk": round(random.uniform(0, 1), 2),
-                "Supplier_Reliability": round(random.uniform(0.7, 1.0), 2),
-                "Port_Congestion": round(random.uniform(0, 1), 2),
-                "Stockout_Risk": round(random.uniform(0, 1), 2),
-                "Recovery_Time_Days": random.randint(1, 10),
-                "Delay_Duration": max((actual_date - scheduled_date).days, 0),
-                "Product_ID": random.choice(product_ids),
-                "Product_Name": product_name,
-                "Category": category,
-                "Current_Stock": current_stock,
-                "Reorder_Level": random.randint(10, 200),
-                "Lead_Time_Days": random.randint(1, 30),
-                "Supplier_ID": random.choice(supplier_ids),
-                "Supplier_Lead_Time": random.randint(1, 15),
-                "Historical_Demand": random.randint(20, 300),
-                "Forecasted_Demand": random.randint(30, 400),
-                "Seasonality_Index": round(random.uniform(0.5, 2.0), 2),
-                "Delivery_Status": random.choice(delivery_statuses),
-                "Delay_Days": random.randint(0, 15),
-                "Weather_Conditions": random.choice(weather_conditions),
-                "Economic_Indicators": round(random.uniform(0.5, 5.0), 2),
-                "Holiday_Flag": random.choice([0, 1]),
-                "Order_Frequency": random.randint(1, 50),
-                "Batch_Size": random.randint(10, 500),
-                "Inventory_Turnover": round(random.uniform(1.0, 10.0), 2),
-                "Safety_Stock_Level": random.randint(10, 300),
-                "Dead_Stock": dead_stock,
-                "Damaged_Stock": damaged_stock
-            }
-            synthetic_data.append(synthetic_entry)
+    return pd.concat([existing_df, synthetic_df], ignore_index=True)
 
-        # Convert to DataFrame
-        combined_synthetic_data = pd.DataFrame(synthetic_data)
+def run(output_file, input_file=None, total_rows_required=100000):
+    """Run the data ingestion pipeline."""
+    setup_logging()
 
-        # Save the dataset to a CSV file
-        combined_synthetic_data.to_parquet(output_file, index=False)
-        logging.info(f"Combined synthetic dataset with {total_rows} rows has been saved as '{output_file}'.")
-        logging.info(combined_synthetic_data.info())
-    except Exception as e:
-        logging.error("An error occurred during data generation:", exc_info=True)
+    # Load existing data if provided
+    if input_file:
+        existing_data = load_existing_data(input_file)
+    else:
+        existing_data = pd.DataFrame()
 
+    # Generate synthetic data to ensure the dataset has the required rows
+    full_data = generate_additional_data(existing_data, total_rows_required=total_rows_required)
 
-if __name__ == "__main__":
-    run()
+    # Save the final dataset
+    save_data(full_data, output_file)
+
+if __name__ == '__main__':
+    run(
+        output_file="data/bronze_layer/SupplyChain_Dataset_100k.parquet",
+        input_file="dynamic_supply_chain_logistics_dataset (1).csv",
+        total_rows_required=100000
+    )
