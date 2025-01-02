@@ -8,6 +8,8 @@ import logging
 from mlflow.models.signature import infer_signature
 from datetime import datetime
 from pipelines.utils import apply_pca
+from pipelines.preprocessing_pipeline import preprocess_data
+from sklearn.preprocessing import LabelEncoder
 
 def setup_logging():
     """Setup logging configuration."""
@@ -183,6 +185,235 @@ def run_inventory_training_pipeline(
         logging.error(f"An error occurred during the training pipeline: {e}", exc_info=True)
         raise
 
+
+# def run_stock_risk_training_pipeline(
+#     data_source,
+#     target_column,
+#     n_splits=3,
+#     mlflow_experiment_name="Stock_Risk_Classification",
+#     model_params=None,
+#     num_boost_round=100,
+#     early_stopping_rounds=10
+# ):
+#     """
+#     Train a classification model for Stockout/Overstock Risk.
+
+#     Parameters:
+#     - data_source (str): Path to the input dataset file.
+#     - target_column (str): The target column for classification.
+#     - n_splits (int): Number of splits for TimeSeriesSplit.
+#     - mlflow_experiment_name (str): MLflow experiment name.
+#     - model_params (dict): LightGBM model parameters.
+#     - num_boost_round (int): Number of boosting rounds.
+#     - early_stopping_rounds (int): Early stopping rounds.
+
+#     Returns:
+#     - dict: Classification metrics for each fold.
+#     """
+#     try:
+#         logger.info("Starting Stock Risk Training Pipeline.")
+
+#         # Load dataset
+#         data = pd.read_parquet(data_source)
+#         logger.info(f"Loaded dataset with shape: {data.shape}")
+
+#         # Split features and target
+#         X = data.drop(columns=[target_column])
+#         y = data[target_column]
+
+#         # Initialize TimeSeriesSplit
+#         tscv = TimeSeriesSplit(n_splits=n_splits)
+
+#         metrics = []
+
+#         # Set MLflow experiment
+#         mlflow.set_experiment(mlflow_experiment_name)
+
+#         with mlflow.start_run():
+#             for fold, (train_idx, test_idx) in enumerate(tscv.split(X)):
+#                 X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]
+#                 y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]
+
+#                 # LightGBM datasets
+#                 train_data = lgb.Dataset(X_train, label=y_train)
+#                 test_data = lgb.Dataset(X_test, label=y_test)
+
+#                 # Default model parameters
+#                 if model_params is None:
+#                     model_params = {
+#                         "objective": "binary",
+#                         "metric": "auc",
+#                         "boosting_type": "gbdt",
+#                         "num_leaves": 31,
+#                         "learning_rate": 0.01,
+#                         "feature_fraction": 0.9,
+#                         "random_state": 42
+#                     }
+
+#                 # Train LightGBM model
+#                 model = lgb.train(
+#                     model_params,
+#                     train_data,
+#                     num_boost_round=num_boost_round,
+#                     valid_sets=[test_data],
+#                     early_stopping_rounds=early_stopping_rounds
+#                 )
+
+#                 # Predict and evaluate
+#                 y_pred = model.predict(X_test)
+#                 y_pred_binary = (y_pred > 0.5).astype(int)
+
+#                 fold_metrics = {
+#                     "accuracy": accuracy_score(y_test, y_pred_binary),
+#                     "f1_score": f1_score(y_test, y_pred_binary),
+#                     "roc_auc": roc_auc_score(y_test, y_pred)
+#                 }
+#                 metrics.append(fold_metrics)
+
+#                 logger.info(f"Fold {fold+1} Metrics: {fold_metrics}")
+
+#             # Log overall metrics to MLflow
+#             avg_metrics = {
+#                 "avg_accuracy": sum(m["accuracy"] for m in metrics) / n_splits,
+#                 "avg_f1_score": sum(m["f1_score"] for m in metrics) / n_splits,
+#                 "avg_roc_auc": sum(m["roc_auc"] for m in metrics) / n_splits
+#             }
+#             mlflow.log_metrics(avg_metrics)
+
+#         logger.info("Stock Risk Training Pipeline completed.")
+#         return metrics
+
+#     except Exception as e:
+#         logger.error(f"Error during training pipeline: {e}")
+#         raise
+
+def run_stock_risk_training_pipeline(
+    data_source,
+    target_column="Overstock_Risk",
+    n_splits=3,
+    mlflow_experiment_name="Stock_Risk_Classification",
+    model_params=None,
+    num_boost_round=100,
+    early_stopping_rounds=10
+):
+    try:
+        logging.info("Starting Stock Risk Training Pipeline.")
+
+        # Load dataset
+        data = pd.read_parquet(data_source)
+        logging.info(f"Loaded dataset with shape: {data.shape}")
+
+        # Handle missing target column
+        if target_column not in data.columns:
+            logging.info(f"Target column '{target_column}' not found, attempting to derive it.")
+            if 'Current_Stock' in data.columns and 'Reorder_Level' in data.columns:
+                data[target_column] = (data['Current_Stock'] > data['Reorder_Level']).astype(int)
+                logging.info(f"Derived '{target_column}' column successfully.")
+            else:
+                # Add placeholders for missing columns or stop execution
+                if 'Current_Stock' not in data.columns:
+                    data['Current_Stock'] = 0  # Placeholder value
+                    logging.warning("'Current_Stock' not found. Placeholder column added with default value 0.")
+                if 'Reorder_Level' not in data.columns:
+                    data['Reorder_Level'] = 0  # Placeholder value
+                    logging.warning("'Reorder_Level' not found. Placeholder column added with default value 0.")
+                data[target_column] = (data['Current_Stock'] > data['Reorder_Level']).astype(int)
+                logging.info(f"Derived '{target_column}' column with placeholder values.")
+
+        # Encode categorical columns
+        categorical_columns = data.select_dtypes(include=["object"]).columns.tolist()
+        if categorical_columns:
+            logging.info(f"Encoding categorical columns: {categorical_columns}")
+            for col in categorical_columns:
+                data[col] = LabelEncoder().fit_transform(data[col])
+            logging.info("Categorical columns encoded successfully.")
+
+        # Feature engineering for datetime columns
+        datetime_columns = data.select_dtypes(include=["datetime64"]).columns.tolist()
+        if datetime_columns:
+            logging.info(f"Processing datetime columns: {datetime_columns}")
+            for col in datetime_columns:
+                data[f"{col}_year"] = data[col].dt.year
+                data[f"{col}_month"] = data[col].dt.month
+                data[f"{col}_day"] = data[col].dt.day
+                data[f"{col}_dayofweek"] = data[col].dt.dayofweek
+                if col == "Scheduled_Delivery" and "Actual_Delivery" in data.columns:
+                    data["Delivery_Delay_Days"] = (data["Actual_Delivery"] - data["Scheduled_Delivery"]).dt.days
+            # Drop original datetime columns
+            data.drop(columns=datetime_columns, inplace=True)
+            logging.info("Datetime columns processed and removed.")
+
+        # Split features and target
+        X = data.drop(columns=[target_column])
+        y = data[target_column]
+
+        # Initialize TimeSeriesSplit with 3 folds
+        tscv = TimeSeriesSplit(n_splits=n_splits)
+
+        metrics = []
+
+        # Set MLflow experiment
+        mlflow.set_experiment(mlflow_experiment_name)
+
+        with mlflow.start_run():
+            for fold, (train_idx, test_idx) in enumerate(tscv.split(X)):
+                X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]
+                y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]
+
+                # LightGBM datasets
+                train_data = lgb.Dataset(X_train, label=y_train)
+                test_data = lgb.Dataset(X_test, label=y_test)
+
+                # Default model parameters
+                if model_params is None:
+                    model_params = {
+                        "objective": "binary",
+                        "metric": "auc",
+                        "boosting_type": "gbdt",
+                        "num_leaves": 31,
+                        "learning_rate": 0.01,
+                        "feature_fraction": 0.9,
+                        "random_state": 42,
+                        "verbosity": -1  # Suppresses verbose output
+                    }
+
+                # Train LightGBM model with early stopping
+                model = lgb.train(
+                    model_params,
+                    train_data,
+                    num_boost_round=num_boost_round,
+                    valid_sets=[test_data],
+                    callbacks=[lgb.early_stopping(early_stopping_rounds)]
+                )
+
+                # Predict and evaluate
+                y_pred = model.predict(X_test)
+                y_pred_binary = (y_pred > 0.5).astype(int)
+
+                fold_metrics = {
+                    "accuracy": accuracy_score(y_test, y_pred_binary),
+                    "f1_score": f1_score(y_test, y_pred_binary),
+                    "roc_auc": roc_auc_score(y_test, y_pred)
+                }
+                metrics.append(fold_metrics)
+
+                logging.info(f"Fold {fold+1} Metrics: {fold_metrics}")
+
+            # Log overall metrics to MLflow
+            avg_metrics = {
+                "avg_accuracy": sum(m["accuracy"] for m in metrics) / n_splits,
+                "avg_f1_score": sum(m["f1_score"] for m in metrics) / n_splits,
+                "avg_roc_auc": sum(m["roc_auc"] for m in metrics) / n_splits
+            }
+            mlflow.log_metrics(avg_metrics)
+
+        logging.info("Stock Risk Training Pipeline completed.")
+        return metrics
+
+    except Exception as e:
+        logging.error(f"Error during training pipeline: {e}")
+        raise
+        
 # Main Script
 if __name__ == "__main__":
     setup_logging()

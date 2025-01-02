@@ -73,6 +73,153 @@ def setup_logging():
 #         raise
 
 
+# def run_inventory_optimization_feature_pipeline(source, selected_columns, dest, pca_components=0.95):
+#     try:
+#         logging.info("Starting inventory optimization feature pipeline.")
+
+#         # Load dataset
+#         data = pd.read_parquet(source)
+#         logging.info(f"Columns in the dataset: {data.columns.tolist()}")
+
+#         # Select only the required columns
+#         data = data[selected_columns]
+
+#         # Remove existing PCA components to prevent duplication
+#         pca_columns = [col for col in data.columns if col.startswith("PCA_Component_")]
+#         if pca_columns:
+#             logging.info(f"Removing existing PCA components: {pca_columns}")
+#             data.drop(columns=pca_columns, inplace=True)
+
+#         # Fill missing values
+#         data.fillna(method="ffill", inplace=True)
+
+#         # Generate lagged features
+#         for lag in range(1, 8):
+#             for col in ["Supplier_Reliability", "Weather_Risk", "Port_Congestion"]:
+#                 if col in data.columns:
+#                     data[f"{col}_lag_{lag}"] = data[col].shift(lag)
+
+#         # Generate rolling mean and std features
+#         for window in [3, 7]:
+#             for col in ["Supplier_Reliability", "Weather_Risk", "Port_Congestion"]:
+#                 if col in data.columns:
+#                     data[f"{col}_rolling_mean_{window}"] = data[col].rolling(window).mean()
+#                     data[f"{col}_rolling_std_{window}"] = data[col].rolling(window).std()
+
+#         # Generate expanding mean features
+#         for col in ["Supplier_Reliability", "Weather_Risk", "Port_Congestion"]:
+#             if col in data.columns:
+#                 data[f"{col}_expanding_mean"] = data[col].expanding().mean()
+
+#         # Add derived features
+#         data["Is_Holiday"] = data["Scheduled_Delivery"].dt.weekday.isin([5, 6]).astype(int)
+#         data["Is_Weekend"] = data["Scheduled_Delivery"].dt.weekday.isin([5, 6]).astype(int)
+#         data["Is_Business_Day"] = ~data["Scheduled_Delivery"].dt.weekday.isin([5, 6]).astype(int)
+#         data["Week_Of_Year"] = data["Scheduled_Delivery"].dt.isocalendar().week
+#         data["Quarter"] = data["Scheduled_Delivery"].dt.quarter
+
+#         # Apply PCA
+#         logging.info("Applying PCA...")
+#         numeric_columns = data.select_dtypes(include=[float, int]).columns
+#         data = apply_pca(data, numeric_columns, pca_components)
+
+#         # Ensure no duplicate columns
+#         data = data.loc[:, ~data.columns.duplicated()]
+#         logging.info("Duplicate columns removed successfully.")
+
+#         # Save processed data if a destination is provided
+#         if dest:
+#             data.to_parquet(dest, index=False)
+#             logging.info(f"Processed data saved to {dest}")
+
+#         return data
+
+#     except Exception as e:
+#         logging.error(f"An error occurred during feature engineering: {e}")
+#         raise
+
+# def run_inventory_optimization_feature_pipeline(source, selected_columns, dest, pca_components=0.95):
+#     try:
+#         logging.info("Starting inventory optimization feature pipeline.")
+
+#         # Load dataset
+#         data = pd.read_parquet(source)
+#         logging.info(f"Columns in the dataset: {data.columns.tolist()}")
+
+#         # Select only the required columns
+#         data = data[selected_columns]
+
+#         # Remove existing PCA components to prevent duplication
+#         pca_columns = [col for col in data.columns if col.startswith("PCA_Component_")]
+#         if pca_columns:
+#             logging.info(f"Removing existing PCA components: {pca_columns}")
+#             data.drop(columns=pca_columns, inplace=True)
+
+#         # Fill missing values
+#         data.fillna(method="ffill", inplace=True)
+
+#         # Generate lagged features
+#         for lag in range(1, 8):
+#             for col in ["Supplier_Reliability", "Weather_Risk", "Port_Congestion", "Forecasted_Demand"]:
+#                 if col in data.columns:
+#                     data[f"{col}_lag_{lag}"] = data[col].shift(lag)
+
+#         # Generate rolling mean and std features
+#         for window in [3, 7]:
+#             for col in ["Supplier_Reliability", "Weather_Risk", "Port_Congestion", "Forecasted_Demand"]:
+#                 if col in data.columns:
+#                     data[f"{col}_rolling_mean_{window}"] = data[col].rolling(window).mean()
+#                     data[f"{col}_rolling_std_{window}"] = data[col].rolling(window).std()
+
+#         # Generate expanding mean features
+#         for col in ["Supplier_Reliability", "Weather_Risk", "Port_Congestion", "Forecasted_Demand"]:
+#             if col in data.columns:
+#                 data[f"{col}_expanding_mean"] = data[col].expanding().mean()
+
+#         # Add derived features for stockout and overstock risks
+#         if all(col in data.columns for col in ["Current_Stock", "Forecasted_Demand", "Safety_Stock_Level", "Reorder_Level"]):
+#             data["Safety_Stock_Ratio"] = data["Safety_Stock_Level"] / (data["Current_Stock"] + 1)
+#             data["Stock_Variability"] = data["Current_Stock"] - data["Forecasted_Demand"]
+#             data["Is_Understocked"] = (data["Current_Stock"] < data["Forecasted_Demand"]).astype(int)
+#             data["Is_Overstocked"] = (data["Current_Stock"] > data["Reorder_Level"] * 2).astype(int)
+
+#         # Add time-based derived features
+#         if "Scheduled_Delivery" in data.columns:
+#             data["Is_Holiday"] = data["Scheduled_Delivery"].dt.weekday.isin([5, 6]).astype(int)
+#             data["Is_Weekend"] = data["Scheduled_Delivery"].dt.weekday.isin([5, 6]).astype(int)
+#             data["Is_Business_Day"] = (~data["Scheduled_Delivery"].dt.weekday.isin([5, 6])).astype(int)
+#             data["Week_Of_Year"] = data["Scheduled_Delivery"].dt.isocalendar().week
+#             data["Quarter"] = data["Scheduled_Delivery"].dt.quarter
+
+#         # Drop rows with NaN values introduced by lagging or rolling
+#         data.dropna(inplace=True)
+
+#         # Normalize numeric columns
+#         numeric_columns = data.select_dtypes(include=[float, int]).columns
+#         scaler = MinMaxScaler()
+#         data[numeric_columns] = scaler.fit_transform(data[numeric_columns])
+
+#         # Apply PCA
+#         logging.info("Applying PCA...")
+#         data = apply_pca(data, numeric_columns, pca_components)
+
+#         # Ensure no duplicate columns
+#         data = data.loc[:, ~data.columns.duplicated()]
+#         logging.info("Duplicate columns removed successfully.")
+
+#         # Save processed data if a destination is provided
+#         if dest:
+#             data.to_parquet(dest, index=False)
+#             logging.info(f"Processed data saved to {dest}")
+
+#         logging.info("Inventory optimization feature pipeline completed.")
+#         return data
+
+#     except Exception as e:
+#         logging.error(f"An error occurred during feature engineering: {e}")
+#         raise
+
+
 def run_inventory_optimization_feature_pipeline(source, selected_columns, dest, pca_components=0.95):
     try:
         logging.info("Starting inventory optimization feature pipeline.")
@@ -93,30 +240,9 @@ def run_inventory_optimization_feature_pipeline(source, selected_columns, dest, 
         # Fill missing values
         data.fillna(method="ffill", inplace=True)
 
-        # Generate lagged features
-        for lag in range(1, 8):
-            for col in ["Supplier_Reliability", "Weather_Risk", "Port_Congestion"]:
-                if col in data.columns:
-                    data[f"{col}_lag_{lag}"] = data[col].shift(lag)
-
-        # Generate rolling mean and std features
-        for window in [3, 7]:
-            for col in ["Supplier_Reliability", "Weather_Risk", "Port_Congestion"]:
-                if col in data.columns:
-                    data[f"{col}_rolling_mean_{window}"] = data[col].rolling(window).mean()
-                    data[f"{col}_rolling_std_{window}"] = data[col].rolling(window).std()
-
-        # Generate expanding mean features
-        for col in ["Supplier_Reliability", "Weather_Risk", "Port_Congestion"]:
-            if col in data.columns:
-                data[f"{col}_expanding_mean"] = data[col].expanding().mean()
-
-        # Add derived features
-        data["Is_Holiday"] = data["Scheduled_Delivery"].dt.weekday.isin([5, 6]).astype(int)
-        data["Is_Weekend"] = data["Scheduled_Delivery"].dt.weekday.isin([5, 6]).astype(int)
-        data["Is_Business_Day"] = ~data["Scheduled_Delivery"].dt.weekday.isin([5, 6]).astype(int)
-        data["Week_Of_Year"] = data["Scheduled_Delivery"].dt.isocalendar().week
-        data["Quarter"] = data["Scheduled_Delivery"].dt.quarter
+        # Compute Stockout Risk
+        if 'Current_Stock' in data.columns and 'Forecasted_Demand' in data.columns:
+            data['Stockout_Risk'] = (data['Current_Stock'] < data['Forecasted_Demand']).astype(int)
 
         # Apply PCA
         logging.info("Applying PCA...")
