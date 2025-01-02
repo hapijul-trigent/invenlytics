@@ -30,15 +30,11 @@ if __name__ == '__main__':
         data_source="data/gold_layer/SupplyChain_Invetory_Dataset.parquet",
         target_column='Historical_Demand',
     )
-    training_pipeline.run_stock_risk_training_pipeline(
-    data_source="data/gold_layer/SupplyChain_Inventory_Dataset.parquet",
-    target_column="Stockout_Risk"
+    training_pipeline.run_stockout_risk_training_pipeline(
+    data_source="data/gold_layer/SupplyChain_Invetory_Dataset.parquet",
+    target_column='Stockout_Risk'
     )
-    # training_pipeline.run_stock_risk_training_pipeline(
-    # data_source="data/gold_layer/SupplyChain_Invetory_Dataset.parquet",
-    # target_column='Stockout_Risk'
-    # )
-    training_pipeline.run_stock_risk_training_pipeline(
+    training_pipeline.run_overstock_risk_training_pipeline(
     data_source="data/gold_layer/SupplyChain_Invetory_Dataset.parquet",
     target_column='Overstock_Risk'
     )
