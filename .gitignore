@@ -1,2 +1,5 @@
 mlruns
 *.py[cx]
+data/silver_layer
+data/gold_layer
+artifacts_*

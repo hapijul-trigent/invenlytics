@@ -1,0 +1,117 @@
+2025-01-03 07:04:11,945 - INFO - Starting preprocessing pipeline.
+2025-01-03 07:04:12,047 - ERROR - An error occurred during preprocessing: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/v2/feature_pipeline.py", line 37, in run_supplychain_disruption_feature_pipeline
+    data = data[selected_columns]
+           ~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+2025-01-03 07:04:12,052 - CRITICAL - Pipeline execution failed: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+2025-01-03 07:05:07,816 - INFO - Starting preprocessing pipeline.
+2025-01-03 07:05:07,872 - ERROR - An error occurred during preprocessing: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/v2/feature_pipeline.py", line 37, in run_supplychain_disruption_feature_pipeline
+    data = data[selected_columns]
+           ~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+2025-01-03 07:05:07,877 - CRITICAL - Pipeline execution failed: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+2025-01-03 07:06:03,891 - INFO - Starting preprocessing pipeline.
+2025-01-03 07:06:03,947 - ERROR - An error occurred during preprocessing: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/v2/feature_pipeline.py", line 37, in run_supplychain_disruption_feature_pipeline
+    data = data[selected_columns]
+           ~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+2025-01-03 07:06:03,950 - CRITICAL - Pipeline execution failed: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+2025-01-03 07:06:36,770 - INFO - Starting preprocessing pipeline.
+2025-01-03 07:06:36,917 - INFO - None
+2025-01-03 07:06:36,918 - ERROR - An error occurred during preprocessing: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/v2/feature_pipeline.py", line 38, in run_supplychain_disruption_feature_pipeline
+    data = data[selected_columns]
+           ~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+2025-01-03 07:06:36,926 - CRITICAL - Pipeline execution failed: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+2025-01-03 07:08:07,532 - INFO - Starting preprocessing pipeline.
+2025-01-03 07:08:07,630 - INFO - None
+2025-01-03 07:08:07,630 - ERROR - An error occurred during preprocessing: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/v2/feature_pipeline.py", line 38, in run_supplychain_disruption_feature_pipeline
+    data = data[selected_columns]
+           ~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+2025-01-03 07:08:07,634 - CRITICAL - Pipeline execution failed: "['Traffic_Congestion_Level', 'Port_Congestion_Level', 'Fuel_Consumption_Rate', 'Driver_Behavior_Score', 'Fatigue_Monitoring_Score', 'Supplier_Reliability_Score'] not in index"
+2025-01-03 07:09:37,847 - INFO - Starting preprocessing pipeline.
+2025-01-03 07:09:37,934 - INFO - None
+2025-01-03 07:09:37,935 - ERROR - An error occurred during preprocessing: "['port_pongestion_level'] not in index"
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/v2/feature_pipeline.py", line 38, in run_supplychain_disruption_feature_pipeline
+    data = data[selected_columns]
+           ~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['port_pongestion_level'] not in index"
+2025-01-03 07:09:37,938 - CRITICAL - Pipeline execution failed: "['port_pongestion_level'] not in index"
+2025-01-03 07:11:51,833 - INFO - Starting preprocessing pipeline.
+2025-01-03 07:11:51,948 - INFO - None
+2025-01-03 07:11:51,989 - INFO - Dataset loaded successfully. None
+2025-01-03 07:11:52,022 - INFO - Target encoding completed.
+2025-01-03 07:11:52,084 - INFO - Categorical encoding completed.
+2025-01-03 07:11:52,125 - INFO - Holiday-related features created.
+2025-01-03 07:11:52,147 - INFO - Normalization completed.
+2025-01-03 07:11:52,185 - INFO - Rolling and expanding features generated.
+2025-01-03 07:11:52,198 - INFO - Lag features generated.
+2025-01-03 07:11:52,230 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-03 07:11:52,406 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-03 07:11:52,407 - INFO - Feature pipeline executed successfully.
+2025-01-03 08:53:40,378 - INFO - Starting preprocessing pipeline.
+2025-01-03 08:53:40,693 - INFO - None
+2025-01-03 08:53:40,750 - INFO - Dataset loaded successfully. None
+2025-01-03 08:53:40,796 - INFO - Target encoding completed.
+2025-01-03 08:53:40,856 - INFO - Categorical encoding completed.
+2025-01-03 08:53:40,899 - INFO - Holiday-related features created.
+2025-01-03 08:53:40,914 - INFO - Normalization completed.
+2025-01-03 08:53:40,936 - INFO - Rolling and expanding features generated.
+2025-01-03 08:53:40,946 - INFO - Lag features generated.
+2025-01-03 08:53:40,987 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-03 08:53:41,157 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-03 08:53:41,157 - INFO - Feature pipeline executed successfully.

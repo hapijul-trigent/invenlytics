@@ -112,3 +112,31 @@ FileNotFoundError: [Errno 2] No such file or directory: 'data/silver_layer/Suppl
 2024-12-20 08:26:16,810 - INFO - Fold 1 metrics logged.
 2024-12-20 08:26:22,809 - INFO - Fold 2 metrics logged.
 2024-12-20 08:26:30,185 - INFO - Fold 3 metrics logged.
+2025-01-03 06:27:48,500 - INFO - Starting the data augmentation process.
+2025-01-03 06:27:48,654 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-03 06:27:48,654 - INFO - Adding new columns and generating additional rows...
+2025-01-03 06:27:48,677 - INFO - Generating 67935 additional rows...
+2025-01-03 06:28:40,995 - INFO - Additional rows and columns added successfully.
+2025-01-03 06:28:41,208 - INFO - Updated dataset saved to /workspaces/invenlytics/data/bronze_layer/preprocessed_dynamic_supply_chain_logistics_dataset.parquet
+2025-01-03 06:28:50,741 - INFO - Starting the data augmentation process.
+2025-01-03 06:28:50,880 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-03 06:28:50,880 - INFO - Adding new columns and generating additional rows...
+2025-01-03 06:28:50,901 - INFO - Generating 67935 additional rows...
+2025-01-03 06:29:47,008 - INFO - Additional rows and columns added successfully.
+2025-01-03 06:29:47,168 - INFO - Updated dataset saved to /workspaces/invenlytics/data/silver_layer/preprocessed_dynamic_supply_chain_logistics_dataset.parquet
+2025-01-03 06:33:10,353 - INFO - Starting the data augmentation process.
+2025-01-03 06:33:10,501 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-03 06:33:10,501 - INFO - Adding new columns and generating additional rows...
+2025-01-03 06:33:10,502 - INFO - Generating 'Supplier' column
+2025-01-03 06:33:10,505 - INFO - Generating 'Region' column
+2025-01-03 06:33:10,523 - INFO - Generating 67935 additional rows...
+2025-01-03 06:34:04,932 - INFO - Additional rows and columns added successfully.
+2025-01-03 06:34:05,121 - INFO - Updated dataset saved to /workspaces/invenlytics/data/silver_layer/preprocessed_dynamic_supply_chain_logistics_dataset.parquet
+2025-01-03 06:41:46,703 - INFO - Starting the data augmentation process.
+2025-01-03 06:41:46,849 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-03 06:41:46,850 - INFO - Adding new columns and generating additional rows...
+2025-01-03 06:41:46,850 - INFO - Generating 'Supplier' column
+2025-01-03 06:41:46,853 - INFO - Generating 'Region' column
+2025-01-03 06:41:46,870 - INFO - Generating 67935 additional rows...
+2025-01-03 06:42:39,643 - INFO - Additional rows and columns added successfully.
+2025-01-03 06:42:39,865 - INFO - Updated dataset saved to /workspaces/invenlytics/data/silver_layer/preprocessed_dynamic_supply_chain_logistics_dataset.parquet
