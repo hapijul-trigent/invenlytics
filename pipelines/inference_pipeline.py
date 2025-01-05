@@ -36,28 +36,57 @@ def validate_data(df, expected_columns):
 import tempfile
 import os
 
+# def preprocess_data(df, pipeline):
+#     """
+#     Apply the inventory optimization feature pipeline for preprocessing.
+#     """
+#     logger.info("Running inventory feature pipeline...")
+#     try:
+#         # Save the DataFrame to a temporary file
+#         with tempfile.NamedTemporaryFile(suffix=".parquet", delete=False) as temp_file:
+#             temp_file_path = temp_file.name
+#             df.to_parquet(temp_file_path)
+#             logger.info(f"Temporary file created at {temp_file_path}.")
+
+#         # Call the feature pipeline
+#         processed_df = pipeline.run_inventory_optimization_feature_pipeline(
+#             source=temp_file_path,
+#             selected_columns=df.columns.tolist(),
+#             dest=None  # Process in-memory
+#         )
+
+#         logger.info("Feature pipeline applied successfully.")
+
+#         # Clean up the temporary file
+#         os.remove(temp_file_path)
+#         logger.info("Temporary file removed.")
+
+#         return processed_df
+#     except Exception as e:
+#         logger.error(f"Feature pipeline preprocessing failed. Error: {e}")
+#         raise
+
 def preprocess_data(df, pipeline):
     """
     Apply the inventory optimization feature pipeline for preprocessing.
     """
     logger.info("Running inventory feature pipeline...")
     try:
-        # Save the DataFrame to a temporary file
         with tempfile.NamedTemporaryFile(suffix=".parquet", delete=False) as temp_file:
             temp_file_path = temp_file.name
             df.to_parquet(temp_file_path)
             logger.info(f"Temporary file created at {temp_file_path}.")
 
-        # Call the feature pipeline
         processed_df = pipeline.run_inventory_optimization_feature_pipeline(
             source=temp_file_path,
             selected_columns=df.columns.tolist(),
-            dest=None  # Process in-memory
+            dest=None
         )
 
-        logger.info("Feature pipeline applied successfully.")
+        # Remove duplicate columns
+        processed_df = processed_df.loc[:, ~processed_df.columns.duplicated()]
+        logger.info("Duplicate columns removed from the processed DataFrame.")
 
-        # Clean up the temporary file
         os.remove(temp_file_path)
         logger.info("Temporary file removed.")
 

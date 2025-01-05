@@ -1,0 +1,6 @@
+2025-01-02 08:25:39,261 - INFO - Starting the data augmentation process.
+2025-01-02 08:25:39,405 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-02 08:25:39,406 - INFO - Adding new columns and generating additional rows...
+2025-01-02 08:25:39,431 - INFO - Generating 67935 additional rows...
+2025-01-02 08:26:27,343 - INFO - Additional rows and columns added successfully.
+2025-01-02 08:26:27,534 - INFO - Updated dataset saved to data/bronze_layer/Updated_SupplyChain_Dataset.parquet
