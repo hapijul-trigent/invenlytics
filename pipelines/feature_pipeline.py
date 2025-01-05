@@ -274,14 +274,14 @@ def run_inventory_optimization_feature_pipeline(source, selected_columns, dest, 
         # Lagged and Rolling Features
         lag_steps = [3, 7, 14]
         for lag in lag_steps:
-            data[f"Demand_Lag_{lag}"] = data["Historical_Demand"].shift(lag)
+            data[f"Demand_Lag_{lag}"] = data["historical_demand"].shift(lag)
         rolling_windows = [3, 7]
         for window in rolling_windows:
-            data[f"Demand_Rolling_Mean_{window}"] = data["Historical_Demand"].rolling(window=window).mean()
-            data[f"Demand_Rolling_Std_{window}"] = data["Historical_Demand"].rolling(window=window).std()
+            data[f"Demand_Rolling_Mean_{window}"] = data["historical_demand"].rolling(window=window).mean()
+            data[f"Demand_Rolling_Std_{window}"] = data["historical_demand"].rolling(window=window).std()
 
         # Additional Features
-        data["Demand_EWA"] = data["Historical_Demand"].ewm(span=5).mean()
+        data["Demand_EWA"] = data["historical_demand"].ewm(span=5).mean()
 
         # Drop rows with NaN values introduced by lagging or rolling
         data.dropna(inplace=True)
