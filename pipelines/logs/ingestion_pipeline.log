@@ -4,3 +4,63 @@
 2025-01-02 08:25:39,431 - INFO - Generating 67935 additional rows...
 2025-01-02 08:26:27,343 - INFO - Additional rows and columns added successfully.
 2025-01-02 08:26:27,534 - INFO - Updated dataset saved to data/bronze_layer/Updated_SupplyChain_Dataset.parquet
+2025-01-09 08:42:15,569 - INFO - Starting the data augmentation process.
+2025-01-09 08:42:15,570 - ERROR - An error occurred during the pipeline execution:
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/ingestion_pippeline.py", line 240, in run
+    existing_df = pd.read_csv(input_file)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/dynamic_supply_chain_logistics_dataset (1) (1).csv'
+2025-01-09 08:45:19,519 - INFO - Starting the data augmentation process.
+2025-01-09 08:45:19,520 - ERROR - An error occurred during the pipeline execution:
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/ingestion_pippeline.py", line 240, in run
+    existing_df = pd.read_csv(input_file)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'dynamic_supply_chain_logistics_dataset (1) (1).csv'
+2025-01-09 08:45:43,946 - INFO - Starting the data augmentation process.
+2025-01-09 08:45:44,100 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-09 08:45:44,100 - INFO - Adding new columns and generating additional rows...
+2025-01-09 08:45:44,134 - INFO - Generating 67935 additional rows...
+2025-01-09 08:46:35,827 - INFO - Generating Historical_Demand column...
+2025-01-09 08:46:35,835 - INFO - Historical_Demand column generated successfully.
+2025-01-09 08:46:35,836 - INFO - Additional rows and columns added successfully.
+2025-01-09 08:46:36,060 - INFO - Updated dataset saved to data/bronze_layer/inventory_data.parquet
+2025-01-09 08:47:40,478 - INFO - Starting the data augmentation process.
+2025-01-09 08:47:40,618 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-09 08:47:40,619 - INFO - Adding new columns and generating additional rows...
+2025-01-09 08:47:40,662 - INFO - Generating 67935 additional rows...
+2025-01-09 08:48:32,265 - INFO - Generating Historical_Demand column...
+2025-01-09 08:48:32,274 - INFO - Historical_Demand column generated successfully.
+2025-01-09 08:48:32,275 - INFO - Additional rows and columns added successfully.
+2025-01-09 08:48:32,479 - INFO - Updated dataset saved to /workspaces/invenlytics/data/bronze_layer/inventory_data.parquet
