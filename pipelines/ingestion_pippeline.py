@@ -1,116 +1,116 @@
-# import pandas as pd
-# import numpy as np
-# import random
-# import logging
-# from datetime import timedelta
+import pandas as pd
+import numpy as np
+import random
+import logging
+from datetime import timedelta
 
-# def setup_logging():
-#     """Setup logging configuration."""
-#     logging.basicConfig(
-#         level=logging.INFO,
-#         format='%(asctime)s - %(levelname)s - %(message)s',
-#         handlers=[
-#             logging.FileHandler("logs/ingestion_pipeline.log"),
-#             logging.StreamHandler()
-#         ]
-#     )
+def setup_logging():
+    """Setup logging configuration."""
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler("logs/ingestion_pipeline.log"),
+            logging.StreamHandler()
+        ]
+    )
 
-# def generate_additional_data(existing_df, total_rows_required=100000):
-#     """
-#     Add new columns and generate additional rows to reach the required total rows.
+def generate_additional_data(existing_df, total_rows_required=100000):
+    """
+    Add new columns and generate additional rows to reach the required total rows.
 
-#     Parameters:
-#         existing_df (pd.DataFrame): The existing dataset.
-#         total_rows_required (int): The total number of rows required.
+    Parameters:
+        existing_df (pd.DataFrame): The existing dataset.
+        total_rows_required (int): The total number of rows required.
 
-#     Returns:
-#         pd.DataFrame: A dataframe with new columns and rows.
-#     """
-#     logging.info("Adding new columns and generating additional rows...")
+    Returns:
+        pd.DataFrame: A dataframe with new columns and rows.
+    """
+    logging.info("Adding new columns and generating additional rows...")
 
-#     # Number of additional rows needed
-#     additional_rows_needed = total_rows_required - len(existing_df)
+    # Number of additional rows needed
+    additional_rows_needed = total_rows_required - len(existing_df)
 
-#     # New columns to be added
-#     suppliers = ['Alibaba', 'H&M', 'IKEA', 'Wrogn']
-#     delivery_modes = ['Air', 'Sea', 'Road', 'Rail']
-#     disruption_types = ['Weather', 'Supplier Issue', 'Logistics', 'Geopolitical', 'None']
-#     regions = ['North America', 'Europe', 'Asia', 'South America']
-#     weather_conditions = ['Sunny', 'Rainy', 'Snowy', 'Cloudy']
+    # New columns to be added
+    suppliers = ['Alibaba', 'H&M', 'IKEA', 'Wrogn']
+    delivery_modes = ['Air', 'Sea', 'Road', 'Rail']
+    disruption_types = ['Weather', 'Supplier Issue', 'Logistics', 'Geopolitical', 'None']
+    regions = ['North America', 'Europe', 'Asia', 'South America']
+    weather_conditions = ['Sunny', 'Rainy', 'Snowy', 'Cloudy']
 
-#     # Add new columns for existing rows if they don't exist
-#     if 'Supplier' not in existing_df.columns:
-#         existing_df['Supplier'] = np.random.choice(suppliers, len(existing_df))
-#     if 'Region' not in existing_df.columns:
-#         existing_df['Region'] = np.random.choice(regions, len(existing_df))
-#     if 'Delivery_Mode' not in existing_df.columns:
-#         existing_df['Delivery_Mode'] = np.random.choice(delivery_modes, len(existing_df))
-#     if 'Disruption_Type' not in existing_df.columns:
-#         existing_df['Disruption_Type'] = np.random.choice(disruption_types, len(existing_df))
-#     if 'Weather_Conditions' not in existing_df.columns:
-#         existing_df['Weather_Conditions'] = np.random.choice(weather_conditions, len(existing_df))
-#     if 'Scheduled_Delivery' not in existing_df.columns:
-#         existing_df['Scheduled_Delivery'] = pd.to_datetime('2024-01-01') + pd.to_timedelta(np.random.randint(1, 10, len(existing_df)), unit='D')
-#     if 'Actual_Delivery' not in existing_df.columns:
-#         existing_df['Actual_Delivery'] = existing_df['Scheduled_Delivery'] + pd.to_timedelta(np.random.randint(-5, 15, len(existing_df)), unit='D')
-#     if 'Freight_Cost' not in existing_df.columns:
-#         existing_df['Freight_Cost'] = np.round(np.random.uniform(100, 1000, len(existing_df)), 2)
+    # Add new columns for existing rows if they don't exist
+    if 'Supplier' not in existing_df.columns:
+        existing_df['Supplier'] = np.random.choice(suppliers, len(existing_df))
+    if 'Region' not in existing_df.columns:
+        existing_df['Region'] = np.random.choice(regions, len(existing_df))
+    if 'Delivery_Mode' not in existing_df.columns:
+        existing_df['Delivery_Mode'] = np.random.choice(delivery_modes, len(existing_df))
+    if 'Disruption_Type' not in existing_df.columns:
+        existing_df['Disruption_Type'] = np.random.choice(disruption_types, len(existing_df))
+    if 'Weather_Conditions' not in existing_df.columns:
+        existing_df['Weather_Conditions'] = np.random.choice(weather_conditions, len(existing_df))
+    if 'Scheduled_Delivery' not in existing_df.columns:
+        existing_df['Scheduled_Delivery'] = pd.to_datetime('2024-01-01') + pd.to_timedelta(np.random.randint(1, 10, len(existing_df)), unit='D')
+    if 'Actual_Delivery' not in existing_df.columns:
+        existing_df['Actual_Delivery'] = existing_df['Scheduled_Delivery'] + pd.to_timedelta(np.random.randint(-5, 15, len(existing_df)), unit='D')
+    if 'Freight_Cost' not in existing_df.columns:
+        existing_df['Freight_Cost'] = np.round(np.random.uniform(100, 1000, len(existing_df)), 2)
 
-#     # Generate additional rows if needed
-#     synthetic_data = []
-#     if additional_rows_needed > 0:
-#         logging.info(f"Generating {additional_rows_needed} additional rows...")
-#         for i in range(additional_rows_needed):
-#             synthetic_data.append({
-#                 "Supplier": np.random.choice(suppliers),
-#                 "Region": np.random.choice(regions),
-#                 "Delivery_Mode": np.random.choice(delivery_modes),
-#                 "Disruption_Type": np.random.choice(disruption_types),
-#                 "Weather_Conditions": np.random.choice(weather_conditions),
-#                 "Scheduled_Delivery": pd.to_datetime('2024-01-01') + timedelta(days=random.randint(1, 10)),
-#                 "Actual_Delivery": pd.to_datetime('2024-01-01') + timedelta(days=random.randint(5, 15)),
-#                 "Freight_Cost": round(random.uniform(100, 1000), 2)
-#             })
+    # Generate additional rows if needed
+    synthetic_data = []
+    if additional_rows_needed > 0:
+        logging.info(f"Generating {additional_rows_needed} additional rows...")
+        for i in range(additional_rows_needed):
+            synthetic_data.append({
+                "Supplier": np.random.choice(suppliers),
+                "Region": np.random.choice(regions),
+                "Delivery_Mode": np.random.choice(delivery_modes),
+                "Disruption_Type": np.random.choice(disruption_types),
+                "Weather_Conditions": np.random.choice(weather_conditions),
+                "Scheduled_Delivery": pd.to_datetime('2024-01-01') + timedelta(days=random.randint(1, 10)),
+                "Actual_Delivery": pd.to_datetime('2024-01-01') + timedelta(days=random.randint(5, 15)),
+                "Freight_Cost": round(random.uniform(100, 1000), 2)
+            })
 
-#     synthetic_df = pd.DataFrame(synthetic_data)
-#     existing_df = pd.concat([existing_df, synthetic_df], ignore_index=True)
+    synthetic_df = pd.DataFrame(synthetic_data)
+    existing_df = pd.concat([existing_df, synthetic_df], ignore_index=True)
 
-#     logging.info("Additional rows and columns added successfully.")
-#     return existing_df
+    logging.info("Additional rows and columns added successfully.")
+    return existing_df
 
-# def run(input_file, output_file, total_rows=100000):
-#     """
-#     Main function to load existing data, augment it with new rows and columns, and save it as Parquet.
+def run(input_file, output_file, total_rows=100000):
+    """
+    Main function to load existing data, augment it with new rows and columns, and save it as Parquet.
 
-#     Parameters:
-#         input_file (str): Path to the existing dataset (CSV format).
-#         output_file (str): Path to save the updated dataset (Parquet format).
-#         total_rows (int): Total number of rows required in the dataset.
+    Parameters:
+        input_file (str): Path to the existing dataset (CSV format).
+        output_file (str): Path to save the updated dataset (Parquet format).
+        total_rows (int): Total number of rows required in the dataset.
 
-#     Returns:
-#         None
-#     """
-#     try:
-#         logging.info("Starting the data augmentation process.")
+    Returns:
+        None
+    """
+    try:
+        logging.info("Starting the data augmentation process.")
 
-#         # Load existing dataset
-#         existing_df = pd.read_csv(input_file)
-#         logging.info(f"Loaded existing dataset with {len(existing_df)} rows.")
+        # Load existing dataset
+        existing_df = pd.read_csv(input_file)
+        logging.info(f"Loaded existing dataset with {len(existing_df)} rows.")
 
-#         # Generate augmented dataset
-#         updated_df = generate_additional_data(existing_df, total_rows_required=total_rows)
+        # Generate augmented dataset
+        updated_df = generate_additional_data(existing_df, total_rows_required=total_rows)
 
-#         # Validate row count
-#         if len(updated_df) != total_rows:
-#             raise ValueError(f"Dataset row count mismatch: Expected {total_rows}, but got {len(updated_df)}")
+        # Validate row count
+        if len(updated_df) != total_rows:
+            raise ValueError(f"Dataset row count mismatch: Expected {total_rows}, but got {len(updated_df)}")
 
-#         # Save to Parquet
-#         updated_df.to_parquet(output_file, index=False)
-#         logging.info(f"Updated dataset saved to {output_file}")
-#         return updated_df
+        # Save to Parquet
+        updated_df.to_parquet(output_file, index=False)
+        logging.info(f"Updated dataset saved to {output_file}")
+        return updated_df
 
-#     except Exception as e:
-#         logging.error("An error occurred during the pipeline execution:", exc_info=True)
+    except Exception as e:
+        logging.error("An error occurred during the pipeline execution:", exc_info=True)
 
 
 import pandas as pd
@@ -249,6 +249,7 @@ def run(input_file, output_file, total_rows=100000):
 
         # Save to Parquet
         updated_df.to_parquet(output_file, index=False)
+        updated_df.dropna(inplace=True)
         logging.info(f"Updated dataset saved to {output_file}")
         return updated_df
 
@@ -265,3 +266,101 @@ if __name__ == "__main__":
 
     # Run the pipeline
     run(input_file=input_csv_path, output_file=output_parquet_path, total_rows=100000)
+
+
+# import pandas as pd
+# import numpy as np
+# import random
+# import logging
+# from datetime import timedelta
+
+# def setup_logging():
+#     """Setup logging configuration."""
+#     logging.basicConfig(
+#         level=logging.INFO,
+#         format='%(asctime)s - %(levelname)s - %(message)s',
+#         handlers=[
+#             logging.FileHandler("logs/ingestion_pipeline.log"),
+#             logging.StreamHandler()
+#         ]
+#     )
+
+# def generate_synthetic_data(existing_df, additional_rows_needed):
+#     """
+#     Generate synthetic rows based on the existing data patterns.
+
+#     Parameters:
+#         existing_df (pd.DataFrame): The existing dataset.
+#         additional_rows_needed (int): Number of rows to generate.
+
+#     Returns:
+#         pd.DataFrame: The synthetic data as a DataFrame.
+#     """
+#     logging.info(f"Generating {additional_rows_needed} synthetic rows...")
+#     synthetic_data = []
+
+#     for _ in range(additional_rows_needed):
+#         synthetic_row = {}
+#         for column in existing_df.columns:
+#             if existing_df[column].dtype == 'object':  # Categorical or datetime-like
+#                 if column == 'timestamp':
+#                     max_timestamp = pd.to_datetime(existing_df['timestamp']).max()
+#                     synthetic_row[column] = max_timestamp + timedelta(hours=random.randint(1, 24))
+#                 else:
+#                     synthetic_row[column] = random.choice(existing_df[column].dropna().unique())
+#             elif np.issubdtype(existing_df[column].dtype, np.number):  # Numeric
+#                 synthetic_row[column] = np.random.normal(existing_df[column].mean(), existing_df[column].std())
+#             else:
+#                 synthetic_row[column] = None  # Handle any unexpected types
+#         synthetic_data.append(synthetic_row)
+
+#     synthetic_df = pd.DataFrame(synthetic_data)
+#     logging.info("Synthetic data generation completed.")
+#     return synthetic_df
+
+# def run(input_file, output_file, total_rows=100000):
+#     """
+#     Main function to generate synthetic data and augment the dataset.
+#     """
+#     try:
+#         logging.info("Starting the data augmentation process...")
+
+#         # Load existing dataset
+#         existing_df = pd.read_csv(input_file)
+#         logging.info(f"Loaded dataset with {len(existing_df)} rows.")
+
+#         # Calculate additional rows needed
+#         additional_rows_needed = total_rows - len(existing_df)
+
+#         if additional_rows_needed > 0:
+#             # Generate synthetic rows
+#             synthetic_df = generate_synthetic_data(existing_df, additional_rows_needed)
+#             updated_df = pd.concat([existing_df, synthetic_df], ignore_index=True)
+#         else:
+#             logging.info("No additional rows needed.")
+#             updated_df = existing_df
+
+#         # Ensure timestamp column is datetime before saving
+#         if 'timestamp' in updated_df.columns:
+#             updated_df['timestamp'] = pd.to_datetime(updated_df['timestamp'], errors='coerce')
+
+#         # Validate row count
+#         if len(updated_df) != total_rows:
+#             raise ValueError(f"Row count mismatch: Expected {total_rows}, but got {len(updated_df)} rows.")
+
+#         # Save to Parquet
+#         updated_df.to_parquet(output_file, index=False)
+#         logging.info(f"Dataset saved successfully to {output_file}.")
+
+#     except Exception as e:
+#         logging.error("An error occurred during pipeline execution.", exc_info=True)
+
+# # if __name__ == "__main__":
+# #     setup_logging()
+
+# #     # Define file paths
+# #     input_csv_path = "/workspaces/invenlytics/dynamic_supply_chain_logistics_dataset (1) (1).csv"
+# #     output_parquet_path = "/workspaces/invenlytics/data/bronze_layer/synthetically_augmented_data.parquet"
+
+# #     # Run the pipeline
+# #     run(input_file=input_csv_path, output_file=output_parquet_path, total_rows=50000)

@@ -1,0 +1,20 @@
+2025-01-10 08:10:52,262 - INFO - Loading dataset from /workspaces/invenlytics/data/bronze_layer/supply_chain_datageneration.parquet.
+2025-01-10 08:10:55,317 - INFO - Dataset loaded successfully.
+2025-01-10 08:10:55,685 - INFO - Missing values handled.
+2025-01-10 08:10:55,712 - INFO - Converted required columns to datetime.
+2025-01-10 08:10:55,844 - INFO - Duplicate rows removed. 0 rows dropped.
+2025-01-10 08:10:55,870 - INFO - Validated 'Scheduled_Delivery' column. 100000 rows retained.
+2025-01-10 08:10:56,036 - INFO - Categorical variables encoded.
+2025-01-10 08:10:56,149 - INFO - Cleaned dataset saved to /workspaces/invenlytics/data/silver_layer/preprocessed_supply_chain_preprocessed_file.parquet.
+2025-01-10 08:10:56,166 - INFO - None
+2025-01-10 08:12:14,278 - INFO - Loading dataset from /workspaces/invenlytics/data/bronze_layer/supply_chain_datageneration.parquet.
+2025-01-10 08:12:14,352 - INFO - Dataset loaded successfully.
+2025-01-10 08:12:14,353 - INFO - Initial columns: ['timestamp', 'vehicle_gps_latitude', 'vehicle_gps_longitude', 'fuel_consumption_rate', 'eta_variation_hours', 'traffic_congestion_level', 'warehouse_inventory_level', 'loading_unloading_time', 'handling_equipment_availability', 'order_fulfillment_status', 'weather_condition_severity', 'port_congestion_level', 'shipping_costs', 'supplier_reliability_score', 'lead_time_days', 'iot_temperature', 'cargo_condition_status', 'route_risk_level', 'customs_clearance_time', 'driver_behavior_score', 'fatigue_monitoring_score', 'disruption_likelihood_score', 'delay_probability', 'risk_classification', 'delivery_time_deviation', 'Supplier', 'Region', 'Delivery_Mode', 'Disruption_Type', 'Weather_Conditions', 'Scheduled_Delivery', 'Actual_Delivery', 'Freight_Cost', 'Historical_Demand']
+2025-01-10 08:12:14,457 - INFO - Missing values handled.
+2025-01-10 08:12:14,557 - INFO - 'timestamp' column converted to datetime.
+2025-01-10 08:12:14,573 - INFO - Converted required columns to datetime.
+2025-01-10 08:12:14,667 - INFO - Duplicate rows removed. 0 rows dropped.
+2025-01-10 08:12:14,692 - INFO - Validated 'Scheduled_Delivery' column. 100000 rows retained.
+2025-01-10 08:12:14,766 - INFO - Categorical variables encoded.
+2025-01-10 08:12:14,879 - INFO - Cleaned dataset saved to /workspaces/invenlytics/data/silver_layer/preprocessed_supply_chain_preprocessed_file.parquet.
+2025-01-10 08:12:14,886 - INFO - None

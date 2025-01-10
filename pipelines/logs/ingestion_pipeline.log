@@ -64,3 +64,73 @@ FileNotFoundError: [Errno 2] No such file or directory: 'dynamic_supply_chain_lo
 2025-01-09 08:48:32,274 - INFO - Historical_Demand column generated successfully.
 2025-01-09 08:48:32,275 - INFO - Additional rows and columns added successfully.
 2025-01-09 08:48:32,479 - INFO - Updated dataset saved to /workspaces/invenlytics/data/bronze_layer/inventory_data.parquet
+2025-01-10 04:56:15,550 - INFO - Starting the data augmentation process...
+2025-01-10 04:56:15,551 - ERROR - An error occurred during pipeline execution.
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/ingestion_pippeline.py", line 333, in run
+    existing_df = pd.read_csv(input_file)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/path/to/your/input.csv'
+2025-01-10 04:56:55,031 - INFO - Starting the data augmentation process...
+2025-01-10 04:56:55,141 - INFO - Loaded dataset with 32065 rows.
+2025-01-10 04:56:55,141 - INFO - Generating 67935 synthetic rows...
+2025-01-10 05:03:55,234 - INFO - Starting the data augmentation process...
+2025-01-10 05:03:55,347 - INFO - Loaded dataset with 32065 rows.
+2025-01-10 05:03:55,347 - INFO - Generating 17935 synthetic rows...
+2025-01-10 05:07:54,501 - INFO - Synthetic data generation completed.
+2025-01-10 05:07:54,547 - ERROR - An error occurred during pipeline execution.
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/ingestion_pippeline.py", line 352, in run
+    updated_df.to_parquet(output_file, index=False)
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 3113, in to_parquet
+    return to_parquet(
+           ^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 480, in to_parquet
+    impl.write(
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 190, in write
+    table = self.api.Table.from_pandas(df, **from_pandas_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pyarrow/table.pxi", line 4751, in pyarrow.lib.Table.from_pandas
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pyarrow/pandas_compat.py", line 638, in dataframe_to_arrays
+    arrays[i] = maybe_fut.result()
+                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/python/3.12.1/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pyarrow/pandas_compat.py", line 612, in convert_column
+    raise e
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/pyarrow/pandas_compat.py", line 606, in convert_column
+    result = pa.array(col, type=type_, from_pandas=True, safe=safe)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pyarrow/array.pxi", line 360, in pyarrow.lib.array
+  File "pyarrow/array.pxi", line 87, in pyarrow.lib._ndarray_to_array
+  File "pyarrow/error.pxi", line 92, in pyarrow.lib.check_status
+pyarrow.lib.ArrowTypeError: ("Expected bytes, got a 'Timestamp' object", 'Conversion failed for column timestamp with type object')
+2025-01-10 05:14:20,605 - INFO - Starting the data augmentation process...
+2025-01-10 05:14:20,712 - INFO - Loaded dataset with 32065 rows.
+2025-01-10 05:14:20,713 - INFO - Generating 17935 synthetic rows...
+2025-01-10 05:18:06,995 - INFO - Synthetic data generation completed.
+2025-01-10 05:18:07,143 - INFO - Dataset saved successfully to /workspaces/invenlytics/data/bronze_layer/synthetically_augmented_data.parquet.

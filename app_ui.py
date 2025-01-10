@@ -95,28 +95,6 @@ tabs = st.tabs([
     "Ingest and Preprocess Data", "Transform Data", "EDA", "Feature Engineering", "Training Pipeline", "Evaluation", "Inference"
 ])
 
-# # Tab 1: Ingest Data
-# with tabs[0]:
-#     st.header("Ingest and Preprocess Data")
-#     option = st.radio("Choose Data Source:", ('Generate Synthetic Data', 'Upload CSV'))
-
-#     if option == 'Generate Synthetic Data':
-#         rows = st.slider("Number of Rows to Generate:", 100, 10000, 1000)
-        
-#     elif option == 'Upload CSV': 
-#         uploaded_file = st.file_uploader("Upload CSV File")
-#         if uploaded_file is not None:
-#             st.session_state['ingestion_input'] = uploaded_file
-#     if st.button('Ingest', key='ingestion_button', use_container_width=True):
-#         ingestion_pippeline.setup_logging()
-#         st.session_state['data'] = ingestion_pippeline.run(
-#             input_file=st.session_state['ingestion_input'],
-#             output_file=st.session_state['ingestion_output'],
-#             total_rows=100000
-#         )
-#     if st.session_state['data'] is not None:
-#         st.write("Preview of Data:")
-#         st.dataframe(st.session_state['data'].head(100), use_container_width=True, hide_index=True)
 with tabs[0]:
     st.header("Ingest and Preprocess Data")
     option = st.radio("Choose Data Source:", ('Generate Synthetic Data', 'Upload CSV'))
@@ -178,82 +156,82 @@ with tabs[1]:
 
 
 # Tab 3: EDA
-# with tabs[2]:
+with tabs[2]:
 
-#     if st.session_state['transformed_data'] is not None:
-#         # # Filters panel
-#         # with st.expander("Filter Data", expanded=True):
-#         #     region_filter = st.multiselect("Select Region:", options=st.session_state['transformed_data']['Region'].unique(), default=st.session_state['transformed_data']['Region'].unique())
-#         #     supplier_filter = st.multiselect("Select Supplier:", options=st.session_state['transformed_data']['Supplier'].unique(), default=st.session_state['transformed_data']['Supplier'].unique())
+    if st.session_state['transformed_data'] is not None:
+        # # Filters panel
+        # with st.expander("Filter Data", expanded=True):
+        #     region_filter = st.multiselect("Select Region:", options=st.session_state['transformed_data']['Region'].unique(), default=st.session_state['transformed_data']['Region'].unique())
+        #     supplier_filter = st.multiselect("Select Supplier:", options=st.session_state['transformed_data']['Supplier'].unique(), default=st.session_state['transformed_data']['Supplier'].unique())
             
-#         # # Apply filters
-#         # st.session_state['transformed_data'] = st.session_state['transformed_data'][(st.session_state['transformed_data']['Region'].isin(region_filter)) &
-#         #             (st.session_state['transformed_data']['Supplier'].isin(supplier_filter))]
+        # # Apply filters
+        # st.session_state['transformed_data'] = st.session_state['transformed_data'][(st.session_state['transformed_data']['Region'].isin(region_filter)) &
+        #             (st.session_state['transformed_data']['Supplier'].isin(supplier_filter))]
         
-#         # Display dataset
-#         st.subheader("Dataset Overview")
-#         st.dataframe(st.session_state['transformed_data'].head())
+        # Display dataset
+        st.subheader("Dataset Overview")
+        st.dataframe(st.session_state['transformed_data'].head())
         
-#         # 2x2 grid for visualizations
-#         col1, col2 = st.columns(2, gap='large')
+        # 2x2 grid for visualizations
+        col1, col2 = st.columns(2, gap='large')
 
 
-#         with col1:
-#             # Delivery time deviation analysis
-#             st.subheader("Delivery Time Deviation Analysis")
-#             fig, ax = plt.subplots(figsize=(8, 5))
-#             sns.violinplot(data=st.session_state['transformed_data'], x='Region', y='delivery_time_deviation', palette="viridis", ax=ax)
-#             ax.set_title("Delivery Time Deviation by Region")
-#             st.pyplot(fig)
+        with col1:
+            # Delivery time deviation analysis
+            st.subheader("Delivery Time Deviation Analysis")
+            fig, ax = plt.subplots(figsize=(8, 5))
+            sns.violinplot(data=st.session_state['transformed_data'], x='Region', y='delivery_time_deviation', palette="viridis", ax=ax)
+            ax.set_title("Delivery Time Deviation by Region")
+            st.pyplot(fig)
 
-#         with col2:
-#             # Correlation heatmap
-#             st.subheader("Correlation Analysis")
-#             fig, ax = plt.subplots(figsize=(11, 8))
-#             corr = st.session_state['transformed_data'].select_dtypes(['int64', 'float64']).corr()[['disruption_likelihood_score', 'customs_clearance_time']]
-#             sns.heatmap(corr, annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
-#             st.pyplot(fig)
+        with col2:
+            # Correlation heatmap
+            st.subheader("Correlation Analysis")
+            fig, ax = plt.subplots(figsize=(11, 8))
+            corr = st.session_state['transformed_data'].select_dtypes(['int64', 'float64']).corr()[['disruption_likelihood_score', 'customs_clearance_time']]
+            sns.heatmap(corr, annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
+            st.pyplot(fig)
 
-#             # Disruption likelihood distribution
-#             st.subheader("Disruption Likelihood Analysis")
-#             fig, ax = plt.subplots(figsize=(11, 8))
-#             sns.histplot(st.session_state['transformed_data']['disruption_likelihood_score'], kde=True, color="blue", ax=ax)
-#             ax.set_title("Disruption Likelihood Distribution")
-#             st.pyplot(fig)
+            # Disruption likelihood distribution
+            st.subheader("Disruption Likelihood Analysis")
+            fig, ax = plt.subplots(figsize=(11, 8))
+            sns.histplot(st.session_state['transformed_data']['disruption_likelihood_score'], kde=True, color="blue", ax=ax)
+            ax.set_title("Disruption Likelihood Distribution")
+            st.pyplot(fig)
 
-#         with col1:
-#             st.subheader("Disruption Type Ratio Analysis")
-#             plt.figure(figsize=(8, 5))
-#             st.session_state['transformed_data']['Disruption_Type'].value_counts().head(10).plot(kind='bar', color='skyblue')
-#             plt.title("Top 10 Disruption Types")
-#             plt.xlabel("Disruption Type")
-#             plt.ylabel("Count")
-#             st.pyplot(plt.gcf())
+        with col1:
+            st.subheader("Disruption Type Ratio Analysis")
+            plt.figure(figsize=(8, 5))
+            st.session_state['transformed_data']['Disruption_Type'].value_counts().head(10).plot(kind='bar', color='skyblue')
+            plt.title("Top 10 Disruption Types")
+            plt.xlabel("Disruption Type")
+            plt.ylabel("Count")
+            st.pyplot(plt.gcf())
         
-#         with col1:  
-#             # Risk classification by region
-#             st.subheader("Risk Classification by Region")
-#             plt.figure(figsize=(12, 6))
-#             sns.countplot(data=st.session_state['transformed_data'], x='Region', hue='risk_classification')
-#             plt.title("Risk Classification by Region")
-#             plt.xticks(rotation=45)
-#             st.pyplot(plt.gcf())
+        with col1:  
+            # Risk classification by region
+            st.subheader("Risk Classification by Region")
+            plt.figure(figsize=(12, 6))
+            sns.countplot(data=st.session_state['transformed_data'], x='Region', hue='risk_classification')
+            plt.title("Risk Classification by Region")
+            plt.xticks(rotation=45)
+            st.pyplot(plt.gcf())
         
 
-#         with col2:
-#             st.subheader("Effect of Traffic Congestion on Delay")
-#             plt.figure(figsize=(10, 6))
-#             sns.scatterplot(data=st.session_state['transformed_data'], x='traffic_congestion_level', y='delay_probability', hue='risk_classification')
-#             plt.title("Traffic Congestion vs Delay Probability")
-#             plt.show()
-#             st.pyplot(plt.gcf())
+        with col2:
+            st.subheader("Effect of Traffic Congestion on Delay")
+            plt.figure(figsize=(10, 6))
+            sns.scatterplot(data=st.session_state['transformed_data'], x='traffic_congestion_level', y='delay_probability', hue='risk_classification')
+            plt.title("Traffic Congestion vs Delay Probability")
+            plt.show()
+            st.pyplot(plt.gcf())
 
-#         # Feature selection and preprocessing
-#         features = ['fuel_consumption_rate', 'eta_variation_hours', 'traffic_congestion_level',
-#                     'warehouse_inventory_level', 'port_congestion_level', 'shipping_costs',
-#                     'supplier_reliability_score', 'lead_time_days', 'route_risk_level',
-#                     'customs_clearance_time', 'driver_behavior_score', 'fatigue_monitoring_score']
-#         target = 'disruption_likelihood_score'
+        # Feature selection and preprocessing
+        features = ['fuel_consumption_rate', 'eta_variation_hours', 'traffic_congestion_level',
+                    'warehouse_inventory_level', 'port_congestion_level', 'shipping_costs',
+                    'supplier_reliability_score', 'lead_time_days', 'route_risk_level',
+                    'customs_clearance_time', 'driver_behavior_score', 'fatigue_monitoring_score']
+        target = 'disruption_likelihood_score'
 
 # with tabs[2]:
 #     st.header("Exploratory Data Analysis (EDA)")
@@ -325,72 +303,6 @@ with tabs[1]:
 #             plt.xticks(rotation=45)
 #             st.pyplot(fig)
 
-# Tab 4: Feature Engineering
-# with tabs[3]:
-#     st.header("Feature Engineering")
-
-#     if st.session_state['transformed_data'] is not None:
-#         default_features = [
-#                 "Scheduled_Delivery", "Actual_Delivery", "Region", "Delivery_Mode", "Supplier",
-#                 "Weather_Conditions",  "traffic_congestion_level", "port_congestion_level", "weather_condition_severity", 
-#                 "fuel_consumption_rate", "driver_behavior_score", "fatigue_monitoring_score", 'supplier_reliability_score'
-#         ]
-#         selected_features = st.multiselect("Select Features", st.session_state['transformed_data'].columns.tolist(), default=default_features)
-#         if st.button("Engineer Features"):
-#             st.session_state['features'] = feature_pipeline.run_supplychain_disruption_feature_pipeline(
-#                 source="/workspaces/invenlytics/data/silver_layer/preprocessed_dynamic_supply_chain_logistics_dataset.parquet", 
-#                 selected_columns=selected_features, 
-#                 dest="/workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet"
-#             )
-
-#             st.dataframe(data= st.session_state['features'], hide_index=True, use_container_width=True)
-
-# Tab 4: Feature Engineering
-# with tabs[3]:
-#     st.header("Feature Engineering")
-#     st.write("Debug: st.session_state['data']:", st.session_state.get('data'))
-
-#     if st.session_state['data'] is None:
-#         st.warning("No data available for feature engineering. Please complete the data preprocessing step.")
-#     else:
-#         # Select default features for feature engineering
-#         default_features = [
-#             "Scheduled_Delivery", "Actual_Delivery", "Region", "Delivery_Mode", "Supplier",
-#             "Weather_Conditions", "traffic_congestion_level", "port_congestion_level",
-#             "weather_condition_severity", "fuel_consumption_rate", "driver_behavior_score",
-#             "fatigue_monitoring_score", "supplier_reliability_score"
-#         ]
-
-#         # Multiselect for feature selection
-#         selected_features = st.multiselect(
-#             "Select Features for Engineering",
-#             options=st.session_state['data'].columns.tolist(),
-#             default=[col for col in default_features if col in st.session_state['data'].columns],
-#             key='selected_features'
-#         )
-
-#         if st.button("Engineer Features"):
-#             try:
-#                 # Ensure the selected columns exist in the data
-#                 if not selected_features:
-#                     st.error("Please select at least one feature for engineering.")
-#                 else:
-#                     # Define source and destination paths for the pipeline
-#                     source_path = "/workspaces/invenlytics/pipelines/data/silver_layer/preprocess_inventory_data.parquet"
-#                     destination_path = "/workspaces/invenlytics/pipelines/data/gold_layer/Feature_Engineering_data.parquet"
-
-#                     # Run the feature pipeline
-#                     st.session_state['features'] = feature_pipeline.run_supplychain_disruption_feature_pipeline(
-#                         source=source_path,
-#                         selected_columns=selected_features,
-#                         dest=destination_path
-#                     )
-
-#                     # Display engineered features
-#                     st.write("Feature Engineering Completed. Preview of Engineered Features:")
-#                     st.dataframe(data=st.session_state['features'], hide_index=True, use_container_width=True)
-#             except Exception as e:
-#                 st.error(f"An error occurred during feature engineering: {e}")
 
 with tabs[3]:
     st.header("Feature Engineering")
@@ -437,9 +349,6 @@ with tabs[3]:
                     source_path = "/workspaces/invenlytics/pipelines/data/silver_layer/preprocess_inventory_data.parquet"
                     destination_path = "/workspaces/invenlytics/pipelines/data/gold_layer/Feature_Engineering_data.parquet"
 
-                    # Create directory if it doesn't exist
-                    # os.makedirs(os.path.dirname(destination_path), exist_ok=True)
-
                     # Run the feature pipeline
                     st.session_state['features'] = run_inventory_optimization_feature_pipeline(
                         source=source_path,
@@ -467,21 +376,6 @@ with tabs[3]:
                 except Exception as e:
                     st.error(f"An error occurred during feature engineering: {str(e)}")
                     st.exception(e)
-# Tab 5: Training Pipeline
-# with tabs[4]:
-#     st.header("Training Pipeline")
-
-#     if st.session_state['transformed_data'] is not None:
-#         # timestamp = st.selectbox("Select Time Stamp", st.session_state['features'].columns.tolist(), key='timestamp')
-#         model_features = st.multiselect("Select Features", st.session_state['features'].columns.tolist(), default=st.session_state['features'].columns.tolist())
-#         model_target = st.selectbox("Select Target", st.session_state['features'].columns.tolist(), key='target')
-#         if st.button("Train Model"):
-#             st.session_state['model'] = training_pipeline.run_inventory_training_pipeline(
-#                 data_source="/workspaces/invenlytics/pipelines/data/gold_layer/Feature_Engineering_data.parquet",
-#                 target_column="Historical_Demand",
-#             )
-
-#             st.success("Model Training Completed.")
 with tabs[4]:
     st.header("Training Pipeline")
 
@@ -522,28 +416,6 @@ with tabs[4]:
                     st.success("Model Training Completed.")
             except Exception as e:
                 st.error(f"An error occurred during model training: {e}")
-
-# Tab 6: Evaluation
-# with tabs[5]:
-#     st.header("Evaluation")
-
-#     if st.session_state['model'] is not None:
-#         X = st.session_state['transformed_data'].drop('Target', axis=1)
-#         y = st.session_state['transformed_data']['Target']
-#         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-#         y_pred = st.session_state['model'].predict(X_test)
-#         auc_score = roc_auc_score(y_test, st.session_state['model'].predict_proba(X_test)[:, 1])
-
-#         st.session_state['evaluation_results'] = {
-#             'Classification Report': classification_report(y_test, y_pred, output_dict=True),
-#             'ROC AUC': auc_score
-#         }
-
-#         st.write("Classification Report:")
-#         st.json(st.session_state['evaluation_results']['Classification Report'])
-
-#         st.write("ROC AUC Score:", st.session_state['evaluation_results']['ROC AUC'])
 
 
 with tabs[5]:
