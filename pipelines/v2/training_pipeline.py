@@ -13,6 +13,7 @@ from sktime.datatypes import check_raise
 import xgboost as xgb
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
+
 def setup_logging():
     """Setup logging configuration."""
     logging.basicConfig(
@@ -50,6 +51,7 @@ def plot_confusion_matrix(y_true, y_pred, output_path):
     plt.savefig(output_path)
     plt.close()
 
+
 def plot_precision_recall_curve(y_true, y_scores, output_path):
     """Plot and save a precision-recall curve."""
     precision, recall, _ = precision_recall_curve(y_true, y_scores)
@@ -62,6 +64,7 @@ def plot_precision_recall_curve(y_true, y_scores, output_path):
     plt.tight_layout()
     plt.savefig(output_path)
     plt.close()
+
 
 def plot_roc_auc_curve(y_true, y_scores, output_path):
     """Plot and save a ROC-AUC curve."""
@@ -78,7 +81,7 @@ def plot_roc_auc_curve(y_true, y_scores, output_path):
     plt.close()
 
 
-def run_lightgbm_training_pipeline(data_source, target_column, n_splits=3, mlflow_experiment_name="Disruption_Model"):
+def run_lightgbm_training_pipeline(data_source, target_column, n_splits=10, mlflow_experiment_name="Disruption_Model"):
     """
     Train LightGBM models with TimeSeriesSplit and log metrics and plots using MLflow.
     """
@@ -96,52 +99,53 @@ def run_lightgbm_training_pipeline(data_source, target_column, n_splits=3, mlflo
         ts_splits = TimeSeriesSplit(n_splits=n_splits)
         metrics = {"accuracy": [], "f1_score": [], "roc_auc": []}
 
-        parent_run = mlflow.start_run(run_name=f"LightGBM_Pipeline_{datetime.now()}")
-        with parent_run:
-            mlflow.log_artifact(data_source, artifact_path="datasets")
-            for fold, (train_idx, test_idx) in enumerate(ts_splits.split(X)):
-                # Split the data
-                X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]
-                y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]
-
-                # Create LightGBM datasets
-                train_data = lgb.Dataset(X_train, label=y_train)
-                test_data = lgb.Dataset(X_test, label=y_test)
-
-                # LightGBM parameters
-                params = {
+        # LightGBM parameters
+        params = {
                     "objective": "binary",
                     "metric": "binary_logloss",
                     "boosting_type": "gbdt",
                     "num_leaves": 50,
                     "learning_rate": 0.01,
                     "feature_fraction": 0.9,
-                }
+        }
+        
+        parent_run = mlflow.start_run(run_name=f"LightGBM_Pipeline_{datetime.now()}")
+        with parent_run:
+            mlflow.log_artifact(data_source, artifact_path="datasets")
+            for fold, (train_idx, test_idx) in enumerate(ts_splits.split(X)):
+                # Split the data into train, validation, and test sets
+                train_size = int(0.8 * len(train_idx))
+                train_indices = train_idx[:train_size]
+                valid_indices = train_idx[train_size:]
+
+                X_train, X_valid, X_test = X.iloc[train_indices], X.iloc[valid_indices], X.iloc[test_idx]
+                y_train, y_valid, y_test = y.iloc[train_indices], y.iloc[valid_indices], y.iloc[test_idx]
+
+                # Create LightGBM datasets
+                train_data = lgb.Dataset(X_train, label=y_train)
+                valid_data = lgb.Dataset(X_valid, label=y_valid)
+                test_data = lgb.Dataset(X_test, label=y_test)
+
+                lgb_model = lgb.train(
+                        params,
+                        train_data,
+                        num_boost_round=200,
+                        valid_sets=[train_data, valid_data],
+                        valid_names=["train", "valid"],
+                        callbacks=[lgb.early_stopping(stopping_rounds=10)],
+                )
 
                 # Train model
                 with mlflow.start_run(run_name=f"Fold_{fold+1}", nested=True):
                     mlflow.log_params(params)
 
-                    lgb_model = lgb.train(
-                        params,
-                        train_data,
-                        num_boost_round=200,
-                        valid_sets=[test_data],
-                        callbacks=[lgb.early_stopping(stopping_rounds=10)],
-                    )
+                    
 
-                    # Log model
-                    input_example = X_train.head(1)
-                    signature = infer_signature(X_train, lgb_model.predict(X_train.head(1)))
-                    mlflow.lightgbm.log_model(
-                        lgb_model,
-                        artifact_path="model",
-                        input_example=input_example,
-                        signature=signature,
-                    )
+                    
 
                     # Predictions
                     y_train_pred = (lgb_model.predict(X_train) > 0.5).astype(int)
+                    y_valid_pred = (lgb_model.predict(X_valid) > 0.5).astype(int)
                     y_test_pred = (lgb_model.predict(X_test) > 0.5).astype(int)
                     y_test_scores = lgb_model.predict(X_test)
 
@@ -149,21 +153,25 @@ def run_lightgbm_training_pipeline(data_source, target_column, n_splits=3, mlflo
                     fold_metrics = {
                         "accuracy": [
                             accuracy_score(y_train, y_train_pred),
+                            accuracy_score(y_valid, y_valid_pred),
                             accuracy_score(y_test, y_test_pred),
                         ],
                         "f1_score": [
                             f1_score(y_train, y_train_pred),
+                            f1_score(y_valid, y_valid_pred),
                             f1_score(y_test, y_test_pred),
                         ],
                         "roc_auc": [
                             roc_auc_score(y_train, lgb_model.predict(X_train)),
+                            roc_auc_score(y_valid, lgb_model.predict(X_valid)),
                             roc_auc_score(y_test, y_test_scores),
                         ],
                     }
 
                     for metric_name, values in fold_metrics.items():
                         mlflow.log_metric(f"train_{metric_name}", values[0])
-                        mlflow.log_metric(f"test_{metric_name}", values[1])
+                        mlflow.log_metric(f"valid_{metric_name}", values[1])
+                        mlflow.log_metric(f"test_{metric_name}", values[2])
 
                     for metric_name, values in fold_metrics.items():
                         metrics[metric_name].append(values)
@@ -186,15 +194,165 @@ def run_lightgbm_training_pipeline(data_source, target_column, n_splits=3, mlflo
 
                     logging.info(f"Fold {fold+1} metrics: {fold_metrics}")
 
+            # Log model
+            input_example = X_train.head(1)
+            signature = infer_signature(X_train, lgb_model.predict(X_train.head(1)))
+            mlflow.lightgbm.log_model(
+                lgb_model,
+                artifact_path="model",
+                input_example=input_example,
+                signature=signature,
+            )
             # Log overall metrics
             for metric_name, values in metrics.items():
                 avg_train = sum(v[0] for v in values) / n_splits
-                avg_test = sum(v[1] for v in values) / n_splits
+                avg_valid = sum(v[1] for v in values) / n_splits
+                avg_test = sum(v[2] for v in values) / n_splits
 
                 mlflow.log_metric(f"avg_train_{metric_name}", avg_train)
+                mlflow.log_metric(f"avg_valid_{metric_name}", avg_valid)
                 mlflow.log_metric(f"avg_test_{metric_name}", avg_test)
 
-        return metrics
+        return lgb_model, metrics
+
+    except Exception as e:
+        logging.error(f"An error occurred in the training pipeline: {e}", exc_info=True)
+        raise
+
+
+def run_lightgbm_training_pipeline(data_source, target_column, n_splits=10, mlflow_experiment_name="Disruption_Model"):
+    """
+    Train LightGBM models with TimeSeriesSplit and log metrics and plots using MLflow.
+    """
+    try:
+        setup_logging()
+        logging.info(f"Loading dataset from {data_source}.")
+        data = pd.read_parquet(data_source)
+        data = data[data.select_dtypes(exclude=['datetime64', 'object']).columns]
+
+        # Features and target
+        X = data.drop(columns=[target_column])
+        y = data[target_column]
+
+        mlflow.set_experiment(mlflow_experiment_name)
+        ts_splits = TimeSeriesSplit(n_splits=n_splits)
+        metrics = {"accuracy": [], "f1_score": [], "roc_auc": []}
+
+        # LightGBM parameters
+        params = {
+                    "objective": "binary",
+                    "metric": "binary_logloss",
+                    "boosting_type": "gbdt",
+                    "num_leaves": 50,
+                    "learning_rate": 0.01,
+                    "feature_fraction": 0.9,
+        }
+        
+        parent_run = mlflow.start_run(run_name=f"LightGBM_Pipeline_{datetime.now()}")
+        with parent_run:
+            print(parent_run)
+            mlflow.log_artifact(data_source, artifact_path="datasets")
+            for fold, (train_idx, test_idx) in enumerate(ts_splits.split(X)):
+                # Split the data into train, validation, and test sets
+                train_size = int(0.8 * len(train_idx))
+                train_indices = train_idx[:train_size]
+                valid_indices = train_idx[train_size:]
+
+                X_train, X_valid, X_test = X.iloc[train_indices], X.iloc[valid_indices], X.iloc[test_idx]
+                y_train, y_valid, y_test = y.iloc[train_indices], y.iloc[valid_indices], y.iloc[test_idx]
+
+                # Create LightGBM datasets
+                train_data = lgb.Dataset(X_train, label=y_train)
+                valid_data = lgb.Dataset(X_valid, label=y_valid)
+                test_data = lgb.Dataset(X_test, label=y_test)
+
+                lgb_model = lgb.train(
+                        params,
+                        train_data,
+                        num_boost_round=200,
+                        valid_sets=[train_data, valid_data],
+                        valid_names=["train", "valid"],
+                        callbacks=[lgb.early_stopping(stopping_rounds=10)],
+                )
+
+                # Train model
+                with mlflow.start_run(run_name=f"Fold_{fold+1}", nested=True):
+                    mlflow.log_params(params)
+
+                    # Predictions
+                    y_train_pred = (lgb_model.predict(X_train) > 0.5).astype(int)
+                    y_valid_pred = (lgb_model.predict(X_valid) > 0.5).astype(int)
+                    y_test_pred = (lgb_model.predict(X_test) > 0.5).astype(int)
+                    y_test_scores = lgb_model.predict(X_test)
+
+                    # Compute metrics
+                    fold_metrics = {
+                        "accuracy": [
+                            accuracy_score(y_train, y_train_pred),
+                            accuracy_score(y_valid, y_valid_pred),
+                            accuracy_score(y_test, y_test_pred),
+                        ],
+                        "f1_score": [
+                            f1_score(y_train, y_train_pred),
+                            f1_score(y_valid, y_valid_pred),
+                            f1_score(y_test, y_test_pred),
+                        ],
+                        "roc_auc": [
+                            roc_auc_score(y_train, lgb_model.predict(X_train)),
+                            roc_auc_score(y_valid, lgb_model.predict(X_valid)),
+                            roc_auc_score(y_test, y_test_scores),
+                        ],
+                    }
+
+                    for metric_name, values in fold_metrics.items():
+                        mlflow.log_metric(f"train_{metric_name}", values[0])
+                        mlflow.log_metric(f"valid_{metric_name}", values[1])
+                        mlflow.log_metric(f"test_{metric_name}", values[2])
+
+                    for metric_name, values in fold_metrics.items():
+                        metrics[metric_name].append(values)
+
+                    # Log plots as artifacts
+                    artifacts_dir = f"artifacts_fold_{fold+1}"
+                    os.makedirs(artifacts_dir, exist_ok=True)
+
+                    cm_path = os.path.join(artifacts_dir, "confusion_matrix.png")
+                    plot_confusion_matrix(y_test, y_test_pred, cm_path)
+                    mlflow.log_artifact(cm_path, artifact_path="plots")
+
+                    prc_path = os.path.join(artifacts_dir, "precision_recall_curve.png")
+                    plot_precision_recall_curve(y_test, y_test_scores, prc_path)
+                    mlflow.log_artifact(prc_path, artifact_path="plots")
+
+                    roc_path = os.path.join(artifacts_dir, "roc_auc_curve.png")
+                    plot_roc_auc_curve(y_test, y_test_scores, roc_path)
+                    mlflow.log_artifact(roc_path, artifact_path="plots")
+
+                    logging.info(f"Fold {fold+1} metrics: {fold_metrics}")
+
+            # Log model
+            input_example = X_train.head(1)
+            signature = infer_signature(X_train, lgb_model.predict(X_train.head(1)))
+            mlflow.lightgbm.log_model(
+                lgb_model,
+                artifact_path="model",
+                input_example=input_example,
+                signature=signature,
+            )
+            # Log overall metrics
+            for metric_name, values in metrics.items():
+                avg_train = sum(v[0] for v in values) / n_splits
+                avg_valid = sum(v[1] for v in values) / n_splits
+                avg_test = sum(v[2] for v in values) / n_splits
+
+                mlflow.log_metric(f"avg_train_{metric_name}", avg_train)
+                mlflow.log_metric(f"avg_valid_{metric_name}", avg_valid)
+                mlflow.log_metric(f"avg_test_{metric_name}", avg_test)
+
+            # Return the URI of the model and artifacts
+            logged_model_uri = mlflow.get_artifact_uri("model")
+            print(logged_model_uri)
+        return lgb_model, metrics, logged_model_uri
 
     except Exception as e:
         logging.error(f"An error occurred in the training pipeline: {e}", exc_info=True)
@@ -202,7 +360,7 @@ def run_lightgbm_training_pipeline(data_source, target_column, n_splits=3, mlflo
 
 
 
-def run_xgboost_training_pipeline(data_source, target_column, n_splits=3, mlflow_experiment_name="Disruption_Model"):
+def run_xgboost_training_pipeline(data_source, target_column, n_splits=10, mlflow_experiment_name="Disruption_Model"):
     """
     Train XGBoost models with TimeSeriesSplit and log metrics and plots using MLflow.
     """
@@ -220,31 +378,35 @@ def run_xgboost_training_pipeline(data_source, target_column, n_splits=3, mlflow
         ts_splits = TimeSeriesSplit(n_splits=n_splits)
         metrics = {"accuracy": [], "f1_score": [], "roc_auc": []}
 
+        # XGBoost parameters
+        params = {
+            "objective": "binary:logistic",
+            "eval_metric": "logloss",
+            "booster": "gbtree",
+            "eta": 0.01,
+            "max_depth": 6,
+            "subsample": 0.9,
+            "colsample_bytree": 0.9,
+            "seed": 42,
+        }
+
         parent_run = mlflow.start_run(run_name=f"XGBoost_Pipeline_{datetime.now()}")
         with parent_run:
             mlflow.log_artifact(data_source, artifact_path="datasets")
             for fold, (train_idx, test_idx) in enumerate(ts_splits.split(X)):
-                # Split the data
-                X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]
-                y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]
+                # Split the data into train, validation, and test sets
+                train_size = int(0.8 * len(train_idx))
+                train_indices = train_idx[:train_size]
+                valid_indices = train_idx[train_size:]
+
+                X_train, X_valid, X_test = X.iloc[train_indices], X.iloc[valid_indices], X.iloc[test_idx]
+                y_train, y_valid, y_test = y.iloc[train_indices], y.iloc[valid_indices], y.iloc[test_idx]
 
                 # Create DMatrix for XGBoost
                 dtrain = xgb.DMatrix(X_train, label=y_train)
+                dvalid = xgb.DMatrix(X_valid, label=y_valid)
                 dtest = xgb.DMatrix(X_test, label=y_test)
 
-                # XGBoost parameters
-                params = {
-                    "objective": "binary:logistic",
-                    "eval_metric": "logloss",
-                    "booster": "gbtree",
-                    "eta": 0.01,
-                    "max_depth": 6,
-                    "subsample": 0.9,
-                    "colsample_bytree": 0.9,
-                    "seed": 42,
-                }
-
-                # Train model
                 with mlflow.start_run(run_name=f"Fold_{fold+1}", nested=True):
                     mlflow.log_params(params)
 
@@ -252,22 +414,13 @@ def run_xgboost_training_pipeline(data_source, target_column, n_splits=3, mlflow
                         params,
                         dtrain,
                         num_boost_round=200,
-                        evals=[(dtest, "eval")],
+                        evals=[(dtrain, "train"), (dvalid, "valid")],
                         early_stopping_rounds=10,
-                    )
-
-                    # Log model
-                    input_example = X_train.head(1)
-                    signature = infer_signature(X_train, xgb_model.predict(dtrain))
-                    mlflow.xgboost.log_model(
-                        xgb_model,
-                        artifact_path="model",
-                        input_example=input_example,
-                        signature=signature,
                     )
 
                     # Predictions
                     y_train_pred = (xgb_model.predict(dtrain) > 0.5).astype(int)
+                    y_valid_pred = (xgb_model.predict(dvalid) > 0.5).astype(int)
                     y_test_pred = (xgb_model.predict(dtest) > 0.5).astype(int)
                     y_test_scores = xgb_model.predict(dtest)
 
@@ -275,21 +428,25 @@ def run_xgboost_training_pipeline(data_source, target_column, n_splits=3, mlflow
                     fold_metrics = {
                         "accuracy": [
                             accuracy_score(y_train, y_train_pred),
+                            accuracy_score(y_valid, y_valid_pred),
                             accuracy_score(y_test, y_test_pred),
                         ],
                         "f1_score": [
                             f1_score(y_train, y_train_pred),
+                            f1_score(y_valid, y_valid_pred),
                             f1_score(y_test, y_test_pred),
                         ],
                         "roc_auc": [
                             roc_auc_score(y_train, xgb_model.predict(dtrain)),
+                            roc_auc_score(y_valid, xgb_model.predict(dvalid)),
                             roc_auc_score(y_test, y_test_scores),
                         ],
                     }
 
                     for metric_name, values in fold_metrics.items():
                         mlflow.log_metric(f"train_{metric_name}", values[0])
-                        mlflow.log_metric(f"test_{metric_name}", values[1])
+                        mlflow.log_metric(f"valid_{metric_name}", values[1])
+                        mlflow.log_metric(f"test_{metric_name}", values[2])
 
                     for metric_name, values in fold_metrics.items():
                         metrics[metric_name].append(values)
@@ -312,19 +469,32 @@ def run_xgboost_training_pipeline(data_source, target_column, n_splits=3, mlflow
 
                     logging.info(f"Fold {fold+1} metrics: {fold_metrics}")
 
+            # Log model
+            input_example = X_train.head(1)
+            signature = infer_signature(X_train, xgb_model.predict(dtrain))
+            mlflow.xgboost.log_model(
+                xgb_model,
+                artifact_path="model",
+                input_example=input_example,
+                signature=signature,
+            )
+
             # Log overall metrics
             for metric_name, values in metrics.items():
                 avg_train = sum(v[0] for v in values) / n_splits
-                avg_test = sum(v[1] for v in values) / n_splits
+                avg_valid = sum(v[1] for v in values) / n_splits
+                avg_test = sum(v[2] for v in values) / n_splits
 
                 mlflow.log_metric(f"avg_train_{metric_name}", avg_train)
+                mlflow.log_metric(f"avg_valid_{metric_name}", avg_valid)
                 mlflow.log_metric(f"avg_test_{metric_name}", avg_test)
 
-        return metrics
+        return xgb_model, metrics
 
     except Exception as e:
         logging.error(f"An error occurred in the training pipeline: {e}", exc_info=True)
         raise
+
 
 
 

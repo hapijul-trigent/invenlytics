@@ -60,3 +60,4 @@ def run_inference(df, logged_model_path, pipeline=None):
     except Exception as e:
         logger.error(f"An error occurred during inference. Error: {e}")
         raise
+

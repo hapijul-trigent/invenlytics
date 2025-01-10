@@ -140,3 +140,728 @@ FileNotFoundError: [Errno 2] No such file or directory: 'data/silver_layer/Suppl
 2025-01-03 06:41:46,870 - INFO - Generating 67935 additional rows...
 2025-01-03 06:42:39,643 - INFO - Additional rows and columns added successfully.
 2025-01-03 06:42:39,865 - INFO - Updated dataset saved to /workspaces/invenlytics/data/silver_layer/preprocessed_dynamic_supply_chain_logistics_dataset.parquet
+2025-01-06 07:06:27,004 - INFO - Starting the data augmentation process.
+2025-01-06 07:06:27,201 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-06 07:06:27,201 - INFO - Adding new columns and generating additional rows...
+2025-01-06 07:06:27,223 - INFO - Generating 67935 additional rows...
+2025-01-06 07:06:40,462 - INFO - Starting the data augmentation process.
+2025-01-06 07:06:46,249 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-06 07:06:46,252 - INFO - Adding new columns and generating additional rows...
+2025-01-06 07:06:47,884 - INFO - Generating 67935 additional rows...
+2025-01-06 07:08:28,970 - INFO - Additional rows and columns added successfully.
+2025-01-06 07:08:31,574 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-06 07:08:44,830 - INFO - Additional rows and columns added successfully.
+2025-01-06 07:08:45,014 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-07 03:56:12,983 - INFO - Starting the data augmentation process.
+2025-01-07 03:56:14,205 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-07 03:56:14,205 - INFO - Adding new columns and generating additional rows...
+2025-01-07 03:56:14,463 - INFO - Generating 67935 additional rows...
+2025-01-07 03:57:20,577 - INFO - Additional rows and columns added successfully.
+2025-01-07 03:57:20,847 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-07 04:10:48,364 - INFO - Starting the data augmentation process.
+2025-01-07 04:10:48,494 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-07 04:10:48,495 - INFO - Adding new columns and generating additional rows...
+2025-01-07 04:10:48,513 - INFO - Generating 67935 additional rows...
+2025-01-07 04:11:44,468 - INFO - Additional rows and columns added successfully.
+2025-01-07 04:11:44,645 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-07 04:29:08,851 - INFO - Starting the data augmentation process.
+2025-01-07 04:29:08,974 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-07 04:29:08,975 - INFO - Adding new columns and generating additional rows...
+2025-01-07 04:29:09,000 - INFO - Generating 67935 additional rows...
+2025-01-07 04:30:05,023 - INFO - Additional rows and columns added successfully.
+2025-01-07 04:30:05,199 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-07 04:34:20,827 - INFO - Starting the data augmentation process.
+2025-01-07 04:34:20,950 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-07 04:34:20,950 - INFO - Adding new columns and generating additional rows...
+2025-01-07 04:34:20,966 - INFO - Generating 67935 additional rows...
+2025-01-07 04:35:16,172 - INFO - Additional rows and columns added successfully.
+2025-01-07 04:35:16,340 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-07 04:36:33,634 - INFO - Starting the data augmentation process.
+2025-01-07 04:36:33,762 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-07 04:36:33,763 - INFO - Adding new columns and generating additional rows...
+2025-01-07 04:36:33,779 - INFO - Generating 67935 additional rows...
+2025-01-07 04:37:29,065 - INFO - Additional rows and columns added successfully.
+2025-01-07 04:37:29,243 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-07 06:12:36,792 - INFO - Starting the data augmentation process.
+2025-01-07 06:12:37,151 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-07 06:12:37,152 - INFO - Adding new columns and generating additional rows...
+2025-01-07 06:12:37,195 - INFO - Generating 67935 additional rows...
+2025-01-07 06:13:51,032 - INFO - Additional rows and columns added successfully.
+2025-01-07 06:13:51,339 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-07 07:02:00,203 - INFO - Starting preprocessing pipeline.
+2025-01-07 07:02:00,357 - INFO - None
+2025-01-07 07:02:00,395 - INFO - Dataset loaded successfully. None
+2025-01-07 07:02:00,425 - INFO - Target encoding completed.
+2025-01-07 07:02:00,470 - INFO - Categorical encoding completed.
+2025-01-07 07:02:00,511 - INFO - Holiday-related features created.
+2025-01-07 07:02:00,525 - INFO - Normalization completed.
+2025-01-07 07:02:00,548 - INFO - Rolling and expanding features generated.
+2025-01-07 07:02:00,557 - INFO - Lag features generated.
+2025-01-07 07:02:00,578 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-07 07:02:00,743 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-08 05:33:58,096 - INFO - Starting the data augmentation process.
+2025-01-08 05:33:58,936 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-08 05:33:58,936 - INFO - Adding new columns and generating additional rows...
+2025-01-08 05:33:59,289 - INFO - Generating 67935 additional rows...
+2025-01-08 05:35:19,508 - INFO - Additional rows and columns added successfully.
+2025-01-08 05:35:21,589 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-08 05:35:58,188 - INFO - Starting preprocessing pipeline.
+2025-01-08 05:35:59,118 - INFO - None
+2025-01-08 05:35:59,156 - INFO - Dataset loaded successfully. None
+2025-01-08 05:35:59,156 - INFO - Target encoding completed.
+2025-01-08 05:35:59,218 - INFO - Categorical encoding completed.
+2025-01-08 05:35:59,274 - INFO - Holiday-related features created.
+2025-01-08 05:35:59,288 - INFO - Normalization completed.
+2025-01-08 05:35:59,310 - INFO - Rolling and expanding features generated.
+2025-01-08 05:35:59,323 - INFO - Lag features generated.
+2025-01-08 05:35:59,346 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-08 05:35:59,544 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-08 05:37:05,593 - INFO - Starting preprocessing pipeline.
+2025-01-08 05:37:05,676 - INFO - None
+2025-01-08 05:37:05,705 - INFO - Dataset loaded successfully. None
+2025-01-08 05:37:05,705 - INFO - Target encoding completed.
+2025-01-08 05:37:05,747 - INFO - Categorical encoding completed.
+2025-01-08 05:37:05,785 - INFO - Holiday-related features created.
+2025-01-08 05:37:05,797 - INFO - Normalization completed.
+2025-01-08 05:37:05,819 - INFO - Rolling and expanding features generated.
+2025-01-08 05:37:05,825 - INFO - Lag features generated.
+2025-01-08 05:37:05,837 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-08 05:37:05,972 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-08 05:37:57,015 - INFO - Starting preprocessing pipeline.
+2025-01-08 05:37:57,085 - INFO - None
+2025-01-08 05:37:57,110 - INFO - Dataset loaded successfully. None
+2025-01-08 05:37:57,111 - INFO - Target encoding completed.
+2025-01-08 05:37:57,165 - INFO - Categorical encoding completed.
+2025-01-08 05:37:57,203 - INFO - Holiday-related features created.
+2025-01-08 05:37:57,215 - INFO - Normalization completed.
+2025-01-08 05:37:57,236 - INFO - Rolling and expanding features generated.
+2025-01-08 05:37:57,244 - INFO - Lag features generated.
+2025-01-08 05:37:57,255 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-08 05:37:57,398 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-08 05:47:04,099 - INFO - Starting preprocessing pipeline.
+2025-01-08 05:47:04,159 - INFO - None
+2025-01-08 05:47:04,190 - INFO - Dataset loaded successfully. None
+2025-01-08 05:47:04,225 - INFO - Target encoding completed.
+2025-01-08 05:47:04,286 - INFO - Categorical encoding completed.
+2025-01-08 05:47:04,323 - INFO - Holiday-related features created.
+2025-01-08 05:47:04,336 - INFO - Normalization completed.
+2025-01-08 05:47:04,362 - INFO - Rolling and expanding features generated.
+2025-01-08 05:47:04,369 - INFO - Lag features generated.
+2025-01-08 05:47:04,385 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-08 05:47:04,524 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-08 05:51:04,145 - INFO - Starting preprocessing pipeline.
+2025-01-08 05:51:04,205 - INFO - None
+2025-01-08 05:51:04,234 - INFO - Dataset loaded successfully. None
+2025-01-08 05:51:04,264 - INFO - Target encoding completed.
+2025-01-08 05:51:04,308 - INFO - Categorical encoding completed.
+2025-01-08 05:51:04,346 - INFO - Holiday-related features created.
+2025-01-08 05:51:04,359 - INFO - Normalization completed.
+2025-01-08 05:51:04,381 - INFO - Rolling and expanding features generated.
+2025-01-08 05:51:04,388 - INFO - Lag features generated.
+2025-01-08 05:51:04,410 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-08 05:51:04,556 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-08 06:12:38,552 - INFO - Starting the data augmentation process.
+2025-01-08 06:12:38,698 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-08 06:12:38,699 - INFO - Adding new columns and generating additional rows...
+2025-01-08 06:12:38,716 - INFO - Generating 67935 additional rows...
+2025-01-08 06:13:39,720 - INFO - Additional rows and columns added successfully.
+2025-01-08 06:13:39,878 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-08 06:14:21,661 - INFO - Starting preprocessing pipeline.
+2025-01-08 06:14:21,720 - INFO - None
+2025-01-08 06:14:21,750 - INFO - Dataset loaded successfully. None
+2025-01-08 06:14:21,750 - INFO - Target encoding completed.
+2025-01-08 06:14:21,795 - INFO - Categorical encoding completed.
+2025-01-08 06:14:21,832 - INFO - Holiday-related features created.
+2025-01-08 06:14:21,845 - INFO - Normalization completed.
+2025-01-08 06:14:21,869 - INFO - Rolling and expanding features generated.
+2025-01-08 06:14:21,883 - INFO - Lag features generated.
+2025-01-08 06:14:21,899 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-08 06:14:22,036 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-08 06:15:48,730 - INFO - Starting preprocessing pipeline.
+2025-01-08 06:15:48,789 - INFO - None
+2025-01-08 06:15:48,822 - INFO - Dataset loaded successfully. None
+2025-01-08 06:15:48,850 - INFO - Target encoding completed.
+2025-01-08 06:15:48,895 - INFO - Categorical encoding completed.
+2025-01-08 06:15:48,932 - INFO - Holiday-related features created.
+2025-01-08 06:15:48,945 - INFO - Normalization completed.
+2025-01-08 06:15:48,969 - INFO - Rolling and expanding features generated.
+2025-01-08 06:15:48,978 - INFO - Lag features generated.
+2025-01-08 06:15:49,000 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-08 06:15:49,178 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-08 06:16:49,667 - INFO - Starting preprocessing pipeline.
+2025-01-08 06:16:49,726 - INFO - None
+2025-01-08 06:16:49,756 - INFO - Dataset loaded successfully. None
+2025-01-08 06:16:49,784 - INFO - Target encoding completed.
+2025-01-08 06:16:49,830 - INFO - Categorical encoding completed.
+2025-01-08 06:16:49,867 - INFO - Holiday-related features created.
+2025-01-08 06:16:49,880 - INFO - Normalization completed.
+2025-01-08 06:16:49,909 - INFO - Rolling and expanding features generated.
+2025-01-08 06:16:49,918 - INFO - Lag features generated.
+2025-01-08 06:16:49,937 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-08 06:16:50,070 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-08 06:17:15,926 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-08 06:17:22,213 - INFO - Fold 1 metrics: {'accuracy': [0.7977794411177644, 0.7984776640878463], 'f1_score': [0.8875164804663105, 0.8879483799347812], 'roc_auc': [0.7316967151716212, 0.5032236557859998]}
+2025-01-08 06:17:26,767 - INFO - Fold 2 metrics: {'accuracy': [0.7981285090455396, 0.7998502620414275], 'f1_score': [0.8877324451845684, 0.8887964503605102], 'roc_auc': [0.6207027040448696, 0.49124254496364383]}
+2025-01-08 06:17:31,972 - INFO - Fold 3 metrics: {'accuracy': [0.7987023789718849, 0.7977289742949838], 'f1_score': [0.8880873103958564, 0.8874852502255848], 'roc_auc': [0.7385311589269453, 0.5034433868088873]}
+2025-01-08 07:05:23,243 - INFO - Starting the data augmentation process.
+2025-01-08 07:05:23,369 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-08 07:05:23,369 - INFO - Adding new columns and generating additional rows...
+2025-01-08 07:05:23,387 - INFO - Generating 28489 additional rows...
+2025-01-08 07:05:47,387 - INFO - Additional rows and columns added successfully.
+2025-01-08 07:05:47,517 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-09 04:18:34,896 - INFO - Starting the data augmentation process.
+2025-01-09 04:18:35,591 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-09 04:18:35,592 - INFO - Adding new columns and generating additional rows...
+2025-01-09 04:18:35,637 - INFO - Generating 18473 additional rows...
+2025-01-09 04:18:56,052 - INFO - Additional rows and columns added successfully.
+2025-01-09 04:18:56,317 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-09 04:21:04,652 - INFO - Starting the data augmentation process.
+2025-01-09 04:21:04,781 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-09 04:21:04,781 - INFO - Adding new columns and generating additional rows...
+2025-01-09 04:21:04,799 - INFO - Generating 33630 additional rows...
+2025-01-09 04:21:32,620 - INFO - Additional rows and columns added successfully.
+2025-01-09 04:21:32,783 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-09 04:27:47,470 - INFO - Starting preprocessing pipeline.
+2025-01-09 04:27:48,209 - INFO - None
+2025-01-09 04:27:48,239 - INFO - Dataset loaded successfully. None
+2025-01-09 04:27:48,269 - INFO - Target encoding completed.
+2025-01-09 04:27:48,315 - INFO - Categorical encoding completed.
+2025-01-09 04:27:48,359 - INFO - Holiday-related features created.
+2025-01-09 04:27:48,372 - INFO - Normalization completed.
+2025-01-09 04:27:48,396 - INFO - Rolling and expanding features generated.
+2025-01-09 04:27:48,405 - INFO - Lag features generated.
+2025-01-09 04:27:48,424 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-09 04:27:48,563 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-09 04:28:25,211 - INFO - Starting preprocessing pipeline.
+2025-01-09 04:28:25,274 - INFO - None
+2025-01-09 04:28:25,303 - INFO - Dataset loaded successfully. None
+2025-01-09 04:28:25,333 - INFO - Target encoding completed.
+2025-01-09 04:28:25,378 - INFO - Categorical encoding completed.
+2025-01-09 04:28:25,415 - INFO - Holiday-related features created.
+2025-01-09 04:28:25,427 - INFO - Normalization completed.
+2025-01-09 04:28:25,449 - INFO - Rolling and expanding features generated.
+2025-01-09 04:28:25,458 - INFO - Lag features generated.
+2025-01-09 04:28:25,477 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-09 04:28:25,629 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-09 04:30:43,363 - INFO - Starting preprocessing pipeline.
+2025-01-09 04:30:43,423 - INFO - None
+2025-01-09 04:30:43,453 - INFO - Dataset loaded successfully. None
+2025-01-09 04:30:43,482 - INFO - Target encoding completed.
+2025-01-09 04:30:43,542 - INFO - Categorical encoding completed.
+2025-01-09 04:30:43,593 - INFO - Holiday-related features created.
+2025-01-09 04:30:43,614 - INFO - Normalization completed.
+2025-01-09 04:30:43,671 - INFO - Rolling and expanding features generated.
+2025-01-09 04:30:43,681 - INFO - Lag features generated.
+2025-01-09 04:30:43,711 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-09 04:30:43,900 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-09 04:31:25,985 - INFO - Starting preprocessing pipeline.
+2025-01-09 04:31:26,045 - INFO - None
+2025-01-09 04:31:26,075 - INFO - Dataset loaded successfully. None
+2025-01-09 04:31:26,105 - INFO - Target encoding completed.
+2025-01-09 04:31:26,152 - INFO - Categorical encoding completed.
+2025-01-09 04:31:26,190 - INFO - Holiday-related features created.
+2025-01-09 04:31:26,202 - INFO - Normalization completed.
+2025-01-09 04:31:26,223 - INFO - Rolling and expanding features generated.
+2025-01-09 04:31:26,230 - INFO - Lag features generated.
+2025-01-09 04:31:26,246 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-09 04:31:26,388 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-09 04:32:59,448 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-09 04:32:59,470 - ERROR - An error occurred in the training pipeline: "['Disruption_Type'] not found in axis"
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/v2/training_pipeline.py", line 92, in run_lightgbm_training_pipeline
+    X = data.drop(columns=[target_column])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 5581, in drop
+    return super().drop(
+           ^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 4788, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 4830, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 7070, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['Disruption_Type'] not found in axis"
+2025-01-09 04:36:03,400 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-09 04:36:10,499 - INFO - Fold 1 metrics: {'accuracy': [0.7977794411177644, 0.7984776640878463], 'f1_score': [0.8875164804663105, 0.8879483799347812], 'roc_auc': [0.7316967151716212, 0.5032236557859998]}
+2025-01-09 04:36:15,005 - INFO - Fold 2 metrics: {'accuracy': [0.7981285090455396, 0.7998502620414275], 'f1_score': [0.8877324451845684, 0.8887964503605102], 'roc_auc': [0.6207027040448696, 0.49124254496364383]}
+2025-01-09 04:36:20,294 - INFO - Fold 3 metrics: {'accuracy': [0.7987023789718849, 0.7977289742949838], 'f1_score': [0.8880873103958564, 0.8874852502255848], 'roc_auc': [0.7385311589269453, 0.5034433868088873]}
+2025-01-09 05:01:03,393 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-09 05:01:07,530 - INFO - Fold 1 metrics: {'accuracy': [0.7977794411177644, 0.7984776640878463], 'f1_score': [0.8875164804663105, 0.8879483799347812], 'roc_auc': [0.7316967151716212, 0.5032236557859998]}
+2025-01-09 05:01:12,077 - INFO - Fold 2 metrics: {'accuracy': [0.7981285090455396, 0.7998502620414275], 'f1_score': [0.8877324451845684, 0.8887964503605102], 'roc_auc': [0.6207027040448696, 0.49124254496364383]}
+2025-01-09 05:01:17,150 - INFO - Fold 3 metrics: {'accuracy': [0.7987023789718849, 0.7977289742949838], 'f1_score': [0.8880873103958564, 0.8874852502255848], 'roc_auc': [0.7385311589269453, 0.5034433868088873]}
+2025-01-09 05:09:20,640 - INFO - Starting the data augmentation process.
+2025-01-09 05:09:20,798 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-09 05:09:20,798 - INFO - Adding new columns and generating additional rows...
+2025-01-09 05:09:20,819 - INFO - Generating 67935 additional rows...
+2025-01-09 05:10:21,551 - INFO - Additional rows and columns added successfully.
+2025-01-09 05:10:21,771 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-09 05:11:13,997 - INFO - Starting preprocessing pipeline.
+2025-01-09 05:11:14,056 - INFO - None
+2025-01-09 05:11:14,085 - INFO - Dataset loaded successfully. None
+2025-01-09 05:11:14,114 - INFO - Target encoding completed.
+2025-01-09 05:11:14,163 - INFO - Categorical encoding completed.
+2025-01-09 05:11:14,200 - INFO - Holiday-related features created.
+2025-01-09 05:11:14,213 - INFO - Normalization completed.
+2025-01-09 05:11:14,236 - INFO - Rolling and expanding features generated.
+2025-01-09 05:11:14,245 - INFO - Lag features generated.
+2025-01-09 05:11:14,262 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-09 05:11:14,416 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-09 05:12:45,419 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-09 05:12:49,444 - INFO - Fold 1 metrics: {'accuracy': [0.7986587648159701, 0.7942643391521197, 0.7984776640878463], 'f1_score': [0.8880603485649874, 0.8853370396108409, 0.8879483799347812], 'roc_auc': [0.6462628404992671, 0.5237310308738881, 0.49639204461610437]}
+2025-01-09 05:12:53,729 - INFO - Fold 2 metrics: {'accuracy': [0.7988147223955084, 0.7953836556456644, 0.7998502620414275], 'f1_score': [0.8881567539448587, 0.8860319666435025, 0.8887964503605102], 'roc_auc': [0.6492269439626599, 0.4916173481587757, 0.5036453814761068]}
+2025-01-09 05:12:58,635 - INFO - Fold 3 metrics: {'accuracy': [0.7979204574993501, 0.8018299022665835, 0.7977289742949838], 'f1_score': [0.8876037359396235, 0.8900173110213503, 0.8874852502255848], 'roc_auc': [0.562535498365709, 0.4955863880386462, 0.5029823740166146]}
+2025-01-09 05:27:01,376 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-09 05:27:05,082 - INFO - Fold 1 metrics: {'accuracy': [0.7930591259640103, 0.8047945205479452, 0.7999313658201784], 'f1_score': [0.8845878136200717, 0.8918406072106262, 0.8888465204957102], 'roc_auc': [0.9189509783195922, 0.5238148562896603, 0.5106720295399542]}
+2025-01-09 05:27:08,853 - INFO - Fold 2 metrics: {'accuracy': [0.8002143622722401, 0.7874892887746359, 0.799245024021963], 'f1_score': [0.8890211955227435, 0.8811121764141898, 0.8884226587831394], 'roc_auc': [0.8402054981150602, 0.506956632384429, 0.49353304488555666]}
+2025-01-09 05:27:13,005 - INFO - Fold 3 metrics: {'accuracy': [0.7983133218982276, 0.7977142857142857, 0.7978723404255319], 'f1_score': [0.8878467530402988, 0.8874761602034329, 0.8875739644970414], 'roc_auc': [0.8831090542590606, 0.518847230990886, 0.49152417985650915]}
+2025-01-09 05:27:17,202 - INFO - Fold 4 metrics: {'accuracy': [0.7985634648370498, 0.7963121783876501, 0.8047357584076871], 'f1_score': [0.8880014305298921, 0.886607782286942, 0.8918045255752044], 'roc_auc': [0.732653714586847, 0.5108103052461526, 0.5023761433855077]}
+2025-01-09 05:27:21,356 - INFO - Fold 5 metrics: {'accuracy': [0.7980958915858993, 0.8048027444253859, 0.7975291695264242], 'f1_score': [0.8877122686510208, 0.8918456567192549, 0.8873615883925162], 'roc_auc': [0.7572298537662351, 0.5054941515079325, 0.5173291227865457]}
+2025-01-09 05:27:25,909 - INFO - Fold 6 metrics: {'accuracy': [0.8001429592566118, 0.7950257289879932, 0.7944406314344543], 'f1_score': [0.8889771283354511, 0.8858098423315814, 0.8854465480971505], 'roc_auc': [0.7602621940325175, 0.5056893835786471, 0.4704695010041935]}
+2025-01-09 05:27:30,331 - INFO - Fold 7 metrics: {'accuracy': [0.7980515899761044, 0.8000490075961774, 0.801990391214825], 'f1_score': [0.8876848633544606, 0.8889191396678464, 0.890116168348886], 'roc_auc': [0.6363559622085981, 0.505221939464913, 0.5104575701416961]}
+2025-01-09 05:27:35,274 - INFO - Fold 8 metrics: {'accuracy': [0.7986811065837444, 0.7997427101200686, 0.8009608785175018], 'f1_score': [0.8880741601836121, 0.8887300452704313, 0.8894817073170732], 'roc_auc': [0.6762411613451872, 0.5182414705696621, 0.49629945631297456]}
+2025-01-09 05:27:39,916 - INFO - Fold 9 metrics: {'accuracy': [0.7987037743042318, 0.8008006099885627, 0.7934111187371311], 'f1_score': [0.8880881729546418, 0.8893828728696941, 0.8848067355530043], 'roc_auc': [0.5686745701345194, 0.4900506714623654, 0.4912338054236743]}
+2025-01-09 05:27:45,098 - INFO - Fold 10 metrics: {'accuracy': [0.7988848380870684, 0.7972207925887802, 0.7975291695264242], 'f1_score': [0.8882000906034668, 0.8871706758304696, 0.8873615883925162], 'roc_auc': [0.7197909704436297, 0.5225487068963948, 0.5207514075673153]}
+2025-01-09 06:14:06,790 - INFO - Starting the data augmentation process.
+2025-01-09 06:14:06,912 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-09 06:14:06,913 - INFO - Adding new columns and generating additional rows...
+2025-01-09 06:14:06,932 - INFO - Generating 67935 additional rows...
+2025-01-09 06:15:08,708 - INFO - Additional rows and columns added successfully.
+2025-01-09 06:15:08,932 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-09 06:17:23,078 - INFO - Starting the data augmentation process.
+2025-01-09 06:17:23,197 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-09 06:17:23,198 - INFO - Adding new columns and generating additional rows...
+2025-01-09 06:17:23,218 - INFO - Generating 67580 additional rows...
+2025-01-09 06:18:18,331 - INFO - Additional rows and columns added successfully.
+2025-01-09 06:18:18,504 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-09 06:19:54,210 - INFO - Starting preprocessing pipeline.
+2025-01-09 06:19:54,271 - INFO - None
+2025-01-09 06:19:54,301 - INFO - Dataset loaded successfully. None
+2025-01-09 06:19:54,330 - INFO - Target encoding completed.
+2025-01-09 06:19:54,375 - INFO - Categorical encoding completed.
+2025-01-09 06:19:54,414 - INFO - Holiday-related features created.
+2025-01-09 06:19:54,427 - INFO - Normalization completed.
+2025-01-09 06:19:54,448 - INFO - Rolling and expanding features generated.
+2025-01-09 06:19:54,456 - INFO - Lag features generated.
+2025-01-09 06:19:54,472 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-09 06:19:54,614 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-09 06:20:46,197 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-09 06:20:46,221 - ERROR - An error occurred in the training pipeline: cannot access local variable 'train_data' where it is not associated with a value
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/v2/training_pipeline.py", line 110, in run_lightgbm_training_pipeline
+    train_data,
+    ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'train_data' where it is not associated with a value
+2025-01-09 06:22:33,471 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-09 06:22:34,221 - INFO - Fold 1 metrics: {'accuracy': [0.7930591259640103, 0.8047945205479452, 0.7999313658201784], 'f1_score': [0.8845878136200717, 0.8918406072106262, 0.8888465204957102], 'roc_auc': [0.9189509783195922, 0.5238148562896603, 0.5106720295399542]}
+2025-01-09 06:22:35,141 - INFO - Fold 2 metrics: {'accuracy': [0.8002143622722401, 0.7874892887746359, 0.799245024021963], 'f1_score': [0.8890211955227435, 0.8811121764141898, 0.8884226587831394], 'roc_auc': [0.8402054981150602, 0.506956632384429, 0.49353304488555666]}
+2025-01-09 06:22:36,131 - INFO - Fold 3 metrics: {'accuracy': [0.7983133218982276, 0.7977142857142857, 0.7978723404255319], 'f1_score': [0.8878467530402988, 0.8874761602034329, 0.8875739644970414], 'roc_auc': [0.8831090542590606, 0.518847230990886, 0.49152417985650915]}
+2025-01-09 06:22:37,125 - INFO - Fold 4 metrics: {'accuracy': [0.7985634648370498, 0.7963121783876501, 0.8047357584076871], 'f1_score': [0.8880014305298921, 0.886607782286942, 0.8918045255752044], 'roc_auc': [0.732653714586847, 0.5108103052461526, 0.5023761433855077]}
+2025-01-09 06:22:37,917 - INFO - Fold 5 metrics: {'accuracy': [0.7980958915858993, 0.8048027444253859, 0.7975291695264242], 'f1_score': [0.8877122686510208, 0.8918456567192549, 0.8873615883925162], 'roc_auc': [0.7572298537662351, 0.5054941515079325, 0.5173291227865457]}
+2025-01-09 06:22:38,749 - INFO - Fold 6 metrics: {'accuracy': [0.8001429592566118, 0.7950257289879932, 0.7944406314344543], 'f1_score': [0.8889771283354511, 0.8858098423315814, 0.8854465480971505], 'roc_auc': [0.7602621940325175, 0.5056893835786471, 0.4704695010041935]}
+2025-01-09 06:22:39,547 - INFO - Fold 7 metrics: {'accuracy': [0.7980515899761044, 0.8000490075961774, 0.801990391214825], 'f1_score': [0.8876848633544606, 0.8889191396678464, 0.890116168348886], 'roc_auc': [0.6363559622085981, 0.505221939464913, 0.5104575701416961]}
+2025-01-09 06:22:40,485 - INFO - Fold 8 metrics: {'accuracy': [0.7986811065837444, 0.7997427101200686, 0.8009608785175018], 'f1_score': [0.8880741601836121, 0.8887300452704313, 0.8894817073170732], 'roc_auc': [0.6762411613451872, 0.5182414705696621, 0.49629945631297456]}
+2025-01-09 06:22:41,399 - INFO - Fold 9 metrics: {'accuracy': [0.7987037743042318, 0.8008006099885627, 0.7934111187371311], 'f1_score': [0.8880881729546418, 0.8893828728696941, 0.8848067355530043], 'roc_auc': [0.5686745701345194, 0.4900506714623654, 0.4912338054236743]}
+2025-01-09 06:22:42,447 - INFO - Fold 10 metrics: {'accuracy': [0.7988848380870684, 0.7972207925887802, 0.7975291695264242], 'f1_score': [0.8882000906034668, 0.8871706758304696, 0.8873615883925162], 'roc_auc': [0.7197909704436297, 0.5225487068963948, 0.5207514075673153]}
+2025-01-09 06:55:48,383 - INFO - Starting the data augmentation process.
+2025-01-09 06:55:48,506 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-09 06:55:48,507 - INFO - Adding new columns and generating additional rows...
+2025-01-09 06:55:48,527 - INFO - Generating 67137 additional rows...
+2025-01-09 06:56:43,730 - INFO - Additional rows and columns added successfully.
+2025-01-09 06:56:43,905 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-09 07:02:41,880 - INFO - Starting preprocessing pipeline.
+2025-01-09 07:02:41,941 - INFO - None
+2025-01-09 07:02:41,985 - INFO - Dataset loaded successfully. None
+2025-01-09 07:02:42,038 - INFO - Target encoding completed.
+2025-01-09 07:02:42,112 - INFO - Categorical encoding completed.
+2025-01-09 07:02:42,171 - INFO - Holiday-related features created.
+2025-01-09 07:02:42,189 - INFO - Normalization completed.
+2025-01-09 07:02:42,213 - INFO - Rolling and expanding features generated.
+2025-01-09 07:02:42,225 - INFO - Lag features generated.
+2025-01-09 07:02:42,245 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-09 07:02:42,397 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-09 07:03:33,868 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-09 07:03:34,747 - INFO - Fold 1 metrics: {'accuracy': [0.7930591259640103, 0.8047945205479452, 0.7999313658201784], 'f1_score': [0.8845878136200717, 0.8918406072106262, 0.8888465204957102], 'roc_auc': [0.9189509783195922, 0.5238148562896603, 0.5106720295399542]}
+2025-01-09 07:03:35,487 - INFO - Fold 2 metrics: {'accuracy': [0.8002143622722401, 0.7874892887746359, 0.799245024021963], 'f1_score': [0.8890211955227435, 0.8811121764141898, 0.8884226587831394], 'roc_auc': [0.8402054981150602, 0.506956632384429, 0.49353304488555666]}
+2025-01-09 07:03:36,352 - INFO - Fold 3 metrics: {'accuracy': [0.7983133218982276, 0.7977142857142857, 0.7978723404255319], 'f1_score': [0.8878467530402988, 0.8874761602034329, 0.8875739644970414], 'roc_auc': [0.8831090542590606, 0.518847230990886, 0.49152417985650915]}
+2025-01-09 07:03:37,183 - INFO - Fold 4 metrics: {'accuracy': [0.7985634648370498, 0.7963121783876501, 0.8047357584076871], 'f1_score': [0.8880014305298921, 0.886607782286942, 0.8918045255752044], 'roc_auc': [0.732653714586847, 0.5108103052461526, 0.5023761433855077]}
+2025-01-09 07:03:38,049 - INFO - Fold 5 metrics: {'accuracy': [0.7980958915858993, 0.8048027444253859, 0.7975291695264242], 'f1_score': [0.8877122686510208, 0.8918456567192549, 0.8873615883925162], 'roc_auc': [0.7572298537662351, 0.5054941515079325, 0.5173291227865457]}
+2025-01-09 07:03:38,943 - INFO - Fold 6 metrics: {'accuracy': [0.8001429592566118, 0.7950257289879932, 0.7944406314344543], 'f1_score': [0.8889771283354511, 0.8858098423315814, 0.8854465480971505], 'roc_auc': [0.7602621940325175, 0.5056893835786471, 0.4704695010041935]}
+2025-01-09 07:03:39,747 - INFO - Fold 7 metrics: {'accuracy': [0.7980515899761044, 0.8000490075961774, 0.801990391214825], 'f1_score': [0.8876848633544606, 0.8889191396678464, 0.890116168348886], 'roc_auc': [0.6363559622085981, 0.505221939464913, 0.5104575701416961]}
+2025-01-09 07:03:40,690 - INFO - Fold 8 metrics: {'accuracy': [0.7986811065837444, 0.7997427101200686, 0.8009608785175018], 'f1_score': [0.8880741601836121, 0.8887300452704313, 0.8894817073170732], 'roc_auc': [0.6762411613451872, 0.5182414705696621, 0.49629945631297456]}
+2025-01-09 07:03:41,553 - INFO - Fold 9 metrics: {'accuracy': [0.7987037743042318, 0.8008006099885627, 0.7934111187371311], 'f1_score': [0.8880881729546418, 0.8893828728696941, 0.8848067355530043], 'roc_auc': [0.5686745701345194, 0.4900506714623654, 0.4912338054236743]}
+2025-01-09 07:03:42,901 - INFO - Fold 10 metrics: {'accuracy': [0.7988848380870684, 0.7972207925887802, 0.7975291695264242], 'f1_score': [0.8882000906034668, 0.8871706758304696, 0.8873615883925162], 'roc_auc': [0.7197909704436297, 0.5225487068963948, 0.5207514075673153]}
+2025-01-10 04:10:48,984 - INFO - Starting the data augmentation process.
+2025-01-10 04:10:49,168 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-10 04:10:49,168 - INFO - Adding new columns and generating additional rows...
+2025-01-10 04:10:49,192 - INFO - Generating 26093 additional rows...
+2025-01-10 04:11:11,015 - INFO - Additional rows and columns added successfully.
+2025-01-10 04:11:11,147 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-10 04:20:40,299 - INFO - Starting the data augmentation process.
+2025-01-10 04:20:40,519 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-10 04:20:40,519 - INFO - Adding new columns and generating additional rows...
+2025-01-10 04:20:40,535 - INFO - Generating 26093 additional rows...
+2025-01-10 04:21:02,228 - INFO - Additional rows and columns added successfully.
+2025-01-10 04:21:02,244 - ERROR - An error occurred during the pipeline execution:
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/v2/ingestion_pipeline.py", line 106, in run
+    raise ValueError(f"Dataset row count mismatch: Expected {total_rows}, but got {len(updated_df)}")
+ValueError: Dataset row count mismatch: Expected 58158, but got 32065
+2025-01-10 04:22:45,162 - INFO - Starting the data augmentation process.
+2025-01-10 04:22:45,318 - INFO - Loaded existing dataset with 32065 rows.
+2025-01-10 04:22:45,319 - INFO - Adding new columns and generating additional rows...
+2025-01-10 04:22:45,334 - INFO - Generating 26093 additional rows...
+2025-01-10 04:23:07,873 - INFO - Additional rows and columns added successfully.
+2025-01-10 04:23:08,028 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-10 04:24:50,778 - INFO - Starting preprocessing pipeline.
+2025-01-10 04:24:50,883 - INFO - None
+2025-01-10 04:24:50,917 - INFO - Dataset loaded successfully. None
+2025-01-10 04:24:50,948 - INFO - Target encoding completed.
+2025-01-10 04:24:50,993 - INFO - Categorical encoding completed.
+2025-01-10 04:24:51,032 - INFO - Holiday-related features created.
+2025-01-10 04:24:51,046 - INFO - Normalization completed.
+2025-01-10 04:24:51,068 - INFO - Rolling and expanding features generated.
+2025-01-10 04:24:51,078 - INFO - Lag features generated.
+2025-01-10 04:24:51,099 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 04:24:51,245 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-10 04:25:25,097 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-10 04:25:26,274 - INFO - Fold 1 metrics: {'accuracy': [0.7930591259640103, 0.8047945205479452, 0.7999313658201784], 'f1_score': [0.8845878136200717, 0.8918406072106262, 0.8888465204957102], 'roc_auc': [0.9189509783195922, 0.5238148562896603, 0.5106720295399542]}
+2025-01-10 04:25:26,954 - INFO - Fold 2 metrics: {'accuracy': [0.8002143622722401, 0.7874892887746359, 0.799245024021963], 'f1_score': [0.8890211955227435, 0.8811121764141898, 0.8884226587831394], 'roc_auc': [0.8402054981150602, 0.506956632384429, 0.49353304488555666]}
+2025-01-10 04:25:27,992 - INFO - Fold 3 metrics: {'accuracy': [0.7983133218982276, 0.7977142857142857, 0.7978723404255319], 'f1_score': [0.8878467530402988, 0.8874761602034329, 0.8875739644970414], 'roc_auc': [0.8831090542590606, 0.518847230990886, 0.49152417985650915]}
+2025-01-10 04:25:28,803 - INFO - Fold 4 metrics: {'accuracy': [0.7985634648370498, 0.7963121783876501, 0.8047357584076871], 'f1_score': [0.8880014305298921, 0.886607782286942, 0.8918045255752044], 'roc_auc': [0.732653714586847, 0.5108103052461526, 0.5023761433855077]}
+2025-01-10 04:25:29,626 - INFO - Fold 5 metrics: {'accuracy': [0.7980958915858993, 0.8048027444253859, 0.7975291695264242], 'f1_score': [0.8877122686510208, 0.8918456567192549, 0.8873615883925162], 'roc_auc': [0.7572298537662351, 0.5054941515079325, 0.5173291227865457]}
+2025-01-10 04:25:30,575 - INFO - Fold 6 metrics: {'accuracy': [0.8001429592566118, 0.7950257289879932, 0.7944406314344543], 'f1_score': [0.8889771283354511, 0.8858098423315814, 0.8854465480971505], 'roc_auc': [0.7602621940325175, 0.5056893835786471, 0.4704695010041935]}
+2025-01-10 04:25:31,391 - INFO - Fold 7 metrics: {'accuracy': [0.7980515899761044, 0.8000490075961774, 0.801990391214825], 'f1_score': [0.8876848633544606, 0.8889191396678464, 0.890116168348886], 'roc_auc': [0.6363559622085981, 0.505221939464913, 0.5104575701416961]}
+2025-01-10 04:25:32,341 - INFO - Fold 8 metrics: {'accuracy': [0.7986811065837444, 0.7997427101200686, 0.8009608785175018], 'f1_score': [0.8880741601836121, 0.8887300452704313, 0.8894817073170732], 'roc_auc': [0.6762411613451872, 0.5182414705696621, 0.49629945631297456]}
+2025-01-10 04:25:33,460 - INFO - Fold 9 metrics: {'accuracy': [0.7987037743042318, 0.8008006099885627, 0.7934111187371311], 'f1_score': [0.8880881729546418, 0.8893828728696941, 0.8848067355530043], 'roc_auc': [0.5686745701345194, 0.4900506714623654, 0.4912338054236743]}
+2025-01-10 04:25:34,506 - INFO - Fold 10 metrics: {'accuracy': [0.7988848380870684, 0.7972207925887802, 0.7975291695264242], 'f1_score': [0.8882000906034668, 0.8871706758304696, 0.8873615883925162], 'roc_auc': [0.7197909704436297, 0.5225487068963948, 0.5207514075673153]}
+2025-01-10 04:49:22,889 - INFO - Starting the data augmentation process.
+2025-01-10 04:49:22,979 - INFO - Loaded existing dataset with 25652 rows.
+2025-01-10 04:49:22,980 - ERROR - An error occurred during the pipeline execution:
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/pipelines/v2/ingestion_pipeline.py", line 110, in run
+    raise ValueError(f"Dataset row count mismatch: Expected {total_rows}, but got {len(updated_df)}")
+ValueError: Dataset row count mismatch: Expected 0, but got 25652
+2025-01-10 04:49:49,003 - INFO - Starting the data augmentation process.
+2025-01-10 04:49:49,093 - INFO - Loaded existing dataset with 25652 rows.
+2025-01-10 04:49:49,159 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-10 04:51:18,410 - INFO - Starting the data augmentation process.
+2025-01-10 04:51:18,490 - INFO - Loaded existing dataset with 25652 rows.
+2025-01-10 04:51:18,491 - INFO - Adding new columns and generating additional rows...
+2025-01-10 04:51:18,507 - INFO - Additional rows and columns added successfully.
+2025-01-10 04:51:18,601 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-10 04:52:01,783 - INFO - Starting preprocessing pipeline.
+2025-01-10 04:52:01,844 - INFO - None
+2025-01-10 04:52:01,874 - INFO - Dataset loaded successfully. None
+2025-01-10 04:52:01,909 - INFO - Target encoding completed.
+2025-01-10 04:52:01,955 - INFO - Categorical encoding completed.
+2025-01-10 04:52:02,007 - INFO - Holiday-related features created.
+2025-01-10 04:52:02,021 - INFO - Normalization completed.
+2025-01-10 04:52:02,044 - INFO - Rolling and expanding features generated.
+2025-01-10 04:52:02,053 - INFO - Lag features generated.
+2025-01-10 04:52:02,072 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 04:52:02,274 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-10 04:52:28,804 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-10 04:52:29,623 - INFO - Fold 1 metrics: {'accuracy': [0.7930591259640103, 0.8047945205479452, 0.7999313658201784], 'f1_score': [0.8845878136200717, 0.8918406072106262, 0.8888465204957102], 'roc_auc': [0.9189509783195922, 0.5238148562896603, 0.5106720295399542]}
+2025-01-10 04:52:30,523 - INFO - Fold 2 metrics: {'accuracy': [0.8002143622722401, 0.7874892887746359, 0.799245024021963], 'f1_score': [0.8890211955227435, 0.8811121764141898, 0.8884226587831394], 'roc_auc': [0.8402054981150602, 0.506956632384429, 0.49353304488555666]}
+2025-01-10 04:52:31,412 - INFO - Fold 3 metrics: {'accuracy': [0.7983133218982276, 0.7977142857142857, 0.7978723404255319], 'f1_score': [0.8878467530402988, 0.8874761602034329, 0.8875739644970414], 'roc_auc': [0.8831090542590606, 0.518847230990886, 0.49152417985650915]}
+2025-01-10 04:52:32,180 - INFO - Fold 4 metrics: {'accuracy': [0.7985634648370498, 0.7963121783876501, 0.8047357584076871], 'f1_score': [0.8880014305298921, 0.886607782286942, 0.8918045255752044], 'roc_auc': [0.732653714586847, 0.5108103052461526, 0.5023761433855077]}
+2025-01-10 04:52:33,033 - INFO - Fold 5 metrics: {'accuracy': [0.7980958915858993, 0.8048027444253859, 0.7975291695264242], 'f1_score': [0.8877122686510208, 0.8918456567192549, 0.8873615883925162], 'roc_auc': [0.7572298537662351, 0.5054941515079325, 0.5173291227865457]}
+2025-01-10 04:52:33,939 - INFO - Fold 6 metrics: {'accuracy': [0.8001429592566118, 0.7950257289879932, 0.7944406314344543], 'f1_score': [0.8889771283354511, 0.8858098423315814, 0.8854465480971505], 'roc_auc': [0.7602621940325175, 0.5056893835786471, 0.4704695010041935]}
+2025-01-10 04:52:34,744 - INFO - Fold 7 metrics: {'accuracy': [0.7980515899761044, 0.8000490075961774, 0.801990391214825], 'f1_score': [0.8876848633544606, 0.8889191396678464, 0.890116168348886], 'roc_auc': [0.6363559622085981, 0.505221939464913, 0.5104575701416961]}
+2025-01-10 04:52:35,832 - INFO - Fold 8 metrics: {'accuracy': [0.7986811065837444, 0.7997427101200686, 0.8009608785175018], 'f1_score': [0.8880741601836121, 0.8887300452704313, 0.8894817073170732], 'roc_auc': [0.6762411613451872, 0.5182414705696621, 0.49629945631297456]}
+2025-01-10 04:52:36,733 - INFO - Fold 9 metrics: {'accuracy': [0.7987037743042318, 0.8008006099885627, 0.7934111187371311], 'f1_score': [0.8880881729546418, 0.8893828728696941, 0.8848067355530043], 'roc_auc': [0.5686745701345194, 0.4900506714623654, 0.4912338054236743]}
+2025-01-10 04:52:37,759 - INFO - Fold 10 metrics: {'accuracy': [0.7988848380870684, 0.7972207925887802, 0.7975291695264242], 'f1_score': [0.8882000906034668, 0.8871706758304696, 0.8873615883925162], 'roc_auc': [0.7197909704436297, 0.5225487068963948, 0.5207514075673153]}
+2025-01-10 04:57:29,617 - INFO - Starting preprocessing pipeline.
+2025-01-10 04:57:29,683 - INFO - None
+2025-01-10 04:57:29,714 - INFO - Dataset loaded successfully. None
+2025-01-10 04:57:29,744 - INFO - Target encoding completed.
+2025-01-10 04:57:29,790 - INFO - Categorical encoding completed.
+2025-01-10 04:57:29,829 - INFO - Holiday-related features created.
+2025-01-10 04:57:29,842 - INFO - Normalization completed.
+2025-01-10 04:57:29,864 - INFO - Rolling and expanding features generated.
+2025-01-10 04:57:29,872 - INFO - Lag features generated.
+2025-01-10 04:57:29,891 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 04:57:30,031 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-10 04:58:29,082 - INFO - Starting preprocessing pipeline.
+2025-01-10 04:58:29,148 - INFO - None
+2025-01-10 04:58:29,180 - INFO - Dataset loaded successfully. None
+2025-01-10 04:58:29,213 - INFO - Target encoding completed.
+2025-01-10 04:58:29,258 - INFO - Categorical encoding completed.
+2025-01-10 04:58:29,296 - INFO - Holiday-related features created.
+2025-01-10 04:58:29,310 - INFO - Normalization completed.
+2025-01-10 04:58:29,351 - INFO - Rolling and expanding features generated.
+2025-01-10 04:58:29,361 - INFO - Lag features generated.
+2025-01-10 04:58:29,380 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 04:58:29,616 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-10 04:59:22,672 - INFO - Starting preprocessing pipeline.
+2025-01-10 04:59:22,739 - INFO - None
+2025-01-10 04:59:22,771 - INFO - Dataset loaded successfully. None
+2025-01-10 04:59:22,807 - INFO - Target encoding completed.
+2025-01-10 04:59:22,863 - INFO - Categorical encoding completed.
+2025-01-10 04:59:22,904 - INFO - Holiday-related features created.
+2025-01-10 04:59:22,918 - INFO - Normalization completed.
+2025-01-10 04:59:22,975 - INFO - Rolling and expanding features generated.
+2025-01-10 04:59:22,994 - INFO - Lag features generated.
+2025-01-10 04:59:23,023 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 04:59:23,246 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-10 05:01:38,306 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-10 05:01:39,160 - INFO - Fold 1 metrics: {'accuracy': [0.7933990570081441, 0.8047945205479452, 0.7989690721649485], 'f1_score': [0.8847992351816444, 0.8918406072106262, 0.8882521489971347], 'roc_auc': [0.9120751147187456, 0.5186730123180291, 0.5131451153386637]}
+2025-01-10 05:01:40,047 - INFO - Fold 2 metrics: {'accuracy': [0.800901094185797, 0.7830188679245284, 0.8003436426116839], 'f1_score': [0.8894448415534906, 0.8783068783068783, 0.8891009734682191], 'roc_auc': [0.692468356549692, 0.515431470762677, 0.5065983125287755]}
+2025-01-10 05:01:40,882 - INFO - Fold 3 metrics: {'accuracy': [0.7982543997710688, 0.7986270022883295, 0.797938144329897], 'f1_score': [0.8878103119032463, 0.8880407124681934, 0.8876146788990825], 'roc_auc': [0.7269774318334077, 0.5034178415603021, 0.4913944259874492]}
+2025-01-10 05:01:41,747 - INFO - Fold 4 metrics: {'accuracy': [0.7984329719866909, 0.7974248927038626, 0.802405498281787], 'f1_score': [0.88792074480783, 0.8872970391595033, 0.8903717826501429], 'roc_auc': [0.6414706850363073, 0.5147438470380032, 0.51352499767247]}
+2025-01-10 05:01:42,748 - INFO - Fold 5 metrics: {'accuracy': [0.798196650923143, 0.8025412087912088, 0.8], 'f1_score': [0.887774594078319, 0.890455324823776, 0.8888888888888888], 'roc_auc': [0.6074404220983599, 0.4951714386709084, 0.5085179969532717]}
+2025-01-10 05:01:43,792 - INFO - Fold 6 metrics: {'accuracy': [0.8001145065483433, 0.795649685174585, 0.7941580756013745], 'f1_score': [0.888959567447223, 0.8861970035065349, 0.8852710208772265], 'roc_auc': [0.7672894541490449, 0.5250052898857385, 0.4760656914849428]}
+2025-01-10 05:01:44,947 - INFO - Fold 7 metrics: {'accuracy': [0.7980491994356175, 0.8002944062806673, 0.8013745704467354], 'f1_score': [0.887683384510406, 0.8890705914418098, 0.8897367417016406], 'roc_auc': [0.7613092795743707, 0.5152253934442775, 0.4993530658151668]}
+2025-01-10 05:01:46,020 - INFO - Fold 8 metrics: {'accuracy': [0.7985935906382522, 0.7999141262344354, 0.8006872852233677], 'f1_score': [0.8880200561093535, 0.8888358778625954, 0.8893129770992366], 'roc_auc': [0.5899801345446306, 0.49666794523577507, 0.4998002071925411]}
+2025-01-10 05:01:47,116 - INFO - Fold 9 metrics: {'accuracy': [0.7985398673474257, 0.8011450381679389, 0.7934707903780068], 'f1_score': [0.8879868407089038, 0.8895952532316169, 0.8848438398160567], 'roc_auc': [0.6127591017048009, 0.5153842337864938, 0.493146617914851]}
+2025-01-10 05:01:48,602 - INFO - Fold 10 metrics: {'accuracy': [0.798840455228688, 0.7971487461353487, 0.7975945017182131], 'f1_score': [0.8881726591223797, 0.8871260632705725, 0.887402026381189], 'roc_auc': [0.7730427027719647, 0.5109605491385638, 0.5049401310394721]}
+2025-01-10 05:16:54,371 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-10 05:16:55,514 - INFO - Fold 1 metrics: {'accuracy': [0.7933990570081441, 0.8047945205479452, 0.7989690721649485], 'f1_score': [0.8847992351816444, 0.8918406072106262, 0.8882521489971347], 'roc_auc': [0.9252136895835155, 0.452668906308324, 0.5165745795423214]}
+2025-01-10 05:16:56,480 - INFO - Fold 2 metrics: {'accuracy': [0.800901094185797, 0.7830188679245284, 0.8003436426116839], 'f1_score': [0.8894448415534906, 0.8783068783068783, 0.8891009734682191], 'roc_auc': [0.8656215648872589, 0.4618077051288157, 0.4904179066754659]}
+2025-01-10 05:16:58,801 - INFO - Fold 3 metrics: {'accuracy': [0.7982543997710688, 0.7986270022883295, 0.797938144329897], 'f1_score': [0.8878103119032463, 0.8880407124681934, 0.8876146788990825], 'roc_auc': [0.9641784223767192, 0.5060165814665277, 0.48866066667838537]}
+2025-01-10 05:17:00,179 - INFO - Fold 4 metrics: {'accuracy': [0.7984329719866909, 0.7974248927038626, 0.802405498281787], 'f1_score': [0.88792074480783, 0.8872970391595033, 0.8903717826501429], 'roc_auc': [0.890467459798337, 0.49623478863731735, 0.49677534680197377]}
+2025-01-10 05:17:03,430 - INFO - Fold 5 metrics: {'accuracy': [0.798196650923143, 0.8025412087912088, 0.8], 'f1_score': [0.887774594078319, 0.890455324823776, 0.8888888888888888], 'roc_auc': [0.9626063658109484, 0.49622444233595653, 0.5079463663631747]}
+2025-01-10 05:17:05,566 - INFO - Fold 6 metrics: {'accuracy': [0.8001145065483433, 0.795649685174585, 0.7941580756013745], 'f1_score': [0.888959567447223, 0.8861970035065349, 0.8852710208772265], 'roc_auc': [0.9124478395067659, 0.49948990387521913, 0.48519275960438896]}
+2025-01-10 05:17:08,960 - INFO - Fold 7 metrics: {'accuracy': [0.7980491994356175, 0.8002944062806673, 0.8013745704467354], 'f1_score': [0.887683384510406, 0.8890705914418098, 0.8897367417016406], 'roc_auc': [0.9325286484999122, 0.5105437567883919, 0.4919912218746847]}
+2025-01-10 05:17:12,644 - INFO - Fold 8 metrics: {'accuracy': [0.7985935906382522, 0.7999141262344354, 0.8006872852233677], 'f1_score': [0.8880200561093535, 0.8888358778625954, 0.8893129770992366], 'roc_auc': [0.931563294852904, 0.5138606682193794, 0.49053167085984906]}
+2025-01-10 05:17:15,137 - INFO - Fold 9 metrics: {'accuracy': [0.7985398673474257, 0.8011450381679389, 0.7934707903780068], 'f1_score': [0.8879868407089038, 0.8895952532316169, 0.8848438398160567], 'roc_auc': [0.8798120434782055, 0.49478867096021406, 0.4944869565593363]}
+2025-01-10 05:17:17,408 - INFO - Fold 10 metrics: {'accuracy': [0.798840455228688, 0.7971487461353487, 0.7975945017182131], 'f1_score': [0.8881726591223797, 0.8871260632705725, 0.887402026381189], 'roc_auc': [0.873473471234272, 0.4970879513141803, 0.48193251401355747]}
+2025-01-10 05:17:33,661 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-10 05:17:34,626 - INFO - Fold 1 metrics: {'accuracy': [0.7933990570081441, 0.8047945205479452, 0.7989690721649485], 'f1_score': [0.8847992351816444, 0.8918406072106262, 0.8882521489971347], 'roc_auc': [0.9252136895835155, 0.452668906308324, 0.5165745795423214]}
+2025-01-10 05:17:35,520 - INFO - Fold 2 metrics: {'accuracy': [0.800901094185797, 0.7830188679245284, 0.8003436426116839], 'f1_score': [0.8894448415534906, 0.8783068783068783, 0.8891009734682191], 'roc_auc': [0.8656215648872589, 0.4618077051288157, 0.4904179066754659]}
+2025-01-10 05:17:38,083 - INFO - Fold 3 metrics: {'accuracy': [0.7982543997710688, 0.7986270022883295, 0.797938144329897], 'f1_score': [0.8878103119032463, 0.8880407124681934, 0.8876146788990825], 'roc_auc': [0.9641784223767192, 0.5060165814665277, 0.48866066667838537]}
+2025-01-10 05:17:39,644 - INFO - Fold 4 metrics: {'accuracy': [0.7984329719866909, 0.7974248927038626, 0.802405498281787], 'f1_score': [0.88792074480783, 0.8872970391595033, 0.8903717826501429], 'roc_auc': [0.890467459798337, 0.49623478863731735, 0.49677534680197377]}
+2025-01-10 05:17:42,737 - INFO - Fold 5 metrics: {'accuracy': [0.798196650923143, 0.8025412087912088, 0.8], 'f1_score': [0.887774594078319, 0.890455324823776, 0.8888888888888888], 'roc_auc': [0.9626063658109484, 0.49622444233595653, 0.5079463663631747]}
+2025-01-10 05:17:44,831 - INFO - Fold 6 metrics: {'accuracy': [0.8001145065483433, 0.795649685174585, 0.7941580756013745], 'f1_score': [0.888959567447223, 0.8861970035065349, 0.8852710208772265], 'roc_auc': [0.9124478395067659, 0.49948990387521913, 0.48519275960438896]}
+2025-01-10 05:17:48,010 - INFO - Fold 7 metrics: {'accuracy': [0.7980491994356175, 0.8002944062806673, 0.8013745704467354], 'f1_score': [0.887683384510406, 0.8890705914418098, 0.8897367417016406], 'roc_auc': [0.9325286484999122, 0.5105437567883919, 0.4919912218746847]}
+2025-01-10 05:17:51,830 - INFO - Fold 8 metrics: {'accuracy': [0.7985935906382522, 0.7999141262344354, 0.8006872852233677], 'f1_score': [0.8880200561093535, 0.8888358778625954, 0.8893129770992366], 'roc_auc': [0.931563294852904, 0.5138606682193794, 0.49053167085984906]}
+2025-01-10 05:17:54,721 - INFO - Fold 9 metrics: {'accuracy': [0.7985398673474257, 0.8011450381679389, 0.7934707903780068], 'f1_score': [0.8879868407089038, 0.8895952532316169, 0.8848438398160567], 'roc_auc': [0.8798120434782055, 0.49478867096021406, 0.4944869565593363]}
+2025-01-10 05:17:56,945 - INFO - Fold 10 metrics: {'accuracy': [0.798840455228688, 0.7971487461353487, 0.7975945017182131], 'f1_score': [0.8881726591223797, 0.8871260632705725, 0.887402026381189], 'roc_auc': [0.873473471234272, 0.4970879513141803, 0.48193251401355747]}
+2025-01-10 05:22:13,330 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-10 05:22:14,468 - INFO - Fold 1 metrics: {'accuracy': [0.7933990570081441, 0.8047945205479452, 0.7989690721649485], 'f1_score': [0.8847992351816444, 0.8918406072106262, 0.8882521489971347], 'roc_auc': [0.9252136895835155, 0.452668906308324, 0.5165745795423214]}
+2025-01-10 05:22:15,394 - INFO - Fold 2 metrics: {'accuracy': [0.800901094185797, 0.7830188679245284, 0.8003436426116839], 'f1_score': [0.8894448415534906, 0.8783068783068783, 0.8891009734682191], 'roc_auc': [0.8656215648872589, 0.4618077051288157, 0.4904179066754659]}
+2025-01-10 05:22:17,444 - INFO - Fold 3 metrics: {'accuracy': [0.7982543997710688, 0.7986270022883295, 0.797938144329897], 'f1_score': [0.8878103119032463, 0.8880407124681934, 0.8876146788990825], 'roc_auc': [0.9641784223767192, 0.5060165814665277, 0.48866066667838537]}
+2025-01-10 05:22:18,731 - INFO - Fold 4 metrics: {'accuracy': [0.7984329719866909, 0.7974248927038626, 0.802405498281787], 'f1_score': [0.88792074480783, 0.8872970391595033, 0.8903717826501429], 'roc_auc': [0.890467459798337, 0.49623478863731735, 0.49677534680197377]}
+2025-01-10 05:22:21,824 - INFO - Fold 5 metrics: {'accuracy': [0.798196650923143, 0.8025412087912088, 0.8], 'f1_score': [0.887774594078319, 0.890455324823776, 0.8888888888888888], 'roc_auc': [0.9626063658109484, 0.49622444233595653, 0.5079463663631747]}
+2025-01-10 05:22:23,845 - INFO - Fold 6 metrics: {'accuracy': [0.8001145065483433, 0.795649685174585, 0.7941580756013745], 'f1_score': [0.888959567447223, 0.8861970035065349, 0.8852710208772265], 'roc_auc': [0.9124478395067659, 0.49948990387521913, 0.48519275960438896]}
+2025-01-10 05:22:27,196 - INFO - Fold 7 metrics: {'accuracy': [0.7980491994356175, 0.8002944062806673, 0.8013745704467354], 'f1_score': [0.887683384510406, 0.8890705914418098, 0.8897367417016406], 'roc_auc': [0.9325286484999122, 0.5105437567883919, 0.4919912218746847]}
+2025-01-10 05:22:30,631 - INFO - Fold 8 metrics: {'accuracy': [0.7985935906382522, 0.7999141262344354, 0.8006872852233677], 'f1_score': [0.8880200561093535, 0.8888358778625954, 0.8893129770992366], 'roc_auc': [0.931563294852904, 0.5138606682193794, 0.49053167085984906]}
+2025-01-10 05:22:33,105 - INFO - Fold 9 metrics: {'accuracy': [0.7985398673474257, 0.8011450381679389, 0.7934707903780068], 'f1_score': [0.8879868407089038, 0.8895952532316169, 0.8848438398160567], 'roc_auc': [0.8798120434782055, 0.49478867096021406, 0.4944869565593363]}
+2025-01-10 05:22:35,358 - INFO - Fold 10 metrics: {'accuracy': [0.798840455228688, 0.7971487461353487, 0.7975945017182131], 'f1_score': [0.8881726591223797, 0.8871260632705725, 0.887402026381189], 'roc_auc': [0.873473471234272, 0.4970879513141803, 0.48193251401355747]}
+2025-01-10 06:41:11,974 - INFO - Starting the data augmentation process.
+2025-01-10 06:41:12,126 - INFO - Loaded existing dataset with 28858 rows.
+2025-01-10 06:41:12,126 - INFO - Adding new columns and generating additional rows...
+2025-01-10 06:41:12,148 - INFO - Additional rows and columns added successfully.
+2025-01-10 06:41:12,305 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-10 06:41:53,421 - INFO - Starting preprocessing pipeline.
+2025-01-10 06:41:53,714 - INFO - None
+2025-01-10 06:41:53,749 - INFO - Dataset loaded successfully. None
+2025-01-10 06:41:53,782 - INFO - Target encoding completed.
+2025-01-10 06:41:53,833 - INFO - Categorical encoding completed.
+2025-01-10 06:41:53,871 - INFO - Holiday-related features created.
+2025-01-10 06:41:53,885 - INFO - Normalization completed.
+2025-01-10 06:41:53,936 - INFO - Rolling and expanding features generated.
+2025-01-10 06:41:53,957 - INFO - Lag features generated.
+2025-01-10 06:41:53,999 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 06:41:54,251 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-10 06:42:24,239 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-10 06:42:25,747 - INFO - Fold 1 metrics: {'accuracy': [0.7933990570081441, 0.8047945205479452, 0.7989690721649485], 'f1_score': [0.8847992351816444, 0.8918406072106262, 0.8882521489971347], 'roc_auc': [0.9120751147187456, 0.5186730123180291, 0.5131451153386637]}
+2025-01-10 06:42:26,470 - INFO - Fold 2 metrics: {'accuracy': [0.800901094185797, 0.7830188679245284, 0.8003436426116839], 'f1_score': [0.8894448415534906, 0.8783068783068783, 0.8891009734682191], 'roc_auc': [0.692468356549692, 0.515431470762677, 0.5065983125287755]}
+2025-01-10 06:42:27,275 - INFO - Fold 3 metrics: {'accuracy': [0.7982543997710688, 0.7986270022883295, 0.797938144329897], 'f1_score': [0.8878103119032463, 0.8880407124681934, 0.8876146788990825], 'roc_auc': [0.7269774318334077, 0.5034178415603021, 0.4913944259874492]}
+2025-01-10 06:42:28,122 - INFO - Fold 4 metrics: {'accuracy': [0.7984329719866909, 0.7974248927038626, 0.802405498281787], 'f1_score': [0.88792074480783, 0.8872970391595033, 0.8903717826501429], 'roc_auc': [0.6414706850363073, 0.5147438470380032, 0.51352499767247]}
+2025-01-10 06:42:29,049 - INFO - Fold 5 metrics: {'accuracy': [0.798196650923143, 0.8025412087912088, 0.8], 'f1_score': [0.887774594078319, 0.890455324823776, 0.8888888888888888], 'roc_auc': [0.6074404220983599, 0.4951714386709084, 0.5085179969532717]}
+2025-01-10 06:42:30,084 - INFO - Fold 6 metrics: {'accuracy': [0.8001145065483433, 0.795649685174585, 0.7941580756013745], 'f1_score': [0.888959567447223, 0.8861970035065349, 0.8852710208772265], 'roc_auc': [0.7672894541490449, 0.5250052898857385, 0.4760656914849428]}
+2025-01-10 06:42:31,556 - INFO - Fold 7 metrics: {'accuracy': [0.7980491994356175, 0.8002944062806673, 0.8013745704467354], 'f1_score': [0.887683384510406, 0.8890705914418098, 0.8897367417016406], 'roc_auc': [0.7613092795743707, 0.5152253934442775, 0.4993530658151668]}
+2025-01-10 06:42:32,802 - INFO - Fold 8 metrics: {'accuracy': [0.7985935906382522, 0.7999141262344354, 0.8006872852233677], 'f1_score': [0.8880200561093535, 0.8888358778625954, 0.8893129770992366], 'roc_auc': [0.5899801345446306, 0.49666794523577507, 0.4998002071925411]}
+2025-01-10 06:42:34,277 - INFO - Fold 9 metrics: {'accuracy': [0.7985398673474257, 0.8011450381679389, 0.7934707903780068], 'f1_score': [0.8879868407089038, 0.8895952532316169, 0.8848438398160567], 'roc_auc': [0.6127591017048009, 0.5153842337864938, 0.493146617914851]}
+2025-01-10 06:42:35,692 - INFO - Fold 10 metrics: {'accuracy': [0.798840455228688, 0.7971487461353487, 0.7975945017182131], 'f1_score': [0.8881726591223797, 0.8871260632705725, 0.887402026381189], 'roc_auc': [0.7730427027719647, 0.5109605491385638, 0.5049401310394721]}
+2025-01-10 06:51:31,518 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-10 06:51:32,535 - INFO - Fold 1 metrics: {'accuracy': [0.7933990570081441, 0.8047945205479452, 0.7989690721649485], 'f1_score': [0.8847992351816444, 0.8918406072106262, 0.8882521489971347], 'roc_auc': [0.9120751147187456, 0.5186730123180291, 0.5131451153386637]}
+2025-01-10 06:51:33,368 - INFO - Fold 2 metrics: {'accuracy': [0.800901094185797, 0.7830188679245284, 0.8003436426116839], 'f1_score': [0.8894448415534906, 0.8783068783068783, 0.8891009734682191], 'roc_auc': [0.692468356549692, 0.515431470762677, 0.5065983125287755]}
+2025-01-10 06:51:34,120 - INFO - Fold 3 metrics: {'accuracy': [0.7982543997710688, 0.7986270022883295, 0.797938144329897], 'f1_score': [0.8878103119032463, 0.8880407124681934, 0.8876146788990825], 'roc_auc': [0.7269774318334077, 0.5034178415603021, 0.4913944259874492]}
+2025-01-10 06:51:34,996 - INFO - Fold 4 metrics: {'accuracy': [0.7984329719866909, 0.7974248927038626, 0.802405498281787], 'f1_score': [0.88792074480783, 0.8872970391595033, 0.8903717826501429], 'roc_auc': [0.6414706850363073, 0.5147438470380032, 0.51352499767247]}
+2025-01-10 06:51:35,819 - INFO - Fold 5 metrics: {'accuracy': [0.798196650923143, 0.8025412087912088, 0.8], 'f1_score': [0.887774594078319, 0.890455324823776, 0.8888888888888888], 'roc_auc': [0.6074404220983599, 0.4951714386709084, 0.5085179969532717]}
+2025-01-10 06:51:36,815 - INFO - Fold 6 metrics: {'accuracy': [0.8001145065483433, 0.795649685174585, 0.7941580756013745], 'f1_score': [0.888959567447223, 0.8861970035065349, 0.8852710208772265], 'roc_auc': [0.7672894541490449, 0.5250052898857385, 0.4760656914849428]}
+2025-01-10 06:51:37,895 - INFO - Fold 7 metrics: {'accuracy': [0.7980491994356175, 0.8002944062806673, 0.8013745704467354], 'f1_score': [0.887683384510406, 0.8890705914418098, 0.8897367417016406], 'roc_auc': [0.7613092795743707, 0.5152253934442775, 0.4993530658151668]}
+2025-01-10 06:51:39,016 - INFO - Fold 8 metrics: {'accuracy': [0.7985935906382522, 0.7999141262344354, 0.8006872852233677], 'f1_score': [0.8880200561093535, 0.8888358778625954, 0.8893129770992366], 'roc_auc': [0.5899801345446306, 0.49666794523577507, 0.4998002071925411]}
+2025-01-10 06:51:40,033 - INFO - Fold 9 metrics: {'accuracy': [0.7985398673474257, 0.8011450381679389, 0.7934707903780068], 'f1_score': [0.8879868407089038, 0.8895952532316169, 0.8848438398160567], 'roc_auc': [0.6127591017048009, 0.5153842337864938, 0.493146617914851]}
+2025-01-10 06:51:41,378 - INFO - Fold 10 metrics: {'accuracy': [0.798840455228688, 0.7971487461353487, 0.7975945017182131], 'f1_score': [0.8881726591223797, 0.8871260632705725, 0.887402026381189], 'roc_auc': [0.7730427027719647, 0.5109605491385638, 0.5049401310394721]}
+2025-01-10 06:56:01,602 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-10 06:56:02,411 - INFO - Fold 1 metrics: {'accuracy': [0.7933990570081441, 0.8047945205479452, 0.7989690721649485], 'f1_score': [0.8847992351816444, 0.8918406072106262, 0.8882521489971347], 'roc_auc': [0.9120751147187456, 0.5186730123180291, 0.5131451153386637]}
+2025-01-10 06:56:03,152 - INFO - Fold 2 metrics: {'accuracy': [0.800901094185797, 0.7830188679245284, 0.8003436426116839], 'f1_score': [0.8894448415534906, 0.8783068783068783, 0.8891009734682191], 'roc_auc': [0.692468356549692, 0.515431470762677, 0.5065983125287755]}
+2025-01-10 06:56:03,943 - INFO - Fold 3 metrics: {'accuracy': [0.7982543997710688, 0.7986270022883295, 0.797938144329897], 'f1_score': [0.8878103119032463, 0.8880407124681934, 0.8876146788990825], 'roc_auc': [0.7269774318334077, 0.5034178415603021, 0.4913944259874492]}
+2025-01-10 06:56:04,809 - INFO - Fold 4 metrics: {'accuracy': [0.7984329719866909, 0.7974248927038626, 0.802405498281787], 'f1_score': [0.88792074480783, 0.8872970391595033, 0.8903717826501429], 'roc_auc': [0.6414706850363073, 0.5147438470380032, 0.51352499767247]}
+2025-01-10 06:56:05,859 - INFO - Fold 5 metrics: {'accuracy': [0.798196650923143, 0.8025412087912088, 0.8], 'f1_score': [0.887774594078319, 0.890455324823776, 0.8888888888888888], 'roc_auc': [0.6074404220983599, 0.4951714386709084, 0.5085179969532717]}
+2025-01-10 06:56:06,847 - INFO - Fold 6 metrics: {'accuracy': [0.8001145065483433, 0.795649685174585, 0.7941580756013745], 'f1_score': [0.888959567447223, 0.8861970035065349, 0.8852710208772265], 'roc_auc': [0.7672894541490449, 0.5250052898857385, 0.4760656914849428]}
+2025-01-10 06:56:08,731 - INFO - Fold 7 metrics: {'accuracy': [0.7980491994356175, 0.8002944062806673, 0.8013745704467354], 'f1_score': [0.887683384510406, 0.8890705914418098, 0.8897367417016406], 'roc_auc': [0.7613092795743707, 0.5152253934442775, 0.4993530658151668]}
+2025-01-10 06:56:09,798 - INFO - Fold 8 metrics: {'accuracy': [0.7985935906382522, 0.7999141262344354, 0.8006872852233677], 'f1_score': [0.8880200561093535, 0.8888358778625954, 0.8893129770992366], 'roc_auc': [0.5899801345446306, 0.49666794523577507, 0.4998002071925411]}
+2025-01-10 06:56:10,918 - INFO - Fold 9 metrics: {'accuracy': [0.7985398673474257, 0.8011450381679389, 0.7934707903780068], 'f1_score': [0.8879868407089038, 0.8895952532316169, 0.8848438398160567], 'roc_auc': [0.6127591017048009, 0.5153842337864938, 0.493146617914851]}
+2025-01-10 06:56:12,313 - INFO - Fold 10 metrics: {'accuracy': [0.798840455228688, 0.7971487461353487, 0.7975945017182131], 'f1_score': [0.8881726591223797, 0.8871260632705725, 0.887402026381189], 'roc_auc': [0.7730427027719647, 0.5109605491385638, 0.5049401310394721]}
+2025-01-10 07:01:07,288 - INFO - Starting preprocessing pipeline.
+2025-01-10 07:01:07,293 - INFO - Dataset loaded successfully. None
+2025-01-10 07:01:07,295 - INFO - Target encoding completed.
+2025-01-10 07:01:07,300 - INFO - Categorical encoding completed.
+2025-01-10 07:01:07,314 - INFO - Holiday-related features created.
+2025-01-10 07:01:07,326 - INFO - Normalization completed.
+2025-01-10 07:01:07,338 - INFO - Rolling and expanding features generated.
+2025-01-10 07:01:07,347 - INFO - Lag features generated.
+2025-01-10 07:01:07,355 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 07:01:07,356 - INFO - Loading model from MLflow...
+2025-01-10 07:01:07,430 - INFO - Model loaded successfully.
+2025-01-10 07:01:07,430 - INFO - Running feature pipeline...
+2025-01-10 07:01:07,430 - INFO - Feature pipeline completed successfully.
+2025-01-10 07:01:07,433 - INFO - Inferencing...
+2025-01-10 07:01:07,441 - INFO - Inference completed.
+2025-01-10 07:03:08,010 - INFO - Starting preprocessing pipeline.
+2025-01-10 07:03:08,015 - INFO - Dataset loaded successfully. None
+2025-01-10 07:03:08,016 - INFO - Target encoding completed.
+2025-01-10 07:03:08,021 - INFO - Categorical encoding completed.
+2025-01-10 07:03:08,034 - INFO - Holiday-related features created.
+2025-01-10 07:03:08,047 - INFO - Normalization completed.
+2025-01-10 07:03:08,061 - INFO - Rolling and expanding features generated.
+2025-01-10 07:03:08,070 - INFO - Lag features generated.
+2025-01-10 07:03:08,075 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 07:03:08,075 - INFO - Loading model from MLflow...
+2025-01-10 07:03:08,151 - INFO - Model loaded successfully.
+2025-01-10 07:03:08,151 - INFO - Running feature pipeline...
+2025-01-10 07:03:08,151 - INFO - Feature pipeline completed successfully.
+2025-01-10 07:03:08,154 - INFO - Inferencing...
+2025-01-10 07:03:08,162 - INFO - Inference completed.
+2025-01-10 07:04:19,950 - INFO - Starting preprocessing pipeline.
+2025-01-10 07:04:19,955 - INFO - Dataset loaded successfully. None
+2025-01-10 07:04:19,957 - INFO - Target encoding completed.
+2025-01-10 07:04:19,962 - INFO - Categorical encoding completed.
+2025-01-10 07:04:19,976 - INFO - Holiday-related features created.
+2025-01-10 07:04:19,988 - INFO - Normalization completed.
+2025-01-10 07:04:19,999 - INFO - Rolling and expanding features generated.
+2025-01-10 07:04:20,006 - INFO - Lag features generated.
+2025-01-10 07:04:20,012 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 07:04:20,012 - INFO - Loading model from MLflow...
+2025-01-10 07:04:20,085 - INFO - Model loaded successfully.
+2025-01-10 07:04:20,085 - INFO - Running feature pipeline...
+2025-01-10 07:04:20,086 - INFO - Feature pipeline completed successfully.
+2025-01-10 07:04:20,092 - INFO - Inferencing...
+2025-01-10 07:04:20,104 - INFO - Inference completed.
+2025-01-10 07:04:42,060 - INFO - Starting preprocessing pipeline.
+2025-01-10 07:04:42,066 - INFO - Dataset loaded successfully. None
+2025-01-10 07:04:42,067 - INFO - Target encoding completed.
+2025-01-10 07:04:42,072 - INFO - Categorical encoding completed.
+2025-01-10 07:04:42,085 - INFO - Holiday-related features created.
+2025-01-10 07:04:42,097 - INFO - Normalization completed.
+2025-01-10 07:04:42,109 - INFO - Rolling and expanding features generated.
+2025-01-10 07:04:42,117 - INFO - Lag features generated.
+2025-01-10 07:04:42,123 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 07:04:42,123 - INFO - Loading model from MLflow...
+2025-01-10 07:04:42,194 - INFO - Model loaded successfully.
+2025-01-10 07:04:42,194 - INFO - Running feature pipeline...
+2025-01-10 07:04:42,195 - INFO - Feature pipeline completed successfully.
+2025-01-10 07:04:42,197 - INFO - Inferencing...
+2025-01-10 07:04:42,205 - INFO - Inference completed.
+2025-01-10 07:07:08,828 - INFO - Starting preprocessing pipeline.
+2025-01-10 07:07:08,833 - INFO - Dataset loaded successfully. None
+2025-01-10 07:07:08,835 - INFO - Target encoding completed.
+2025-01-10 07:07:08,841 - INFO - Categorical encoding completed.
+2025-01-10 07:07:08,854 - INFO - Holiday-related features created.
+2025-01-10 07:07:08,865 - INFO - Normalization completed.
+2025-01-10 07:07:08,877 - INFO - Rolling and expanding features generated.
+2025-01-10 07:07:08,886 - INFO - Lag features generated.
+2025-01-10 07:07:08,891 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 07:07:08,891 - INFO - Loading model from MLflow...
+2025-01-10 07:07:08,964 - INFO - Model loaded successfully.
+2025-01-10 07:07:08,964 - INFO - Running feature pipeline...
+2025-01-10 07:07:08,964 - INFO - Feature pipeline completed successfully.
+2025-01-10 07:07:08,967 - INFO - Inferencing...
+2025-01-10 07:07:08,976 - INFO - Inference completed.
+2025-01-10 07:10:11,814 - INFO - Starting the data augmentation process.
+2025-01-10 07:10:11,915 - INFO - Loaded existing dataset with 28858 rows.
+2025-01-10 07:10:11,915 - INFO - Adding new columns and generating additional rows...
+2025-01-10 07:10:11,937 - INFO - Additional rows and columns added successfully.
+2025-01-10 07:10:12,084 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-10 07:11:15,148 - INFO - Starting preprocessing pipeline.
+2025-01-10 07:11:15,239 - INFO - None
+2025-01-10 07:11:15,267 - INFO - Dataset loaded successfully. None
+2025-01-10 07:11:15,318 - INFO - Target encoding completed.
+2025-01-10 07:11:15,364 - INFO - Categorical encoding completed.
+2025-01-10 07:11:15,405 - INFO - Holiday-related features created.
+2025-01-10 07:11:15,419 - INFO - Normalization completed.
+2025-01-10 07:11:15,470 - INFO - Rolling and expanding features generated.
+2025-01-10 07:11:15,485 - INFO - Lag features generated.
+2025-01-10 07:11:15,508 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 07:11:15,761 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-10 07:12:05,779 - INFO - Starting preprocessing pipeline.
+2025-01-10 07:12:05,840 - INFO - None
+2025-01-10 07:12:05,866 - INFO - Dataset loaded successfully. None
+2025-01-10 07:12:05,900 - INFO - Target encoding completed.
+2025-01-10 07:12:05,944 - INFO - Categorical encoding completed.
+2025-01-10 07:12:05,988 - INFO - Holiday-related features created.
+2025-01-10 07:12:06,001 - INFO - Normalization completed.
+2025-01-10 07:12:06,053 - INFO - Rolling and expanding features generated.
+2025-01-10 07:12:06,064 - INFO - Lag features generated.
+2025-01-10 07:12:06,083 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 07:12:06,330 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-10 07:12:43,915 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-10 07:12:45,937 - INFO - Fold 1 metrics: {'accuracy': [0.9987141020145736, 0.9965753424657534, 0.9996563573883162], 'f1_score': [0.999228593468758, 0.9979633401221996, 0.9997936016511868], 'roc_auc': [1.0, 0.9999779073877695, 0.9999991525430911]}
+2025-01-10 07:12:49,123 - INFO - Fold 2 metrics: {'accuracy': [0.9982836301222914, 0.9974271012006861, 0.9979381443298969], 'f1_score': [0.9989735694123685, 0.998452810727179, 0.9987689782519491], 'roc_auc': [1.0, 1.0, 0.9999896425291563]}
+2025-01-10 07:12:51,410 - INFO - Fold 3 metrics: {'accuracy': [0.9979968521963085, 0.9988558352402745, 0.9969072164948454], 'f1_score': [0.9987999314246528, 0.9993197278911564, 0.9981606376456161], 'roc_auc': [1.0, 0.9999951201778207, 0.99999824999825]}
+2025-01-10 07:12:53,526 - INFO - Fold 4 metrics: {'accuracy': [0.9982827090265107, 0.9974248927038627, 0.9982817869415808], 'f1_score': [0.9989727786337956, 0.9984693877551021, 0.9989726731045819], 'roc_auc': [1.0, 1.0, 0.9999974236742013]}
+2025-01-10 07:12:55,981 - INFO - Fold 5 metrics: {'accuracy': [0.999313009875483, 0.9993131868131868, 0.9972508591065292], 'f1_score': [0.9995892802135743, 0.9995891536565324, 0.9983326385994165], 'roc_auc': [0.9999989243755327, 1.0, 0.9999795751633987]}
+2025-01-10 07:12:58,430 - INFO - Fold 6 metrics: {'accuracy': [0.9995706004437128, 0.9979965655409273, 0.9982817869415808], 'f1_score': [0.9997430406852248, 0.998788298424788, 0.9989760393200902], 'roc_auc': [0.9999997389072117, 0.9999833646250472, 0.9999780490717392]}
+2025-01-10 07:13:01,684 - INFO - Fold 7 metrics: {'accuracy': [0.9997546162812098, 0.9973012757605496, 0.9989690721649485], 'f1_score': [0.9998529087298669, 0.998389694041868, 0.9993813157352032], 'roc_auc': [0.9999994289937402, 0.999982701724505, 0.9999889284813965]}
+2025-01-10 07:13:04,301 - INFO - Fold 8 metrics: {'accuracy': [0.9998389607601053, 0.9984972091026192, 0.9993127147766323], 'f1_score': [0.9999034717976769, 0.9991019884541372, 0.9995852343425964], 'roc_auc': [0.9999998958129475, 0.9999915700510215, 0.9999950128377867]}
+2025-01-10 07:13:07,044 - INFO - Fold 9 metrics: {'accuracy': [0.999522832466479, 0.999236641221374, 0.9986254295532646], 'f1_score': [0.9997140896614821, 0.9995408631772268, 0.9991922455573505], 'roc_auc': [0.9999997525151881, 0.9999922021838564, 0.999974778046812]}
+2025-01-10 07:13:10,205 - INFO - Fold 10 metrics: {'accuracy': [0.9996993772815117, 0.9993129508759876, 0.9996563573883162], 'f1_score': [0.9998198893606073, 0.9995909183882185, 0.999795793342863], 'roc_auc': [1.0, 0.9999885802656889, 0.9995916700694161]}
+2025-01-10 07:13:52,262 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-10 07:13:54,271 - INFO - Fold 1 metrics: {'accuracy': [0.9987141020145736, 0.9965753424657534, 0.9996563573883162], 'f1_score': [0.999228593468758, 0.9979633401221996, 0.9997936016511868], 'roc_auc': [1.0, 0.9999779073877695, 0.9999991525430911]}
+2025-01-10 07:13:56,431 - INFO - Fold 2 metrics: {'accuracy': [0.9982836301222914, 0.9974271012006861, 0.9979381443298969], 'f1_score': [0.9989735694123685, 0.998452810727179, 0.9987689782519491], 'roc_auc': [1.0, 1.0, 0.9999896425291563]}
+2025-01-10 07:13:58,416 - INFO - Fold 3 metrics: {'accuracy': [0.9979968521963085, 0.9988558352402745, 0.9969072164948454], 'f1_score': [0.9987999314246528, 0.9993197278911564, 0.9981606376456161], 'roc_auc': [1.0, 0.9999951201778207, 0.99999824999825]}
+2025-01-10 07:14:00,634 - INFO - Fold 4 metrics: {'accuracy': [0.9982827090265107, 0.9974248927038627, 0.9982817869415808], 'f1_score': [0.9989727786337956, 0.9984693877551021, 0.9989726731045819], 'roc_auc': [1.0, 1.0, 0.9999974236742013]}
+2025-01-10 07:14:04,114 - INFO - Fold 5 metrics: {'accuracy': [0.999313009875483, 0.9993131868131868, 0.9972508591065292], 'f1_score': [0.9995892802135743, 0.9995891536565324, 0.9983326385994165], 'roc_auc': [0.9999989243755327, 1.0, 0.9999795751633987]}
+2025-01-10 07:14:06,732 - INFO - Fold 6 metrics: {'accuracy': [0.9995706004437128, 0.9979965655409273, 0.9982817869415808], 'f1_score': [0.9997430406852248, 0.998788298424788, 0.9989760393200902], 'roc_auc': [0.9999997389072117, 0.9999833646250472, 0.9999780490717392]}
+2025-01-10 07:14:09,166 - INFO - Fold 7 metrics: {'accuracy': [0.9997546162812098, 0.9973012757605496, 0.9989690721649485], 'f1_score': [0.9998529087298669, 0.998389694041868, 0.9993813157352032], 'roc_auc': [0.9999994289937402, 0.999982701724505, 0.9999889284813965]}
+2025-01-10 07:14:12,089 - INFO - Fold 8 metrics: {'accuracy': [0.9998389607601053, 0.9984972091026192, 0.9993127147766323], 'f1_score': [0.9999034717976769, 0.9991019884541372, 0.9995852343425964], 'roc_auc': [0.9999998958129475, 0.9999915700510215, 0.9999950128377867]}
+2025-01-10 07:14:15,000 - INFO - Fold 9 metrics: {'accuracy': [0.999522832466479, 0.999236641221374, 0.9986254295532646], 'f1_score': [0.9997140896614821, 0.9995408631772268, 0.9991922455573505], 'roc_auc': [0.9999997525151881, 0.9999922021838564, 0.999974778046812]}
+2025-01-10 07:14:19,087 - INFO - Fold 10 metrics: {'accuracy': [0.9996993772815117, 0.9993129508759876, 0.9996563573883162], 'f1_score': [0.9998198893606073, 0.9995909183882185, 0.999795793342863], 'roc_auc': [1.0, 0.9999885802656889, 0.9995916700694161]}
+2025-01-10 07:22:05,765 - INFO - Starting the data augmentation process.
+2025-01-10 07:22:05,864 - INFO - Loaded existing dataset with 28858 rows.
+2025-01-10 07:22:05,864 - INFO - Adding new columns and generating additional rows...
+2025-01-10 07:22:05,884 - INFO - Additional rows and columns added successfully.
+2025-01-10 07:22:05,993 - INFO - Updated dataset saved to data/bronze_layer/SupplyChain_Dataset.parquet
+2025-01-10 07:23:33,741 - INFO - Starting preprocessing pipeline.
+2025-01-10 07:23:33,805 - INFO - None
+2025-01-10 07:23:33,831 - INFO - Dataset loaded successfully. None
+2025-01-10 07:23:33,868 - INFO - Target encoding completed.
+2025-01-10 07:23:33,912 - INFO - Categorical encoding completed.
+2025-01-10 07:23:33,951 - INFO - Holiday-related features created.
+2025-01-10 07:23:33,963 - INFO - Normalization completed.
+2025-01-10 07:23:34,012 - INFO - Rolling and expanding features generated.
+2025-01-10 07:23:34,023 - INFO - Lag features generated.
+2025-01-10 07:23:34,040 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 07:23:34,264 - INFO - Processed dataset saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet. None
+2025-01-10 07:24:37,042 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_DisruptionFeatures.parquet.
+2025-01-10 07:24:37,894 - INFO - Fold 1 metrics: {'accuracy': [0.8341191598799829, 0.8424657534246576, 0.8326460481099657], 'f1_score': [0.9095583080158915, 0.9144981412639405, 0.9086817926120383], 'roc_auc': [0.8311145103850475, 0.49806689642983376, 0.49188475264004017]}
+2025-01-10 07:24:38,726 - INFO - Fold 2 metrics: {'accuracy': [0.8352284917399699, 0.8301886792452831, 0.836426116838488], 'f1_score': [0.9102174421323358, 0.9072164948453608, 0.9109281437125748], 'roc_auc': [0.7186662158040071, 0.5110401536021371, 0.5103199250119111]}
+2025-01-10 07:24:39,516 - INFO - Fold 3 metrics: {'accuracy': [0.8335956503076263, 0.8403890160183066, 0.8391752577319588], 'f1_score': [0.9092469761997659, 0.9132732359341001, 0.9125560538116592], 'roc_auc': [0.6701771109967799, 0.5278454853105154, 0.5063332563332564]}
+2025-01-10 07:24:40,427 - INFO - Fold 4 metrics: {'accuracy': [0.8350327358591821, 0.8399141630901288, 0.8353951890034365], 'f1_score': [0.9101011873428086, 0.9129927688360159, 0.9103164201460401], 'roc_auc': [0.6372857685237994, 0.49450244602108867, 0.5139868727612803]}
+2025-01-10 07:24:41,352 - INFO - Fold 5 metrics: {'accuracy': [0.8359811077715757, 0.8355082417582418, 0.8247422680412371], 'f1_score': [0.9106641721234799, 0.9103835360149672, 0.903954802259887], 'roc_auc': [0.703823387840603, 0.49988544774486504, 0.5021041666666667]}
+2025-01-10 07:24:42,267 - INFO - Fold 6 metrics: {'accuracy': [0.8356831031274601, 0.8274184315970234, 0.8398625429553265], 'f1_score': [0.9104873294346979, 0.9055599060297572, 0.9129622711991034], 'roc_auc': [0.594431610697822, 0.5008684812992572, 0.46786032887758766]}
+2025-01-10 07:24:43,231 - INFO - Fold 7 metrics: {'accuracy': [0.8340592601680878, 0.8380765456329735, 0.8336769759450172], 'f1_score': [0.909522694584741, 0.9119060331019755, 0.9092953523238381], 'roc_auc': [0.5879203625726603, 0.48756675360158974, 0.4966870609717047]}
+2025-01-10 07:24:44,277 - INFO - Fold 8 metrics: {'accuracy': [0.8342369424016318, 0.8366251610133104, 0.8285223367697595], 'f1_score': [0.9096283289435177, 0.9110461718293396, 0.9062206352189438], 'roc_auc': [0.6571250462173764, 0.5007600441999085, 0.4984556421012909]}
+2025-01-10 07:24:45,394 - INFO - Fold 9 metrics: {'accuracy': [0.8346614496349668, 0.8314885496183206, 0.8515463917525773], 'f1_score': [0.9098806210824729, 0.9079920808586016, 0.9198218262806236], 'roc_auc': [0.5894053236952848, 0.49345555283787224, 0.4913591456670553]}
+2025-01-10 07:24:46,667 - INFO - Fold 10 metrics: {'accuracy': [0.8347004509340777, 0.8400893163861216, 0.8415807560137457], 'f1_score': [0.9099037943868356, 0.9130962382152525, 0.9139764881507744], 'roc_auc': [0.6412818688897527, 0.4972152319051565, 0.5046763077408195]}
+2025-01-10 07:26:14,238 - INFO - Starting preprocessing pipeline.
+2025-01-10 07:26:14,243 - INFO - Dataset loaded successfully. None
+2025-01-10 07:26:14,244 - INFO - Target encoding completed.
+2025-01-10 07:26:14,251 - INFO - Categorical encoding completed.
+2025-01-10 07:26:14,263 - INFO - Holiday-related features created.
+2025-01-10 07:26:14,275 - INFO - Normalization completed.
+2025-01-10 07:26:14,287 - INFO - Rolling and expanding features generated.
+2025-01-10 07:26:14,295 - INFO - Lag features generated.
+2025-01-10 07:26:14,300 - INFO - Dropped NaN values. Preprocessing complete.
+2025-01-10 07:26:14,300 - INFO - Loading model from MLflow...
+2025-01-10 07:26:14,375 - INFO - Model loaded successfully.
+2025-01-10 07:26:14,375 - INFO - Running feature pipeline...
+2025-01-10 07:26:14,375 - INFO - Feature pipeline completed successfully.
+2025-01-10 07:26:14,378 - INFO - Inferencing...
+2025-01-10 07:26:14,387 - INFO - Inference completed.

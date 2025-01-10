@@ -39,8 +39,9 @@ def run_supplychain_disruption_feature_pipeline(source=None, selected_columns=No
         logging.info(f"Dataset loaded successfully. {data.info()}")
 
         # Target encoding for 'Disruption_Type'
-        if "Disruption_Type" in data.columns:
-            data["Disruption"] = data["Disruption_Type"].apply(lambda x: 0 if x == "None" else 1)
+        if "disruption_likelihood_score" in data.columns:
+            data["Disruption"] = data["disruption_likelihood_score"].apply(lambda x: 0 if x < 0.5 else 1)
+            data.drop(columns=['disruption_likelihood_score'], inplace=True)
         logging.info("Target encoding completed.")
 
         # Encode categorical features
@@ -69,45 +70,45 @@ def run_supplychain_disruption_feature_pipeline(source=None, selected_columns=No
         data["Is_Weekend"] = ~data["Is_Business_Day"]
         logging.info("Holiday-related features created.")
 
-        # Generate time-based features
-        if "Actual_Delivery" in data.columns:
-            data["Delivery_Duration"] = (data["Actual_Delivery"] - data["Scheduled_Delivery"]).dt.total_seconds() / 3600
+        # # Generate time-based features
+        # if "Actual_Delivery" in data.columns:
+        #     data["Delivery_Duration"] = (data["Actual_Delivery"] - data["Scheduled_Delivery"]).dt.total_seconds() / 3600
 
-        # Normalize selected numerical features
-        normalize_cols = [
-            "traffic_congestion_level", "port_pongestion_level", "weather_condition_severity", 
-            "fuel_consumption_rate", "driver_behavior_score", "fatigue_monitoring_score"
-        ]
-        scaler = MinMaxScaler()
-        for col in normalize_cols:
-            if col in data.columns:
-                data[col] = scaler.fit_transform(data[[col]])
-        logging.info("Normalization completed.")
+        # # Normalize selected numerical features
+        # normalize_cols = [
+        #     "traffic_congestion_level", "port_pongestion_level", "weather_condition_severity", 
+        #     "fuel_consumption_rate", "driver_behavior_score", "fatigue_monitoring_score"
+        # ]
+        # scaler = MinMaxScaler()
+        # for col in normalize_cols:
+        #     if col in data.columns:
+        #         data[col] = scaler.fit_transform(data[[col]])
+        # logging.info("Normalization completed.")
 
-        # Define rolling, lag, and expanding window features
-        rolling_cols = ["traffic_congestion_level", "port_congestion_level", "supplier_reliability_score"]
-        lag_cols = rolling_cols
-        window_sizes = [3, 7]
-        lag_steps = [1, 2, 3, 4, 5, 6, 7]
+        # # Define rolling, lag, and expanding window features
+        # rolling_cols = ["traffic_congestion_level", "port_congestion_level", "supplier_reliability_score"]
+        # lag_cols = rolling_cols
+        # window_sizes = [3, 7, 14, 24, 48]
+        # lag_steps = [1, 2, 3, 4, 5, 6, 7, 14, 24, 48]
 
-        # Generate rolling and expanding features
-        for window in window_sizes:
-            for col in rolling_cols:
-                if col in data.columns:
-                    data[f"{col}_rolling_mean_{window}"] = data[col].rolling(window=window).mean()
-                    data[f"{col}_rolling_std_{window}"] = data[col].rolling(window=window).std()
+        # # Generate rolling and expanding features
+        # for window in window_sizes:
+        #     for col in rolling_cols:
+        #         if col in data.columns:
+        #             data[f"{col}_rolling_mean_{window}"] = data[col].rolling(window=window).mean()
+        #             data[f"{col}_rolling_std_{window}"] = data[col].rolling(window=window).std()
 
-        for col in rolling_cols:
-            if col in data.columns:
-                data[f"{col}_expanding_mean"] = data[col].expanding(min_periods=7).mean()
-        logging.info("Rolling and expanding features generated.")
+        # for col in rolling_cols:
+        #     if col in data.columns:
+        #         data[f"{col}_expanding_mean"] = data[col].expanding(min_periods=7).mean()
+        # logging.info("Rolling and expanding features generated.")
 
-        # Generate lag features
-        for col in lag_cols:
-            if col in data.columns:
-                for lag in lag_steps:
-                    data[f"{col}_lag_{lag}"] = data[col].shift(lag)
-        logging.info("Lag features generated.")
+        # # Generate lag features
+        # for col in lag_cols:
+        #     if col in data.columns:
+        #         for lag in lag_steps:
+        #             data[f"{col}_lag_{lag}"] = data[col].shift(lag)
+        # logging.info("Lag features generated.")
 
         # Feature interactions
         if "traffic_congestion_level" in data.columns and "port_congestion_level" in data.columns:

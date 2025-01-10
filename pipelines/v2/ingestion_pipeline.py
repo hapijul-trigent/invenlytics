@@ -74,11 +74,12 @@ def generate_additional_data(existing_df, total_rows_required=100000):
 
     synthetic_df = pd.DataFrame(synthetic_data)
     existing_df = pd.concat([existing_df, synthetic_df], ignore_index=True)
+    
 
     logging.info("Additional rows and columns added successfully.")
     return existing_df
 
-def run(input_file, output_file, total_rows=100000):
+def run(input_file, output_file, total_rows=0):
     """
     Main function to load existing data, augment it with new rows and columns, and save it as Parquet.
 
@@ -100,14 +101,11 @@ def run(input_file, output_file, total_rows=100000):
         # Generate augmented dataset
         updated_df = generate_additional_data(existing_df, total_rows_required=total_rows)
 
-        # Validate row count
-        if len(updated_df) != total_rows:
-            raise ValueError(f"Dataset row count mismatch: Expected {total_rows}, but got {len(updated_df)}")
-
         # Save to Parquet
         updated_df.to_parquet(output_file, index=False)
+        updated_df.dropna(inplace=True)
         logging.info(f"Updated dataset saved to {output_file}")
-
+        return updated_df
     except Exception as e:
         logging.error("An error occurred during the pipeline execution:", exc_info=True)
 

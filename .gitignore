@@ -3,3 +3,4 @@ mlruns
 data/silver_layer
 data/gold_layer
 artifacts_*
+data/*
