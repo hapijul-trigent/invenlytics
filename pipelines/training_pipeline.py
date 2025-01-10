@@ -544,6 +544,38 @@ def run_inventory_training_pipeline(
         logging.error(f"An error occurred during the training pipeline: {e}", exc_info=True)
         raise
 
+import pandas as pd
+
+def forecast_demand(model, recent_data, forecast_steps=15):
+    """
+    Forecast demand for the next steps using a trained model.
+
+    Parameters:
+    - model: The trained machine learning model (should have a `predict` method).
+    - recent_data (pd.DataFrame): The most recent data to start forecasting.
+    - forecast_steps (int): Number of future steps to forecast.
+
+    Returns:
+    - pd.DataFrame: A DataFrame containing forecasted values for the specified steps.
+    """
+    forecasts = []
+    input_data = recent_data.copy()
+
+    for step in range(forecast_steps):
+        # Predict the next demand
+        prediction = model.predict(input_data.values)[0]
+        forecasts.append(prediction)
+
+        # Update input_data for the next prediction (time series auto-regression)
+        # This assumes the model uses the most recent demand in its feature set
+        input_data = input_data.shift(-1)  # Shift data for the next time step
+        input_data.iloc[-1] = prediction  # Replace the last row with the new prediction
+
+    forecast_df = pd.DataFrame({
+        "Step": range(1, forecast_steps + 1),
+        "Forecasted_Demand": forecasts
+    })
+    return forecast_df
 
 # Function to display training pipeline metrics
 def display_pipeline_metrics(metrics):

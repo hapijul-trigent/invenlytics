@@ -178,7 +178,7 @@ def preprocess_data(df):
     except Exception as e:
         logger.error(f"Error during preprocessing: {e}")
         raise
-
+        
 def run_inference(df, logged_model_path):
     """
     Perform inference for inventory optimization.
@@ -187,11 +187,14 @@ def run_inference(df, logged_model_path):
         # Load the MLflow model
         model = load_model(logged_model_path)
 
+        # Get the model's expected schema
+        schema = model.metadata.get_input_schema()
+        expected_columns = schema.input_names()
+
         # Preprocess the input data
         df = preprocess_data(df)
 
         # Validate the processed data against the model's expected schema
-        expected_columns = model.metadata.get_input_schema().input_names()
         validate_data(df, expected_columns)
 
         # Perform inference
@@ -203,3 +206,26 @@ def run_inference(df, logged_model_path):
     except Exception as e:
         logger.error(f"An error occurred during inference: {e}")
         raise
+
+if __name__ == "__main__":
+    try:
+        # Load the dataset
+        input_data_path = "data/gold_layer/SupplyChain_Invetory_Dataset.parquet"
+        logger.info(f"Loading data from {input_data_path}...")
+        df = pd.read_parquet(input_data_path)
+
+        # Define model path
+        logged_model_path = "runs:/56ad624fcdc34cb5b7c6064c46a752d4/model"  # Replace with your actual model path
+
+        # Run inference
+        predictions = inference_pipeline.run_inference(df, logged_model_path)
+
+        # Display predictions
+        print(predictions)
+
+        # Save predictions
+        output_path = "data/inference_layer/Inventory_Demand_Forecast.parquet"
+        predictions.to_parquet(output_path, index=False)
+        logger.info(f"Predictions saved to {output_path}.")
+    except Exception as e:
+        logger.error(f"Error in main process: {e}")

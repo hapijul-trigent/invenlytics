@@ -1,0 +1,83 @@
+2025-01-10 11:11:48,445 - INFO - Starting data augmentation...
+2025-01-10 11:11:48,446 - ERROR - Error in data generation: [Errno 2] No such file or directory: '/workspaces/invenlytics/dynamic_supply_chain_logistics_dataset.csv'
+2025-01-10 11:11:48,446 - ERROR - Pipeline execution failed: [Errno 2] No such file or directory: '/workspaces/invenlytics/dynamic_supply_chain_logistics_dataset.csv'
+2025-01-10 11:17:06,747 - INFO - Starting data augmentation...
+2025-01-10 11:17:06,870 - INFO - Loaded dataset with 32065 rows.
+2025-01-10 11:17:58,716 - INFO - Generating Historical_Demand column...
+2025-01-10 11:17:58,722 - INFO - Historical_Demand column generated successfully.
+2025-01-10 11:17:58,857 - INFO - Data saved to /workspaces/invenlytics/data/bronze_layer/supply_chain_datageneration.parquet
+2025-01-10 11:17:58,876 - INFO - Loading dataset from /workspaces/invenlytics/data/bronze_layer/supply_chain_datageneration.parquet...
+2025-01-10 11:17:58,918 - INFO - Dataset loaded successfully. Shape: (100000, 34)
+2025-01-10 11:17:59,051 - INFO - Missing values handled.
+2025-01-10 11:17:59,201 - INFO - Categorical variables encoded.
+2025-01-10 11:17:59,297 - INFO - Preprocessed data saved to /workspaces/invenlytics/data/silver_layer/preprocessed_supply_chain_preprocessed_file.parquet.
+2025-01-10 11:17:59,297 - INFO - Loading dataset from /workspaces/invenlytics/data/silver_layer/preprocessed_supply_chain_preprocessed_file.parquet...
+2025-01-10 11:17:59,327 - INFO - Dataset loaded. Shape: (100000, 34)
+2025-01-10 11:17:59,735 - INFO - Feature-engineered data saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_Invetory_Dataset.parquet.
+2025-01-10 11:17:59,736 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_Invetory_Dataset.parquet.
+2025-01-10 11:18:01,679 - ERROR - Error in training pipeline: got an unexpected keyword argument 'squared'
+2025-01-10 11:18:01,679 - ERROR - Pipeline execution failed: got an unexpected keyword argument 'squared'
+2025-01-10 11:20:54,329 - INFO - Starting data augmentation...
+2025-01-10 11:20:54,473 - INFO - Loaded dataset with 32065 rows.
+2025-01-10 11:21:29,007 - INFO - Starting data augmentation...
+2025-01-10 11:21:29,127 - INFO - Loaded dataset with 32065 rows.
+2025-01-10 11:22:21,028 - INFO - Generating Historical_Demand column...
+2025-01-10 11:22:21,034 - INFO - Historical_Demand column generated successfully.
+2025-01-10 11:22:21,170 - INFO - Data saved to /workspaces/invenlytics/data/bronze_layer/supply_chain_datageneration.parquet
+2025-01-10 11:22:21,187 - INFO - Loading dataset from /workspaces/invenlytics/data/bronze_layer/supply_chain_datageneration.parquet...
+2025-01-10 11:22:21,236 - INFO - Dataset loaded successfully. Shape: (100000, 34)
+2025-01-10 11:22:21,340 - INFO - Missing values handled.
+2025-01-10 11:22:21,478 - INFO - Categorical variables encoded.
+2025-01-10 11:22:21,575 - INFO - Preprocessed data saved to /workspaces/invenlytics/data/silver_layer/preprocessed_supply_chain_preprocessed_file.parquet.
+2025-01-10 11:22:21,576 - INFO - Loading dataset from /workspaces/invenlytics/data/silver_layer/preprocessed_supply_chain_preprocessed_file.parquet...
+2025-01-10 11:22:21,595 - INFO - Dataset loaded. Shape: (100000, 34)
+2025-01-10 11:22:21,732 - INFO - Feature-engineered data saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_Invetory_Dataset.parquet.
+2025-01-10 11:22:21,733 - ERROR - An error occurred during the training pipeline: name 'setup_logging' is not defined
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/main2.py", line 182, in run_inventory_training_pipeline
+    setup_logging()
+    ^^^^^^^^^^^^^
+NameError: name 'setup_logging' is not defined
+2025-01-10 11:22:21,741 - ERROR - Pipeline execution failed: name 'setup_logging' is not defined
+2025-01-10 11:25:26,405 - INFO - Starting data augmentation...
+2025-01-10 11:25:26,538 - INFO - Loaded dataset with 32065 rows.
+2025-01-10 11:26:19,498 - INFO - Generating Historical_Demand column...
+2025-01-10 11:26:19,504 - INFO - Historical_Demand column generated successfully.
+2025-01-10 11:26:19,646 - INFO - Data saved to /workspaces/invenlytics/data/bronze_layer/supply_chain_datageneration.parquet
+2025-01-10 11:26:19,660 - INFO - Loading dataset from /workspaces/invenlytics/data/bronze_layer/supply_chain_datageneration.parquet...
+2025-01-10 11:26:19,704 - INFO - Dataset loaded successfully. Shape: (100000, 34)
+2025-01-10 11:26:19,815 - INFO - Missing values handled.
+2025-01-10 11:26:19,956 - INFO - Categorical variables encoded.
+2025-01-10 11:26:20,060 - INFO - Preprocessed data saved to /workspaces/invenlytics/data/silver_layer/preprocessed_supply_chain_preprocessed_file.parquet.
+2025-01-10 11:26:20,060 - INFO - Loading dataset from /workspaces/invenlytics/data/silver_layer/preprocessed_supply_chain_preprocessed_file.parquet...
+2025-01-10 11:26:20,079 - INFO - Dataset loaded. Shape: (100000, 34)
+2025-01-10 11:26:20,225 - INFO - Feature-engineered data saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_Invetory_Dataset.parquet.
+2025-01-10 11:26:20,225 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_Invetory_Dataset.parquet.
+2025-01-10 11:26:20,245 - INFO - Dataset loaded successfully. Shape: (100000, 40)
+2025-01-10 11:26:20,548 - ERROR - An error occurred during the training pipeline: name 'st' is not defined
+Traceback (most recent call last):
+  File "/workspaces/invenlytics/main2.py", line 281, in run_inventory_training_pipeline
+    st.session_state['training_pipeline_metrics'] = metrics
+    ^^
+NameError: name 'st' is not defined
+2025-01-10 11:26:20,549 - ERROR - Pipeline execution failed: name 'st' is not defined
+2025-01-10 11:26:45,098 - INFO - Starting data augmentation...
+2025-01-10 11:26:45,215 - INFO - Loaded dataset with 32065 rows.
+2025-01-10 11:27:38,700 - INFO - Generating Historical_Demand column...
+2025-01-10 11:27:38,708 - INFO - Historical_Demand column generated successfully.
+2025-01-10 11:27:38,916 - INFO - Data saved to /workspaces/invenlytics/data/bronze_layer/supply_chain_datageneration.parquet
+2025-01-10 11:27:38,938 - INFO - Loading dataset from /workspaces/invenlytics/data/bronze_layer/supply_chain_datageneration.parquet...
+2025-01-10 11:27:38,994 - INFO - Dataset loaded successfully. Shape: (100000, 34)
+2025-01-10 11:27:39,165 - INFO - Missing values handled.
+2025-01-10 11:27:39,326 - INFO - Categorical variables encoded.
+2025-01-10 11:27:39,428 - INFO - Preprocessed data saved to /workspaces/invenlytics/data/silver_layer/preprocessed_supply_chain_preprocessed_file.parquet.
+2025-01-10 11:27:39,428 - INFO - Loading dataset from /workspaces/invenlytics/data/silver_layer/preprocessed_supply_chain_preprocessed_file.parquet...
+2025-01-10 11:27:39,460 - INFO - Dataset loaded. Shape: (100000, 34)
+2025-01-10 11:27:39,637 - INFO - Feature-engineered data saved to /workspaces/invenlytics/data/gold_layer/SupplyChain_Invetory_Dataset.parquet.
+2025-01-10 11:27:39,638 - INFO - Loading dataset from /workspaces/invenlytics/data/gold_layer/SupplyChain_Invetory_Dataset.parquet.
+2025-01-10 11:27:39,673 - INFO - Dataset loaded successfully. Shape: (100000, 40)
+2025-01-10 11:27:45,570 - INFO - Fold 1 metrics: {'rmse': 604.7283690343238, 'mae': 23.515599212582963, 'r2': -10.724362182331454}
+2025-01-10 11:27:50,559 - INFO - Fold 2 metrics: {'rmse': 174.8090578811017, 'mae': 10.596098640433693, 'r2': -0.9579885434396516}
+2025-01-10 11:27:54,511 - INFO - Fold 3 metrics: {'rmse': 760.6333949079257, 'mae': 25.91387926862138, 'r2': -7.528666281487547}
+2025-01-10 11:27:58,133 - INFO - Fold 4 metrics: {'rmse': 906.7229482608673, 'mae': 29.22296026490686, 'r2': -16.191817312682907}
+2025-01-10 11:28:02,685 - INFO - Fold 5 metrics: {'rmse': 617.9523510559404, 'mae': 19.870894606357616, 'r2': -0.840070907500079}

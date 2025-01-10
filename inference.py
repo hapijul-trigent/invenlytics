@@ -48,7 +48,7 @@ if __name__ == "__main__":
         df = pd.read_parquet(input_data_path)
 
         # Define model path
-        logged_model_path = "runs:/ac4b68183bfc418c8381fe2a3a08dc02/model"  # Replace with your actual model path
+        logged_model_path = "runs:/56ad624fcdc34cb5b7c6064c46a752d4/model"  # Replace with your actual model path
 
         # Run inference
         predictions = inference_pipeline.run_inference(df, logged_model_path)

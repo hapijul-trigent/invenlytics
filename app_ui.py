@@ -10,8 +10,8 @@ from pipelines import ingestion_pippeline, preprocessing_pipeline, feature_pipel
 from PIL import Image
 import plotly.express as px
 from pipelines.feature_pipeline import run_inventory_optimization_feature_pipeline
-from pipelines.training_pipeline import run_inventory_training_pipeline, display_pipeline_metrics
-
+from pipelines.training_pipeline import run_inventory_training_pipeline, display_pipeline_metrics,forecast_demand
+from pipelines.inference_pipeline import run_inference
 # favicon = Image.open("static/Trigent_Logo.png")
 st.set_page_config(
     page_title="Invenlytics | Trigent AXLR8 Labs",
@@ -156,152 +156,152 @@ with tabs[1]:
 
 
 # Tab 3: EDA
-with tabs[2]:
-
-    if st.session_state['transformed_data'] is not None:
-        # # Filters panel
-        # with st.expander("Filter Data", expanded=True):
-        #     region_filter = st.multiselect("Select Region:", options=st.session_state['transformed_data']['Region'].unique(), default=st.session_state['transformed_data']['Region'].unique())
-        #     supplier_filter = st.multiselect("Select Supplier:", options=st.session_state['transformed_data']['Supplier'].unique(), default=st.session_state['transformed_data']['Supplier'].unique())
-            
-        # # Apply filters
-        # st.session_state['transformed_data'] = st.session_state['transformed_data'][(st.session_state['transformed_data']['Region'].isin(region_filter)) &
-        #             (st.session_state['transformed_data']['Supplier'].isin(supplier_filter))]
-        
-        # Display dataset
-        st.subheader("Dataset Overview")
-        st.dataframe(st.session_state['transformed_data'].head())
-        
-        # 2x2 grid for visualizations
-        col1, col2 = st.columns(2, gap='large')
-
-
-        with col1:
-            # Delivery time deviation analysis
-            st.subheader("Delivery Time Deviation Analysis")
-            fig, ax = plt.subplots(figsize=(8, 5))
-            sns.violinplot(data=st.session_state['transformed_data'], x='Region', y='delivery_time_deviation', palette="viridis", ax=ax)
-            ax.set_title("Delivery Time Deviation by Region")
-            st.pyplot(fig)
-
-        with col2:
-            # Correlation heatmap
-            st.subheader("Correlation Analysis")
-            fig, ax = plt.subplots(figsize=(11, 8))
-            corr = st.session_state['transformed_data'].select_dtypes(['int64', 'float64']).corr()[['disruption_likelihood_score', 'customs_clearance_time']]
-            sns.heatmap(corr, annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
-            st.pyplot(fig)
-
-            # Disruption likelihood distribution
-            st.subheader("Disruption Likelihood Analysis")
-            fig, ax = plt.subplots(figsize=(11, 8))
-            sns.histplot(st.session_state['transformed_data']['disruption_likelihood_score'], kde=True, color="blue", ax=ax)
-            ax.set_title("Disruption Likelihood Distribution")
-            st.pyplot(fig)
-
-        with col1:
-            st.subheader("Disruption Type Ratio Analysis")
-            plt.figure(figsize=(8, 5))
-            st.session_state['transformed_data']['Disruption_Type'].value_counts().head(10).plot(kind='bar', color='skyblue')
-            plt.title("Top 10 Disruption Types")
-            plt.xlabel("Disruption Type")
-            plt.ylabel("Count")
-            st.pyplot(plt.gcf())
-        
-        with col1:  
-            # Risk classification by region
-            st.subheader("Risk Classification by Region")
-            plt.figure(figsize=(12, 6))
-            sns.countplot(data=st.session_state['transformed_data'], x='Region', hue='risk_classification')
-            plt.title("Risk Classification by Region")
-            plt.xticks(rotation=45)
-            st.pyplot(plt.gcf())
-        
-
-        with col2:
-            st.subheader("Effect of Traffic Congestion on Delay")
-            plt.figure(figsize=(10, 6))
-            sns.scatterplot(data=st.session_state['transformed_data'], x='traffic_congestion_level', y='delay_probability', hue='risk_classification')
-            plt.title("Traffic Congestion vs Delay Probability")
-            plt.show()
-            st.pyplot(plt.gcf())
-
-        # Feature selection and preprocessing
-        features = ['fuel_consumption_rate', 'eta_variation_hours', 'traffic_congestion_level',
-                    'warehouse_inventory_level', 'port_congestion_level', 'shipping_costs',
-                    'supplier_reliability_score', 'lead_time_days', 'route_risk_level',
-                    'customs_clearance_time', 'driver_behavior_score', 'fatigue_monitoring_score']
-        target = 'disruption_likelihood_score'
-
 # with tabs[2]:
-#     st.header("Exploratory Data Analysis (EDA)")
 
-#     if st.session_state['data'] is not None:
+#     if st.session_state['transformed_data'] is not None:
+#         # # Filters panel
+#         # with st.expander("Filter Data", expanded=True):
+#         #     region_filter = st.multiselect("Select Region:", options=st.session_state['transformed_data']['Region'].unique(), default=st.session_state['transformed_data']['Region'].unique())
+#         #     supplier_filter = st.multiselect("Select Supplier:", options=st.session_state['transformed_data']['Supplier'].unique(), default=st.session_state['transformed_data']['Supplier'].unique())
+            
+#         # # Apply filters
+#         # st.session_state['transformed_data'] = st.session_state['transformed_data'][(st.session_state['transformed_data']['Region'].isin(region_filter)) &
+#         #             (st.session_state['transformed_data']['Supplier'].isin(supplier_filter))]
+        
+#         # Display dataset
 #         st.subheader("Dataset Overview")
-#         st.dataframe(st.session_state['data'].head(), use_container_width=True)
-
+#         st.dataframe(st.session_state['transformed_data'].head())
+        
+#         # 2x2 grid for visualizations
 #         col1, col2 = st.columns(2, gap='large')
 
-#         # 1. Distribution of Historical Demand
+
 #         with col1:
-#             if 'Historical_Demand' in st.session_state['data'].columns:
-#                 st.subheader("Distribution of Historical Demand")
-#                 fig, ax = plt.subplots(figsize=(8, 5))
-#                 sns.histplot(
-#                     data=st.session_state['data'], 
-#                     x='Historical_Demand', 
-#                     bins=30, 
-#                     kde=True, 
-#                     color="blue", 
-#                     ax=ax
-#                 )
-#                 ax.set_title("Distribution of Historical Demand")
-#                 ax.set_xlabel("Historical Demand")
-#                 ax.set_ylabel("Frequency")
-#                 st.pyplot(fig)
-
-#         # 2. Delivery Time Deviation Analysis
-#         with col2:
-#             if 'Region' in st.session_state['data'].columns and 'delivery_time_deviation' in st.session_state['data'].columns:
-#                 st.subheader("Delivery Time Deviation Analysis by Region")
-#                 fig, ax = plt.subplots(figsize=(8, 5))
-#                 sns.violinplot(
-#                     data=st.session_state['data'], 
-#                     x='Region', 
-#                     y='delivery_time_deviation', 
-#                     palette="viridis", 
-#                     ax=ax
-#                 )
-#                 ax.set_title("Delivery Time Deviation by Region")
-#                 ax.set_xlabel("Region")
-#                 ax.set_ylabel("Delivery Time Deviation")
-#                 st.pyplot(fig)
-
-#         # 3. Correlation Heatmap
-#         st.subheader("Correlation Analysis")
-#         fig, ax = plt.subplots(figsize=(12, 8))
-#         numeric_data = st.session_state['data'].select_dtypes(include=['number'])
-#         corr = numeric_data.corr()
-#         sns.heatmap(corr, annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
-#         ax.set_title("Correlation Heatmap")
-#         st.pyplot(fig)
-
-#         # 4. Risk Classification by Region
-#         st.subheader("Risk Classification by Region")
-#         if 'Region' in st.session_state['data'].columns and 'risk_classification' in st.session_state['data'].columns:
-#             fig, ax = plt.subplots(figsize=(12, 6))
-#             sns.countplot(
-#                 data=st.session_state['data'], 
-#                 x='Region', 
-#                 hue='risk_classification', 
-#                 palette="Set3", 
-#                 ax=ax
-#             )
-#             ax.set_title("Risk Classification by Region")
-#             ax.set_xlabel("Region")
-#             ax.set_ylabel("Count")
-#             plt.xticks(rotation=45)
+#             # Delivery time deviation analysis
+#             st.subheader("Delivery Time Deviation Analysis")
+#             fig, ax = plt.subplots(figsize=(8, 5))
+#             sns.violinplot(data=st.session_state['transformed_data'], x='Region', y='delivery_time_deviation', palette="viridis", ax=ax)
+#             ax.set_title("Delivery Time Deviation by Region")
 #             st.pyplot(fig)
+
+#         with col2:
+#             # Correlation heatmap
+#             st.subheader("Correlation Analysis")
+#             fig, ax = plt.subplots(figsize=(11, 8))
+#             corr = st.session_state['transformed_data'].select_dtypes(['int64', 'float64']).corr()[['disruption_likelihood_score', 'customs_clearance_time']]
+#             sns.heatmap(corr, annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
+#             st.pyplot(fig)
+
+#             # Disruption likelihood distribution
+#             st.subheader("Disruption Likelihood Analysis")
+#             fig, ax = plt.subplots(figsize=(11, 8))
+#             sns.histplot(st.session_state['transformed_data']['disruption_likelihood_score'], kde=True, color="blue", ax=ax)
+#             ax.set_title("Disruption Likelihood Distribution")
+#             st.pyplot(fig)
+
+#         with col1:
+#             st.subheader("Disruption Type Ratio Analysis")
+#             plt.figure(figsize=(8, 5))
+#             st.session_state['transformed_data']['Disruption_Type'].value_counts().head(10).plot(kind='bar', color='skyblue')
+#             plt.title("Top 10 Disruption Types")
+#             plt.xlabel("Disruption Type")
+#             plt.ylabel("Count")
+#             st.pyplot(plt.gcf())
+        
+#         with col1:  
+#             # Risk classification by region
+#             st.subheader("Risk Classification by Region")
+#             plt.figure(figsize=(12, 6))
+#             sns.countplot(data=st.session_state['transformed_data'], x='Region', hue='risk_classification')
+#             plt.title("Risk Classification by Region")
+#             plt.xticks(rotation=45)
+#             st.pyplot(plt.gcf())
+        
+
+#         with col2:
+#             st.subheader("Effect of Traffic Congestion on Delay")
+#             plt.figure(figsize=(10, 6))
+#             sns.scatterplot(data=st.session_state['transformed_data'], x='traffic_congestion_level', y='delay_probability', hue='risk_classification')
+#             plt.title("Traffic Congestion vs Delay Probability")
+#             plt.show()
+#             st.pyplot(plt.gcf())
+
+#         # Feature selection and preprocessing
+#         features = ['fuel_consumption_rate', 'eta_variation_hours', 'traffic_congestion_level',
+#                     'warehouse_inventory_level', 'port_congestion_level', 'shipping_costs',
+#                     'supplier_reliability_score', 'lead_time_days', 'route_risk_level',
+#                     'customs_clearance_time', 'driver_behavior_score', 'fatigue_monitoring_score']
+#         target = 'disruption_likelihood_score'
+
+with tabs[2]:
+    st.header("Exploratory Data Analysis (EDA)")
+
+    if st.session_state['data'] is not None:
+        st.subheader("Dataset Overview")
+        st.dataframe(st.session_state['data'].head(), use_container_width=True)
+
+        col1, col2 = st.columns(2, gap='large')
+
+        # 1. Distribution of Historical Demand
+        with col1:
+            if 'Historical_Demand' in st.session_state['data'].columns:
+                st.subheader("Distribution of Historical Demand")
+                fig, ax = plt.subplots(figsize=(8, 5))
+                sns.histplot(
+                    data=st.session_state['data'], 
+                    x='Historical_Demand', 
+                    bins=30, 
+                    kde=True, 
+                    color="blue", 
+                    ax=ax
+                )
+                ax.set_title("Distribution of Historical Demand")
+                ax.set_xlabel("Historical Demand")
+                ax.set_ylabel("Frequency")
+                st.pyplot(fig)
+
+        # 2. Delivery Time Deviation Analysis
+        with col2:
+            if 'Region' in st.session_state['data'].columns and 'delivery_time_deviation' in st.session_state['data'].columns:
+                st.subheader("Delivery Time Deviation Analysis by Region")
+                fig, ax = plt.subplots(figsize=(8, 5))
+                sns.violinplot(
+                    data=st.session_state['data'], 
+                    x='Region', 
+                    y='delivery_time_deviation', 
+                    palette="viridis", 
+                    ax=ax
+                )
+                ax.set_title("Delivery Time Deviation by Region")
+                ax.set_xlabel("Region")
+                ax.set_ylabel("Delivery Time Deviation")
+                st.pyplot(fig)
+
+        # 3. Correlation Heatmap
+        st.subheader("Correlation Analysis")
+        fig, ax = plt.subplots(figsize=(12, 8))
+        numeric_data = st.session_state['data'].select_dtypes(include=['number'])
+        corr = numeric_data.corr()
+        sns.heatmap(corr, annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
+        ax.set_title("Correlation Heatmap")
+        st.pyplot(fig)
+
+        # 4. Risk Classification by Region
+        st.subheader("Risk Classification by Region")
+        if 'Region' in st.session_state['data'].columns and 'risk_classification' in st.session_state['data'].columns:
+            fig, ax = plt.subplots(figsize=(12, 6))
+            sns.countplot(
+                data=st.session_state['data'], 
+                x='Region', 
+                hue='risk_classification', 
+                palette="Set3", 
+                ax=ax
+            )
+            ax.set_title("Risk Classification by Region")
+            ax.set_xlabel("Region")
+            ax.set_ylabel("Count")
+            plt.xticks(rotation=45)
+            st.pyplot(fig)
 
 
 with tabs[3]:
@@ -397,26 +397,46 @@ with tabs[4]:
             key='target'
         )
 
+        # if st.button("Train Model"):
+        #     try:
+        #         # Ensure the target column is selected
+        #         if not model_target:
+        #             st.error("Please select a target variable for training.")
+        #         else:
+        #             # Define features (X) and target (y)
+        #             X = st.session_state['features'][model_features]
+        #             y = st.session_state['features'][model_target]
+
+        #             # Run the training pipeline
+        #             st.session_state['model'] = training_pipeline.run_inventory_training_pipeline(
+        #                 data_source="/workspaces/invenlytics/pipelines/data/gold_layer/Feature_Engineering_data.parquet",
+        #                 target_column=model_target,
+        #             )
+
+        #             st.success("Model Training Completed.")
+        #     except Exception as e:
+        #         st.error(f"An error occurred during model training: {e}")
+
         if st.button("Train Model"):
             try:
-                # Ensure the target column is selected
                 if not model_target:
                     st.error("Please select a target variable for training.")
                 else:
-                    # Define features (X) and target (y)
-                    X = st.session_state['features'][model_features]
-                    y = st.session_state['features'][model_target]
-
-                    # Run the training pipeline
-                    st.session_state['model'] = training_pipeline.run_inventory_training_pipeline(
+                    # Train the model
+                    trained_model = training_pipeline.run_inventory_training_pipeline(
                         data_source="/workspaces/invenlytics/pipelines/data/gold_layer/Feature_Engineering_data.parquet",
-                        target_column=model_target,
+                        target_column=model_target
                     )
 
-                    st.success("Model Training Completed.")
+                    # Store the trained model in session state
+                    st.session_state['model'] = trained_model
+
+                    st.success("Model Training Completed and Stored!")
             except Exception as e:
                 st.error(f"An error occurred during model training: {e}")
 
+
+# Tab 6: Evaluation
 
 with tabs[5]:
     st.header("Evaluation")
@@ -440,3 +460,48 @@ with tabs[5]:
 #             predictions = st.session_state['model'].predict(test_data)
 #             st.write("Predictions:")
 #             st.dataframe(pd.DataFrame(predictions, columns=['Predicted']))
+
+with tabs[6]:
+    st.header("Inference")
+
+    # File uploader
+    test_file = st.file_uploader("Upload Test Data for Inference", type=["csv", "parquet"])
+
+    # Model path
+    logged_model_path = "runs:/56ad624fcdc34cb5b7c6064c46a752d4/model"
+
+    if test_file is not None:
+        try:
+            # Load test data
+            if test_file.name.endswith('.csv'):
+                test_data = pd.read_csv(test_file)
+            elif test_file.name.endswith('.parquet'):
+                test_data = pd.read_parquet(test_file)
+
+            # Preview uploaded data
+            st.write("Uploaded Test Data:")
+            st.dataframe(test_data)
+
+            # Run inference
+            forecast_results = inference_pipeline.run_inference(test_data, logged_model_path)
+
+            # Display predictions
+            st.write("### Forecast Results")
+            st.dataframe(forecast_results)
+
+            # Visualization
+            if "Scheduled_Delivery" in forecast_results.columns:
+                forecast_results["Scheduled_Delivery"] = pd.to_datetime(forecast_results["Scheduled_Delivery"])
+                forecast_results.set_index("Scheduled_Delivery", inplace=True)
+                st.line_chart(forecast_results["Demand_Forecast"])
+
+            # Download results
+            st.download_button(
+                label="Download Forecast Results as CSV",
+                data=forecast_results.to_csv(index=False),
+                file_name="forecast_results.csv",
+                mime="text/csv"
+            )
+        except Exception as e:
+            st.error(f"Error during prediction: {e}")
+            logger.error(f"Error during prediction: {e}")
